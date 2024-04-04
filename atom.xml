@@ -2,7 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://example.com</id>
     <title>Sunshine&#39;s blog</title>
+    <subtitle>平平淡淡，做自己喜欢的事吧</subtitle>
+    <icon>http://example.com/assets/favicon.ico</icon>
     <link href="http://example.com" />
+    <author>
+      <name>Sunshine.</name>
+    </author>
     <updated>2024-04-02T11:25:49.653Z</updated>
     <entry>
         <id>http://example.com/2024/04/02/hello-world/</id>
