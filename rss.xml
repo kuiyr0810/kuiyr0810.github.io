@@ -18,15 +18,15 @@
             <link>https://kuiyr0810.github.io/Algorithm/%E5%87%A0%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</link>
             <category term="Algorithm" scheme="https://kuiyr0810.github.io/categories/Algorithm/" />
             <pubDate>Sat, 11 May 2024 15:45:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;栈后进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#栈后进先出&#34;&gt;#&lt;/a&gt; 栈（后进先出）&lt;/h2&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;1-栈后进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-栈后进先出&#34;&gt;#&lt;/a&gt; 1 栈（后进先出）&lt;/h2&gt;
 &lt;p&gt;特点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;插入（insert）&lt;/strong&gt;-- 压入（push），新元素总是在最顶层&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;删除（delete）&lt;/strong&gt;-- 弹出（pop），新元素总是第一个删除&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;图示栈操作示意图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图示栈操作示意图&#34;&gt;#&lt;/a&gt; 图示：&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/eb4f33022591e.png&#34; alt=&#34;栈操作示意图&#34; /&gt;&lt;/h2&gt;
-&lt;h2 id=&#34;队列先进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#队列先进先出&#34;&gt;#&lt;/a&gt; 队列（先进先出）&lt;/h2&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/eb4f33022591e.png&#34; alt=&#34;栈操作示意图&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-队列先进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-队列先进先出&#34;&gt;#&lt;/a&gt; 2 队列（先进先出）&lt;/h2&gt;
 &lt;p&gt;特点&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;插入（insert）&lt;/strong&gt;-- 入队（ENQUEUE）, 新元素总在最末尾&lt;/li&gt;
@@ -40,14 +40,14 @@
 下溢：对一个空序列删除一个元素&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&#34;链表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#链表&#34;&gt;#&lt;/a&gt; 链表&lt;/h2&gt;
+&lt;h2 id=&#34;3-链表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-链表&#34;&gt;#&lt;/a&gt; 3 链表&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/2120203&#34;&gt;双&lt;/a&gt;向链表&lt;/strong&gt;&lt;/em&gt;：每一个元素都是一个对象，一个对象包含一个关键字域合两个指针域（next，prev）&lt;/p&gt;
 &lt;p&gt;图示：&lt;br /&gt;
 &lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/ac6330920819c.png&#34; alt=&#34;双向链表图示&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;双向循环链表&lt;/strong&gt;&lt;/em&gt;：带有哨兵，用于简化边界条件的处理&lt;/p&gt;
 &lt;h2 id=&#34;图示双向循环链表图示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图示双向循环链表图示&#34;&gt;#&lt;/a&gt; 图示：&lt;br /&gt;
 &lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/97fa28fafa352.png&#34; alt=&#34;双向循环链表图示&#34; /&gt;&lt;/h2&gt;
-&lt;h2 id=&#34;指针和对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#指针和对象&#34;&gt;#&lt;/a&gt; 指针和对象&lt;/h2&gt;
+&lt;h2 id=&#34;4-指针和对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-指针和对象&#34;&gt;#&lt;/a&gt; 4 指针和对象&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;prev,key,next 在这里作为指针&lt;/p&gt;
 &lt;/blockquote&gt;
