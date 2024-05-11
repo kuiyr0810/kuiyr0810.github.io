@@ -10,8 +10,65 @@
         </author>
         <description>I am the tree of mune, and you are the wind of freedom</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 18 Apr 2024 00:50:23 +0800</pubDate>
-        <lastBuildDate>Thu, 18 Apr 2024 00:50:23 +0800</lastBuildDate>
+        <pubDate>Sat, 11 May 2024 15:45:00 +0800</pubDate>
+        <lastBuildDate>Sat, 11 May 2024 15:45:00 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://kuiyr0810.github.io/Algorithm/%E5%87%A0%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</guid>
+            <title>几种基本数据结构总结</title>
+            <link>https://kuiyr0810.github.io/Algorithm/%E5%87%A0%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/</link>
+            <category term="Algorithm" scheme="https://kuiyr0810.github.io/categories/Algorithm/" />
+            <pubDate>Sat, 11 May 2024 15:45:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;栈后进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#栈后进先出&#34;&gt;#&lt;/a&gt; 栈（后进先出）&lt;/h2&gt;
+&lt;p&gt;特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;插入（insert）&lt;/strong&gt;-- 压入（push），新元素总是在最顶层&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;删除（delete）&lt;/strong&gt;-- 弹出（pop），新元素总是第一个删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/eb4f33022591e.png&#34; alt=&#34;栈操作示意图&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;队列先进先出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#队列先进先出&#34;&gt;#&lt;/a&gt; 队列（先进先出）&lt;/h2&gt;
+&lt;p&gt;特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;插入（insert）&lt;/strong&gt;-- 入队（ENQUEUE）, 新元素总在最末尾&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;删除（delete）&lt;/strong&gt;-- 出队（DEQUEUE）, 弹出的元素总是最旧的那个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/7417aab6f86c9.png&#34; alt=&#34;队列操作示意图&#34; /&gt;&lt;br /&gt;
+注明：队列为卷绕型，若 tail [Q]=length [Q], 则 tail [Q]=1；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上溢：对一个满序列插入一个新元素&lt;br /&gt;
+下溢：对一个空序列删除一个元素&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;链表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#链表&#34;&gt;#&lt;/a&gt; 链表&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/2120203&#34;&gt;双&lt;/a&gt;向链表&lt;/strong&gt;&lt;/em&gt;：每一个元素都是一个对象，一个对象包含一个关键字域合两个指针域（next，prev）&lt;/p&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/ac6330920819c.png&#34; alt=&#34;双向链表图示&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;双向循环链表&lt;/strong&gt;&lt;/em&gt;：带有哨兵，用于简化边界条件的处理&lt;/p&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/97fa28fafa352.png&#34; alt=&#34;双向循环链表图示&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;指针和对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#指针和对象&#34;&gt;#&lt;/a&gt; 指针和对象&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;prev,key,next 在这里作为指针&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.&lt;em&gt; 对象的多数组表示&lt;/em&gt;（三个数组 prev,key,next）&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/384d903e0f39e.png&#34; alt=&#34;对象的多数组图示&#34; /&gt;&lt;br /&gt;
+ 2.&lt;em&gt; 对象的单数组表示&lt;/em&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/ac932f2023b49.png&#34; alt=&#34;对象的单数组图示&#34; /&gt;&lt;br /&gt;
+ 3.&lt;em&gt; 对象的分配与释放&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将多数组中剩余的对象（free）组成一个单链表，称为自由表&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自由表类似于一个栈，可以通过栈操作 PUSH 和 POP 来对自由表实现分配（ALLOCATE）和释放（FREE）过程&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/9e4509951d31e.png&#34; alt=&#34;对象的分配与释放图示&#34; /&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://kuiyr0810.github.io/Algorithm/%E5%87%A0%E7%A7%8D%E9%80%92%E5%BD%92%E5%BC%8F%E8%A7%A3%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
             <title>几种递归式解法总结</title>
