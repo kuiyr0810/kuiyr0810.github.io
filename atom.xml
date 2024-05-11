@@ -65,6 +65,11 @@
 &lt;/blockquote&gt;
 &lt;p&gt;图示：&lt;br /&gt;
 &lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/9e4509951d31e.png&#34; alt=&#34;对象的分配与释放图示&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;5-有根树&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-有根树&#34;&gt;#&lt;/a&gt; 5 有根树&lt;/h2&gt;
+&lt;p&gt;就是二叉树。结构包括根（root），left（左孩子），right（右孩子）&lt;br /&gt;
+图示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.api.aa1.cn/2024/05/11/e243890caea7b.png&#34; alt=&#34;有根树图示&#34; /&gt;&lt;/p&gt;
 </content>
         <category term="Algorithm" scheme="https://kuiyr0810.github.io/categories/Algorithm/" />
         <updated>2024-05-11T07:45:00.000Z</updated>
