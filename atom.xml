@@ -8,7 +8,16 @@
     <author>
       <name>Sunshine.</name>
     </author>
-    <updated>2024-06-04T11:39:23.000Z</updated>
+    <updated>2024-09-01T16:50:23.000Z</updated>
+    <entry>
+        <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BC%80%E5%A7%8Bemo~/</id>
+        <title>开始emo~</title>
+        <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%BC%80%E5%A7%8Bemo~/"/>
+        <content type="html">&lt;p&gt;活着好累啊～&lt;/p&gt;
+</content>
+        <category term="Miscellaneous" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
+        <updated>2024-09-01T16:50:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://kuiyr0810.github.io/Algorithm/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%9F%BA%E7%A1%80-%E4%B8%80%E4%BA%9B%E4%BA%8C%E5%8F%89%E6%A0%91%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</id>
         <title>算法导论基础-一些二叉树概念总结</title>
@@ -166,15 +175,6 @@ f (n) 渐进趋正（对于足够大的 n，&lt;span class=&#34;katex&#34;&gt;&l
 &lt;hr /&gt;
 </content>
         <category term="Algorithm" scheme="https://kuiyr0810.github.io/categories/Algorithm/" />
-        <updated>2024-04-17T16:50:23.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BC%80%E5%A7%8Bemo~/</id>
-        <title>开始emo~</title>
-        <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%BC%80%E5%A7%8Bemo~/"/>
-        <content type="html">&lt;p&gt;活着好累啊～&lt;/p&gt;
-</content>
-        <category term="Miscellaneous" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
         <updated>2024-04-17T16:50:23.000Z</updated>
     </entry>
     <entry>
