@@ -8,7 +8,56 @@
     <author>
       <name>Sunshine.</name>
     </author>
-    <updated>2024-06-04T11:39:23.000Z</updated>
+    <updated>2024-09-05T16:50:23.000Z</updated>
+    <entry>
+        <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E4%B8%80)/</id>
+        <title>建站初期的免费虚拟主机(一)</title>
+        <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E4%B8%80)/"/>
+        <content type="html">&lt;h2 id=&#34;1-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-前言&#34;&gt;#&lt;/a&gt; 1 . 前言&lt;/h2&gt;
+&lt;p&gt;免费虚拟主机作为一种公益产品，给建站小白提供了无比便利的测试建站平台。你可以搭建一个博客 —— 例如 typecho、emlog，抑或是功能更多的 wordpress。博主的博客框架是 hexo，基于 github pages, 这个需要花费很多的精力，因为大部分操作都是基于命令行，但是它的优点是虚拟主机和云服务器比不了的，这个我们后面再谈。&lt;br /&gt;
+不光是博客，你还可以搭建其他网站，不过也是需要要求虚拟主机拥有的环境。根据我的经验，国内的大部分虚拟主机只有 php 环境，而许多国外老厂的虚拟主机有其他环境例如 python、node.js 等等，甚至还带有 ssh 连接权限。接下来我就分享一些经过收集的虚拟主机。怎么说呢，多到用不完。&lt;/p&gt;
+&lt;h2 id=&#34;2免费虚拟主机x5-ifastnet分发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2免费虚拟主机x5-ifastnet分发&#34;&gt;#&lt;/a&gt; 2. 免费虚拟主机 (x5)-ifastnet 分发&lt;/h2&gt;
+&lt;h3 id=&#34;1infinityfree&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1infinityfree&#34;&gt;#&lt;/a&gt; 1.&lt;a href=&#34;https://www.infinityfree.com/&#34;&gt;InfinityFree&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置如下&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/3eb375d690e512588f240.png&#34; alt=&#34;配置&#34; /&gt;&lt;br /&gt;
+这个主机是属于国外的虚拟主机，国内打开时慢时快（建议打开广告屏蔽插件，推荐 AdGuard)，注册也很简单&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/baed52ac6ecaf58848370.png&#34; alt=&#34;注册&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;只需一个简单的邮箱，注册之后，你可以创建最多三个账户，每个账户在规定的范围内能创建一定数量的网站。面板如图所示&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/e408c5e585cc9bca560ac.png&#34; alt=&#34;面板&#34; /&gt;&lt;br /&gt;
+虚拟主机有的功能它都有，但是它可以让你创建属于自己的域名，大量的免费二级域名，且自带的 DNS 解析可以让你创建无限的三级域名。&lt;br /&gt;
+ping 它 ip 的 443 端口，可见&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/c600f741bf77e0d8d1af7.png&#34; alt=&#34;ping&#34; /&gt;&lt;br /&gt;
+ 位于英国，并不是很快，但用来测试或者速度要求不高的网站很适合。但是虚拟主机性能还是不错的，在国内速度能在 50ms-200ms&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/72bab074dc8ecf39f9bf5.png&#34; alt=&#34;测速&#34; /&gt;，建个博客啥的还是可以。并且它自带软件安装程序，可以直接安装博客，论坛或者图片库等。&lt;br /&gt;
+&lt;strong&gt;注：如果想要安装自己的网站，不要使用它自带的文件管理器，很鸡肋。建议使用 FTP&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册地址：&lt;a href=&#34;https://dash.infinityfree.com/register&#34;&gt;https://dash.infinityfree.com/register&lt;/a&gt;  只需邮箱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2my-placeus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2my-placeus&#34;&gt;#&lt;/a&gt; 2.&lt;a href=&#34;http://my-place.us/index.php&#34;&gt;My-place.us&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置：&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/58826fcf7ea7bcd199267.png&#34; alt=&#34;配置&#34; /&gt;&lt;br /&gt;
+正常配置，和第一个虚拟主机一样，不过内存多了 5GB。有免费二级域名，但是无 DNS。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册地址：&lt;a href=&#34;http://my-place.us/signup.php&#34;&gt;Free Hosting Sign Up (my-place.us)&lt;/a&gt;  只需邮箱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3alc-hosting&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3alc-hosting&#34;&gt;#&lt;/a&gt; 3.&lt;a href=&#34;https://www.alchosting.net/&#34;&gt;ALC Hosting&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置：&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/9c2f9e9781fd872cbe9d7.png&#34; alt=&#34;配置&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;和第二个配置完全相同...... 不过他有两个免费计划，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/aeb1341ee6cc5c53d05cd.png&#34; alt=&#34;计划&#34; /&gt;&lt;br /&gt;
+升级版免费计划功能更强大，不过这需要你有一个&lt;strong&gt;顶级域名&lt;/strong&gt;托管到他们的 DNS 解析上&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册地址：&lt;a href=&#34;https://www.alchosting.net/free-hosting/#choose&#34;&gt;Free Website Hosting with VistaPanel and Premium cPanel - ALC Hosting Networks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4vmhostccfree-hosting&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4vmhostccfree-hosting&#34;&gt;#&lt;/a&gt; 4.&lt;a href=&#34;https://www.vmhost.cc/&#34;&gt;vmhost.cc|Free Hosting&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置：&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/8232744f423d2cf658eb7.png&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注册地址：&lt;a href=&#34;https://register.vmhost.cc/auth/signup&#34;&gt;欢迎注册 VmHost - VmHost&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5ezyrocom&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5ezyrocom&#34;&gt;#&lt;/a&gt; 5.&lt;a href=&#34;https://ezyro.com/&#34;&gt;ezyro.com&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置：&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/15b8847287246e925bd86.png&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 其实都是和之前的一样。&lt;/p&gt;
+&lt;h2 id=&#34;3总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3总结&#34;&gt;#&lt;/a&gt; 3. 总结&lt;/h2&gt;
+&lt;p&gt;这些虚拟主机都位于国外，都是 ifastnet 分发而来。控制面板都是 cpanel，只是开放的功能多少不一样，看自己的需求使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;累了？听歌！！！&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=2104043145&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Miscellaneous" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
+        <updated>2024-09-05T16:50:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://kuiyr0810.github.io/Algorithm/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%9F%BA%E7%A1%80-%E4%B8%80%E4%BA%9B%E4%BA%8C%E5%8F%89%E6%A0%91%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93/</id>
         <title>算法导论基础-一些二叉树概念总结</title>
