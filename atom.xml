@@ -13,8 +13,7 @@
         <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</id>
         <title>建站初期的免费域名(持续更新)</title>
         <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"/>
-        <content type="html">&lt;p&gt;今日天气：&lt;/p&gt;
-&lt;iframe allowtransparency=&#34;true&#34; frameborder=&#34;0&#34; width=&#34;385&#34; height=&#34;96&#34; scrolling=&#34;no&#34; src=&#34;//tianqi.2345.com/plugin/widget/index.htm?s=2&amp;z=3&amp;t=0&amp;v=0&amp;d=3&amp;bd=0&amp;k=&amp;f=&amp;ltf=009944&amp;htf=cc0000&amp;q=1&amp;e=1&amp;a=1&amp;c=54511&amp;w=385&amp;h=96&amp;align=center&#34;&gt;&lt;/iframe&gt;
+        <content type="html">&lt;iframe frameborder=&#34;0&#34; width=&#34;385&#34; height=&#34;96&#34; scrolling=&#34;no&#34; src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 欢迎使用&#34;&gt;&lt;/iframe&gt;
 ---
 &lt;p&gt;免费域名为广大建站小白免去了建站测试初期高昂的费用，但其实现在大多云服务商都有着低价一年域名的活动。com，cn 等流行后缀只需 1 元 / 年，但是第二年续费价格就比较难以接受了，当然你通过域名带来足够的收益值得你续费这个域名的话（如果你很有钱的话），当我没说。&lt;br /&gt;
 下面我将分享一些比较适合白嫖的免费域名，全部可用，但有些条件比较苛刻。&lt;/p&gt;
@@ -123,7 +122,9 @@
         <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E4%B8%80)/</id>
         <title>建站初期的免费虚拟主机(一)</title>
         <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E4%B8%80)/"/>
-        <content type="html">&lt;h2 id=&#34;1-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-前言&#34;&gt;#&lt;/a&gt; 1 . 前言&lt;/h2&gt;
+        <content type="html">&lt;iframe frameborder=&#34;0&#34; width=&#34;385&#34; height=&#34;96&#34; scrolling=&#34;no&#34; src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 欢迎使用&#34;&gt;&lt;/iframe&gt;
+---
+&lt;h2 id=&#34;1-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-前言&#34;&gt;#&lt;/a&gt; 1 . 前言&lt;/h2&gt;
 &lt;p&gt;免费虚拟主机作为一种公益产品，给建站小白提供了无比便利的测试建站平台。你可以搭建一个博客 —— 例如 typecho、emlog，抑或是功能更多的 wordpress。博主的博客框架是 hexo，基于 github pages, 这个需要花费很多的精力，因为大部分操作都是基于命令行，但是它的优点是虚拟主机和云服务器比不了的，这个我们后面再谈。&lt;br /&gt;
 不光是博客，你还可以搭建其他网站，不过也是需要要求虚拟主机拥有的环境。根据我的经验，国内的大部分虚拟主机只有 php 环境，而许多国外老厂的虚拟主机有其他环境例如 python、node.js 等等，甚至还带有 ssh 连接权限。接下来我就分享一些经过收集的虚拟主机。怎么说呢，多到用不完。&lt;/p&gt;
 &lt;h2 id=&#34;2免费虚拟主机x5-ifastnet分发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2免费虚拟主机x5-ifastnet分发&#34;&gt;#&lt;/a&gt; 2. 免费虚拟主机 (x5)-ifastnet 分发&lt;/h2&gt;
