@@ -8,7 +8,75 @@
     <author>
       <name>Sunshine.</name>
     </author>
-    <updated>2024-09-20T16:50:23.000Z</updated>
+    <updated>2024-09-27T16:50:23.000Z</updated>
+    <entry>
+        <id>https://kuiyr0810.github.io/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+        <title>双向解析域名(托管到cloudflare)使用方法</title>
+        <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+        <content type="html">&lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
+---
+&lt;p&gt;我的这篇帖子&lt;a href=&#34;https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/&#34;&gt;建站初期的免费域名 (持续更新) (kuiyr0810.github.io)&lt;/a&gt; 介绍了一些可以白嫖的域名，但是大家会发现，许多域名可以托管到 cloudflare（以下简称 cf），但是就是无法正常解析，但是注册商自带的 DNS 解析又能正常，这类域名就是需要双向解析的域名。例如 cloudns，&lt;a href=&#34;http://1gb.ua&#34;&gt;1gb.ua&lt;/a&gt; (部分类似域名未更新)，接下来我就来介绍如何将这类域名完美托管到 cloudflare。&lt;/p&gt;
+&lt;p&gt;我就用 cloudns 来举例吧！&lt;/p&gt;
+&lt;h1 id=&#34;一准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一准备工作&#34;&gt;#&lt;/a&gt; 一。准备工作&lt;/h1&gt;
+&lt;h2 id=&#34;1注册域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1注册域名&#34;&gt;#&lt;/a&gt; 1. 注册域名&lt;/h2&gt;
+&lt;p&gt;像我这里的域名就是 “&lt;a href=&#34;http://kuiyr.cloudns.be&#34;&gt;kuiyr.cloudns.be&lt;/a&gt;”,&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMGZvau4g8PQsLm1lQNKaMB5Nq0CJsAAnu-MRtG3LBXO7_MtcUHcJgBAAMCAAN3AAM2BA&#34; alt=&#34;域名实例&#34; /&gt;&lt;br /&gt;
+这几条记录我将会一一解释，它们是及其重要的记录。&lt;/p&gt;
+&lt;h2 id=&#34;2找寻cloudflare优选域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2找寻cloudflare优选域名&#34;&gt;#&lt;/a&gt; 2. 找寻 cloudflare 优选域名&lt;/h2&gt;
+&lt;p&gt;推荐：&lt;a href=&#34;https://www.182682.xyz/page/cloudflare/cname.html&#34;&gt;CloudFlare 公共 Cname 域名 (182682.xyz)&lt;/a&gt;&lt;br /&gt;
+ 测速 ping：&lt;a href=&#34;https://www.itdog.cn/tcping/&#34;&gt;在线 ping_tcp 延迟测试_持续 ping_禁 ping_tcping_在线 tcping_端口延迟测试 (itdog.cn)&lt;/a&gt;，推荐使用 tcping，现在的网站都需要 ssl，输入：&lt;strong&gt;域名：443&lt;/strong&gt;，然后点击测速即可。&lt;br /&gt;
+这篇文章我将用&lt;strong&gt;&lt;a href=&#34;http://speed.marisalnc.com&#34;&gt; speed.marisalnc.com&lt;/a&gt;&lt;/strong&gt; 这个域名来示例，当然你也可以用其他的（哪个快用哪个）&lt;/p&gt;
+&lt;h2 id=&#34;3将已注册的域名托管到cf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3将已注册的域名托管到cf&#34;&gt;#&lt;/a&gt; 3 将已注册的域名托管到 cf&lt;/h2&gt;
+&lt;p&gt;如图所示：&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMHZvaxqKVlLoPkDMRMG2DCveBS7EQAAn2-MRtG3LBXbKMbmr1owTUBAAMCAAN3AAM2BA&#34; alt=&#34;域名实例&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来，就是详细的托管教程了。&lt;/p&gt;
+&lt;h1 id=&#34;二教程正式开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二教程正式开始&#34;&gt;#&lt;/a&gt; 二。教程正式开始&lt;/h1&gt;
+&lt;p&gt;首先，在 cloudflare 端添加一条 cname 记录，&lt;br /&gt;
+&lt;strong&gt;cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMIZvazJ3cAAbE_9QLFSMGjhAbCwkjLAAJ_vjEbRtywV9f-goFMGoUJAQADAgADdwADNgQ&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+名称可以随意（这里我用 test），目标指向优选域名，代理状态一定要关闭，仅 DNS 即可。&lt;br /&gt;
+然后回到 cloudns 端，由于托管到 cloudflare 已经添加了两条 DNS 记录，&lt;br /&gt;
+&lt;strong&gt;cloudns 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMJZva0Cs4DGiUTf1FvSr8xI1LdUUMAAoK-MRtG3LBXkZAhfaJBpzUBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+现在我们要添加两条新记录，在 cf 端实现那条 cname 解析，&lt;br /&gt;
+&lt;strong&gt;cloudns 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMKZva0hA0HDXy4YsMn8kA8tqQjhO0AAoO-MRtG3LBXSUnHLUur_8YBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+这样，cf 端那边的 cname 解析就生效了。&lt;/p&gt;
+&lt;p&gt;下一步&lt;/p&gt;
+&lt;p&gt;在 cloudns 端再添加一条 cname 记录，由你的泛域名指向在 cf 端添加的（&lt;a href=&#34;http://xn--test-957f061d1vj7iicl2b.kuiyr.cloudns.be&#34;&gt;像我的就是 test.kuiyr.cloudns.be&lt;/a&gt;）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;域名：kuiyr.cloudns.be
+泛域名：*.kuiyr.cloudns.be
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMLZva3Cg2QYiU8ab-PJsHmQmttw-EAAom-MRtG3LBX6E-KIoo67oYBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+到了现在这一步，其实差不多已经能用了，只要在 cf 端添加你的子域名指向 A，AAAA 和 cname 记录了，&lt;br /&gt;
+比如：&lt;br /&gt;
+&lt;a href=&#34;http://1.kuiyr.cloudns.be&#34;&gt;1.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://abc.kuiyr.cloudns.be&#34;&gt;abc.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://xds.kuiyr.cloudns.be&#34;&gt;xds.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
+ 像我这里就会添加，&lt;br /&gt;
+&lt;strong&gt;cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMMZva4bpLf7W76kHLVYZMPrDhie08AAoy-MRtG3LBXHRZDOIsLAAEGAQADAgADdwADNgQ&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+ ipv4 地址添加你服务器公网 ip，或者虚拟主机 IP 或 cname 到虚拟主机域名就可以正常解析了，代理状态一定要打开！！！&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMNZva5Qn7uaczJcx0Ovxmx_rxzXw8AAo6-MRtG3LBX4D96f3PZaN0BAAMCAAN3AAM2BA&#34; alt=&#34;测速&#34; /&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMOZva5eCt5Q9Bqt2sPG2OwmcCcx5cAAo--MRtG3LBXpm-oGa1b5ngBAAMCAAN3AAM2BA&#34; alt=&#34;测速&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;大功告成！！！&lt;/p&gt;
+&lt;h1 id=&#34;三最终优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三最终优化&#34;&gt;#&lt;/a&gt; 三。最终优化&lt;/h1&gt;
+&lt;p&gt;双向解析域名还有一个问题，就是 cf 端的边缘证书不生效，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMPZva6ROQYtLslC6raeG_OrXZDGDkAApG-MRtG3LBX0lzLZKJUaF4BAAMCAAN3AAM2BA&#34; alt=&#34;示例&#34; /&gt;&lt;br /&gt;
+如何让它生效呢？&lt;br /&gt;
+只需要在 cloudns 端再添加两条记录，&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMQZva620lh6QJzkVgfBB_Ras_G-tQAApK-MRtG3LBXFPYkCO-vLHIBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
+等待差不多 10 分钟左右（也可能更长？），边缘证书就生效了。&lt;br /&gt;
+完结撒花！！！&lt;/p&gt;
+&lt;p&gt;最终结果，这些必不可删除的记录&lt;br /&gt;
+&lt;strong&gt; cloudns 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMRZva7j3F_GgjxRrLczOpjp4a_hfoAApS-MRtG3LBXXZIBueE_ZZkBAAMCAAN3AAM2BA&#34; alt=&#34;注册商&#34; /&gt;&lt;br /&gt;
+&lt;strong&gt; cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMSZva7_Qd8MQKqhyH0qaeSNSsR_HMAApW-MRtG3LBXVOFrfQh0mDkBAAMCAAN3AAM2BA&#34; alt=&#34;cf&#34; /&gt;&lt;br /&gt;
+ 注：&lt;br /&gt;
+要想使用二级根域名（&lt;a href=&#34;http://xn--kuiyr-1l6j51vwk9a.cloudns.be&#34;&gt;我的是 kuiyr.cloudns.be&lt;/a&gt;）, 需要在两端都添加相同的 A，AAAA 或 cname 记录即可，三级域名只需要在 cf 端添加。&lt;/p&gt;
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=5271858&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
+</content>
+        <category term="杂谈" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
+        <updated>2024-09-27T16:50:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</id>
         <title>建站初期的免费域名(持续更新)</title>
@@ -114,74 +182,6 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=2627091409&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
-</content>
-        <category term="杂谈" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
-        <updated>2024-09-20T16:50:23.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://kuiyr0810.github.io/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
-        <title>双向解析域名(托管到cloudflare)使用方法</title>
-        <link rel="alternate" href="https://kuiyr0810.github.io/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-        <content type="html">&lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
-&lt;p&gt;我的这篇帖子&lt;a href=&#34;https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/&#34;&gt;建站初期的免费域名 (持续更新) (kuiyr0810.github.io)&lt;/a&gt; 介绍了一些可以白嫖的域名，但是大家会发现，许多域名可以托管到 cloudflare（以下简称 cf），但是就是无法正常解析，但是注册商自带的 DNS 解析又能正常，这类域名就是需要双向解析的域名。例如 cloudns，&lt;a href=&#34;http://1gb.ua&#34;&gt;1gb.ua&lt;/a&gt; (部分类似域名未更新)，接下来我就来介绍如何将这类域名完美托管到 cloudflare。&lt;/p&gt;
-&lt;p&gt;我就用 cloudns 来举例吧！&lt;/p&gt;
-&lt;h1 id=&#34;一准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一准备工作&#34;&gt;#&lt;/a&gt; 一。准备工作&lt;/h1&gt;
-&lt;h2 id=&#34;1注册域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1注册域名&#34;&gt;#&lt;/a&gt; 1. 注册域名&lt;/h2&gt;
-&lt;p&gt;像我这里的域名就是 “&lt;a href=&#34;http://kuiyr.cloudns.be&#34;&gt;kuiyr.cloudns.be&lt;/a&gt;”,&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMGZvau4g8PQsLm1lQNKaMB5Nq0CJsAAnu-MRtG3LBXO7_MtcUHcJgBAAMCAAN3AAM2BA&#34; alt=&#34;域名实例&#34; /&gt;&lt;br /&gt;
-这几条记录我将会一一解释，它们是及其重要的记录。&lt;/p&gt;
-&lt;h2 id=&#34;2找寻cloudflare优选域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2找寻cloudflare优选域名&#34;&gt;#&lt;/a&gt; 2. 找寻 cloudflare 优选域名&lt;/h2&gt;
-&lt;p&gt;推荐：&lt;a href=&#34;https://www.182682.xyz/page/cloudflare/cname.html&#34;&gt;CloudFlare 公共 Cname 域名 (182682.xyz)&lt;/a&gt;&lt;br /&gt;
- 测速 ping：&lt;a href=&#34;https://www.itdog.cn/tcping/&#34;&gt;在线 ping_tcp 延迟测试_持续 ping_禁 ping_tcping_在线 tcping_端口延迟测试 (itdog.cn)&lt;/a&gt;，推荐使用 tcping，现在的网站都需要 ssl，输入：&lt;strong&gt;域名：443&lt;/strong&gt;，然后点击测速即可。&lt;br /&gt;
-这篇文章我将用&lt;strong&gt;&lt;a href=&#34;http://speed.marisalnc.com&#34;&gt; speed.marisalnc.com&lt;/a&gt;&lt;/strong&gt; 这个域名来示例，当然你也可以用其他的（哪个快用哪个）&lt;/p&gt;
-&lt;h2 id=&#34;3将已注册的域名托管到cf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3将已注册的域名托管到cf&#34;&gt;#&lt;/a&gt; 3 将已注册的域名托管到 cf&lt;/h2&gt;
-&lt;p&gt;如图所示：&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMHZvaxqKVlLoPkDMRMG2DCveBS7EQAAn2-MRtG3LBXbKMbmr1owTUBAAMCAAN3AAM2BA&#34; alt=&#34;域名实例&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接下来，就是详细的托管教程了。&lt;/p&gt;
-&lt;h1 id=&#34;二教程正式开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二教程正式开始&#34;&gt;#&lt;/a&gt; 二。教程正式开始&lt;/h1&gt;
-&lt;p&gt;首先，在 cloudflare 端添加一条 cname 记录，&lt;br /&gt;
-&lt;strong&gt;cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMIZvazJ3cAAbE_9QLFSMGjhAbCwkjLAAJ_vjEbRtywV9f-goFMGoUJAQADAgADdwADNgQ&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
-名称可以随意（这里我用 test），目标指向优选域名，代理状态一定要关闭，仅 DNS 即可。&lt;br /&gt;
-然后回到 cloudns 端，由于托管到 cloudflare 已经添加了两条 DNS 记录，&lt;br /&gt;
-&lt;strong&gt;cloudns 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMJZva0Cs4DGiUTf1FvSr8xI1LdUUMAAoK-MRtG3LBXkZAhfaJBpzUBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
-现在我们要添加两条新记录，在 cf 端实现那条 cname 解析，&lt;br /&gt;
-&lt;strong&gt;cloudns 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMKZva0hA0HDXy4YsMn8kA8tqQjhO0AAoO-MRtG3LBXSUnHLUur_8YBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
-这样，cf 端那边的 cname 解析就生效了。&lt;/p&gt;
-&lt;p&gt;下一步&lt;/p&gt;
-&lt;p&gt;在 cloudns 端再添加一条 cname 记录，由你的泛域名指向在 cf 端添加的（&lt;a href=&#34;http://xn--test-957f061d1vj7iicl2b.kuiyr.cloudns.be&#34;&gt;像我的就是 test.kuiyr.cloudns.be&lt;/a&gt;）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;域名：kuiyr.cloudns.be
-泛域名：*.kuiyr.cloudns.be
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMLZva3Cg2QYiU8ab-PJsHmQmttw-EAAom-MRtG3LBX6E-KIoo67oYBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
-到了现在这一步，其实差不多已经能用了，只要在 cf 端添加你的子域名指向 A，AAAA 和 cname 记录了，&lt;br /&gt;
-比如：&lt;br /&gt;
-&lt;a href=&#34;http://1.kuiyr.cloudns.be&#34;&gt;1.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://abc.kuiyr.cloudns.be&#34;&gt;abc.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://xds.kuiyr.cloudns.be&#34;&gt;xds.kuiyr.cloudns.be&lt;/a&gt;&lt;br /&gt;
- 像我这里就会添加，&lt;br /&gt;
-&lt;strong&gt;cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMMZva4bpLf7W76kHLVYZMPrDhie08AAoy-MRtG3LBXHRZDOIsLAAEGAQADAgADdwADNgQ&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
- ipv4 地址添加你服务器公网 ip，或者虚拟主机 IP 或 cname 到虚拟主机域名就可以正常解析了，代理状态一定要打开！！！&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMNZva5Qn7uaczJcx0Ovxmx_rxzXw8AAo6-MRtG3LBX4D96f3PZaN0BAAMCAAN3AAM2BA&#34; alt=&#34;测速&#34; /&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMOZva5eCt5Q9Bqt2sPG2OwmcCcx5cAAo--MRtG3LBXpm-oGa1b5ngBAAMCAAN3AAM2BA&#34; alt=&#34;测速&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;大功告成！！！&lt;/p&gt;
-&lt;h1 id=&#34;三最终优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三最终优化&#34;&gt;#&lt;/a&gt; 三。最终优化&lt;/h1&gt;
-&lt;p&gt;双向解析域名还有一个问题，就是 cf 端的边缘证书不生效，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMPZva6ROQYtLslC6raeG_OrXZDGDkAApG-MRtG3LBX0lzLZKJUaF4BAAMCAAN3AAM2BA&#34; alt=&#34;示例&#34; /&gt;&lt;br /&gt;
-如何让它生效呢？&lt;br /&gt;
-只需要在 cloudns 端再添加两条记录，&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMQZva620lh6QJzkVgfBB_Ras_G-tQAApK-MRtG3LBXFPYkCO-vLHIBAAMCAAN3AAM2BA&#34; alt=&#34;记录&#34; /&gt;&lt;br /&gt;
-等待差不多 10 分钟左右（也可能更长？），边缘证书就生效了。&lt;br /&gt;
-完结撒花！！！&lt;/p&gt;
-&lt;p&gt;最终结果，这些必不可删除的记录&lt;br /&gt;
-&lt;strong&gt; cloudns 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMRZva7j3F_GgjxRrLczOpjp4a_hfoAApS-MRtG3LBXXZIBueE_ZZkBAAMCAAN3AAM2BA&#34; alt=&#34;注册商&#34; /&gt;&lt;br /&gt;
-&lt;strong&gt; cloudflare 端：&lt;/strong&gt;&lt;br /&gt;
-&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMSZva7_Qd8MQKqhyH0qaeSNSsR_HMAApW-MRtG3LBXVOFrfQh0mDkBAAMCAAN3AAM2BA&#34; alt=&#34;cf&#34; /&gt;&lt;br /&gt;
- 注：&lt;br /&gt;
-要想使用二级根域名（&lt;a href=&#34;http://xn--kuiyr-1l6j51vwk9a.cloudns.be&#34;&gt;我的是 kuiyr.cloudns.be&lt;/a&gt;）, 需要在两端都添加相同的 A，AAAA 或 cname 记录即可，三级域名只需要在 cf 端添加。&lt;/p&gt;
-&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=5271858&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
 </content>
         <category term="杂谈" scheme="https://kuiyr0810.github.io/categories/Miscellaneous/" />
         <updated>2024-09-20T16:50:23.000Z</updated>
