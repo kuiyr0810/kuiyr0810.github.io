@@ -50,7 +50,7 @@ cloudflare 这边所有工作就完成了，只有四条 NS 记录。&lt;br /&gt
 接下来，再添加一条 CNAME 记录，这条 CNAME 记录的线路类型要选择&lt;strong&gt;地域解析&lt;/strong&gt;，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMgZwcvxeq7wGO-0W2cHhsyNE_A2EMAAlO8MRtzzjlU6hmWfFreH5IBAAMCAAN5AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
  记录填写你使用的 cloudflare 优选域名即可！&lt;br /&gt;
 大功告成！！！&lt;/p&gt;
-&lt;h3 id=&#34;四总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四总结&#34;&gt;#&lt;/a&gt; 四。总结&lt;/h3&gt;
+&lt;h2 id=&#34;四总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四总结&#34;&gt;#&lt;/a&gt; 四。总结&lt;/h2&gt;
 &lt;p&gt;最后结果&lt;br /&gt;
  cloudflare 端：四条 ns 记录（指向华为云 DNS）&lt;br /&gt;
 华为云 DNS 端：一个 NS，一个 SOA，两个 CNAME（一条线路类型为&lt;strong&gt;全网默认&lt;/strong&gt;，记录值指向 Pages 项目自带的二级域名；另一条线路类型为&lt;strong&gt;地域解析&lt;/strong&gt;，记录值指向优选域名）&lt;/p&gt;
