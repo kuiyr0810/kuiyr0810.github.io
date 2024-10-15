@@ -28,7 +28,7 @@
 &lt;p&gt;正常来说，你部署好一个 Workers 项目时，会进入设置绑定自己的域名，像我这里就是绑定’&lt;a href=&#34;http://kuiyr.us.kg&#34;&gt;kuiyr.us.kg&lt;/a&gt;‘,&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMmZw5qxrya-zG8n5Xg4NXmlJEre0QAAvfEMRuNtnBUnFhpExlp2-IBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
  那么，如果&lt;strong&gt;你没有绑定域名，就先不要绑定；如果你绑定了，删除它&lt;/strong&gt;，也就是我删除’&lt;a href=&#34;http://kuiyr.us.kg&#34;&gt;kuiyr.us.kg&lt;/a&gt;‘。&lt;br /&gt;
 接下来，进入你想绑定的域名的 DNS 管理中，添加一条 CNAME 记录，目标指向你找的优选域名&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMnZw5sv4nDC8eHYIwVlwLp5ZoInWsAAvvEMRuNtnBUxDLnJV6qomsBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
- 保存后，再侧边栏找见’&lt;strong&gt;Workers 路由&lt;/strong&gt;‘选项，点击添加路由，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMoZw5tt31ATjEXlbVzjSsKjES6RyoAA8UxG422cFTijlGGU09MSQEAAwIAA3kAAzYE&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 保存后，再在侧边栏找见’&lt;strong&gt;Workers 路由&lt;/strong&gt;‘选项，点击添加路由，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAMoZw5tt31ATjEXlbVzjSsKjES6RyoAA8UxG422cFTijlGGU09MSQEAAwIAA3kAAzYE&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
  路由输入你要添加的优选域名加个符号，&lt;a href=&#34;http://xn--kuiyr-778i146a7iiw01huce.us.kg/*&#34;&gt;我这里就是 kuiyr.us.kg/*&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://xn--baidu-r52h07c3yoq9ix9d739bo74b.com&#34;&gt; 假如你的域名是 baidu.com&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://xn--baidu-778i001dc93f.com/*&#34;&gt; 那就是 baidu.com/*&lt;/a&gt;&lt;br /&gt;
