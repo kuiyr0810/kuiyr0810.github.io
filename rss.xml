@@ -18,13 +18,13 @@
             <link>https://kuiyr0810.github.io/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/</link>
             <category term="Privateuniverse" scheme="https://kuiyr0810.github.io/categories/Privateuniverse/" />
             <pubDate>Thu, 24 Oct 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;Oh, this is an invalid password. Check and try again, please.&#34; data-whm=&#34;OOPS, these decrypted content may changed, but you can still have a look.&#34;&gt;
+            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;抱歉, 这个密码看着不太对, 请再试试.&#34; data-whm=&#34;抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.&#34;&gt;
   &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;b426c21b7805e83bea00bc6798cfaba0b395001d29d969f5027031cb592c5d8e&#34;&gt;10d79030e8222445804370796b90fca1d2aa4f99e8f5171f22f450be12c8bdd5&lt;/script&gt;
   &lt;div class=&#34;hbe hbe-content&#34;&gt;
     &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
       &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
       &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;Hey, password is required here.&lt;/span&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;您好, 这里需要密码.&lt;/span&gt;
       &lt;/label&gt;
     &lt;/div&gt;
   &lt;/div&gt;
