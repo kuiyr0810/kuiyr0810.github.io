@@ -7,6 +7,16 @@
     "home_page_url": "https://kuiyr0810.github.io",
     "items": [
         {
+            "id": "https://kuiyr0810.github.io/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/",
+            "url": "https://kuiyr0810.github.io/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/",
+            "title": "建站初期的免费域名",
+            "date_published": "2024-10-23T16:50:23.000Z",
+            "content_html": "<div class=\"hbe hbe-container\" id=\"hexo-blog-encrypt\" data-wpm=\"Oh, this is an invalid password. Check and try again, please.\" data-whm=\"OOPS, these decrypted content may changed, but you can still have a look.\">\n  <script id=\"hbeData\" type=\"hbeData\" data-hmacdigest=\"b426c21b7805e83bea00bc6798cfaba0b395001d29d969f5027031cb592c5d8e\">10d79030e8222445804370796b90fca1d2aa4f99e8f5171f22f450be12c8bdd5</script>\n  <div class=\"hbe hbe-content\">\n    <div class=\"hbe hbe-input hbe-input-default\">\n      <input class=\"hbe hbe-input-field hbe-input-field-default\" type=\"password\" id=\"hbePass\">\n      <label class=\"hbe hbe-input-label hbe-input-label-default\" for=\"hbePass\">\n        <span class=\"hbe hbe-input-label-content hbe-input-label-content-default\">Hey, password is required here.</span>\n      </label>\n    </div>\n  </div>\n</div>\n<script data-pjax src=\"/lib/hbe.js\"></script><link href=\"/css/hbe.style.css\" rel=\"stylesheet\" type=\"text/css\">",
+            "tags": [
+                "Privateuniverse"
+            ]
+        },
+        {
             "id": "https://kuiyr0810.github.io/Miscellaneous/Cloudflare%20for%20SaaS%EF%BC%88%E5%9B%9E%E6%BA%90%E5%8A%A0%E9%80%9F%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%90%8D/",
             "url": "https://kuiyr0810.github.io/Miscellaneous/Cloudflare%20for%20SaaS%EF%BC%88%E5%9B%9E%E6%BA%90%E5%8A%A0%E9%80%9F%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%90%8D/",
             "title": "Cloudflare for SaaS（回源加速）自定义主机名",
