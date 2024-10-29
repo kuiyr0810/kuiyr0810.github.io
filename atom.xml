@@ -8,7 +8,26 @@
     <author>
       <name>Sunshine.</name>
     </author>
-    <updated>2024-10-22T16:50:23.000Z</updated>
+    <updated>2024-10-23T16:50:23.000Z</updated>
+    <entry>
+        <id>https://kuiyr0810.github.io/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/</id>
+        <title>密码文章测试（仅好友可查看）</title>
+        <link rel="alternate" href="https://kuiyr0810.github.io/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;抱歉, 这个密码看着不太对, 请再试试.&#34; data-whm=&#34;抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;0133df5a47104bb353ee2cce33d8467c0455513376fbda28bedb059c14fa30e6&#34;&gt;307e18122f3607c1536f95a83c2ba3483894e43f440272e6ef8169a4a1e96276118d195c9a4569581e61d68bb34a94f205d0bf2cead51ac955bacac0cc3ce4c3&lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;请输入密码(博主姓名首字母+生日),然后回车即可阅读.&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <category term="Privateuniverse" scheme="https://kuiyr0810.github.io/categories/Privateuniverse/" />
+        <updated>2024-10-23T16:50:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://kuiyr0810.github.io/Miscellaneous/Cloudflare%20for%20SaaS%EF%BC%88%E5%9B%9E%E6%BA%90%E5%8A%A0%E9%80%9F%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%90%8D/</id>
         <title>Cloudflare for SaaS（回源加速）自定义主机名</title>
