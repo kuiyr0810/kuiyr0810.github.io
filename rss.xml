@@ -10,8 +10,69 @@
         </author>
         <description>往事总是在回忆时被赋予意义</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 24 Oct 2024 00:50:23 +0800</pubDate>
-        <lastBuildDate>Thu, 24 Oct 2024 00:50:23 +0800</lastBuildDate>
+        <pubDate>Mon, 18 Nov 2024 00:50:23 +0800</pubDate>
+        <lastBuildDate>Mon, 18 Nov 2024 00:50:23 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
+            <title>记录一下Gihub Pages自定义域名</title>
+            <link>https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
+            <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
+            <pubDate>Mon, 18 Nov 2024 00:50:23 +0800</pubDate>
+            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
+&lt;h1 id=&#34;一-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-前言&#34;&gt;#&lt;/a&gt; 一、前言&lt;/h1&gt;
+&lt;p&gt;之前也搞过 Github Pages 自定义域名，后来忘了不知道什么原因删除了。现在又想起来换一个自己想要的好看的域名 ——&amp;quot;&lt;a href=&#34;http://suns.blogu.tc&#34;&gt;suns.blogu.tc&lt;/a&gt;&amp;quot;，“suns” 代表我自己，“blog” 代表是一个博客，属实是比较完美了！&lt;/p&gt;
+&lt;h1 id=&#34;二-教程开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-教程开始&#34;&gt;#&lt;/a&gt; 二、教程开始&lt;/h1&gt;
+&lt;h2 id=&#34;1验证域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1验证域名&#34;&gt;#&lt;/a&gt; 1. 验证域名&lt;/h2&gt;
+&lt;p&gt;准备好你要使用的域名，打开 github 主页，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM4ZznScIdDdPSeFItr18b_FplyMdEAAnHBMRtjQNBVNIDHxPlDdQkBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 点击右上角头像，依次选择&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM5ZznTVXGsfYL3v4IhAsURcpY8aLoAAnTBMRtjQNBV7naLKZUbgLYBAAMCAAN5AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM6ZznTkg1yW1IMoclNWeCUcyPRKykAAnXBMRtjQNBVr-MUcKna354BAAMCAAN4AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 进入页面后点击 “Add a domain”，输入你要使用的域名并完成&lt;strong&gt; TXT 验证&lt;/strong&gt;&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM7ZznUYBvm0zNC9USlWH325EZXDI8AAnnBMRtjQNBV1SBrcCgkdZMBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;就是在你的 dns 托管处添加一条 TXT 记录，&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM8ZznU2zRkTwmlXVn7WCzVK8QFIiEAAnrBMRtjQNBV5mdauH4Fk4sBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 这一步完成后验证域名就算成功了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：DNS 解析需要时间，请耐心等待&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;2添加域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2添加域名&#34;&gt;#&lt;/a&gt; 2. 添加域名&lt;/h2&gt;
+&lt;p&gt;找到你的博客项目，并进入&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM9ZznV0hxISE2Ql8kzTTxdkstU5QoAAoXBMRtjQNBVfXFkcg76uegBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 点击上方的 Settings，在下一个页面找到 Pages 并点击进入，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM-ZznWWjHQnHjBGQu0Y2Uw1ICX9bsAAobBMRtjQNBV3oOJ3geWwUMBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;下拉找到 Custom domain&lt;br /&gt;
+ 在输入框中填写你要使用的域名（这个域名一定是要验证过的）&lt;br /&gt;
+然后返回 DNS 托管商处，添加一条 CNAME 记录或者一条 A 记录（ipv4）、AAAA 记录（ipv6）&lt;br /&gt;
+CNAME：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;指向example.github.io
+（example换成你的）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;指向以下四条ip
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;AAAA：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;指向以下四条ip
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这三个方式任选一种即可！！！&lt;br /&gt;
+像我就要选择添加 A 记录，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM_ZznZXNjfPMeEw96rz-vQNAj9k-QAAo3BMRtjQNBViOGPgVYbGxgBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3收尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3收尾&#34;&gt;#&lt;/a&gt; 3. 收尾&lt;/h2&gt;
+&lt;p&gt;其次，不知 github 抽什么风，你还要为你的子域名 www.example.com 添加一条 CNAME 记录（否则会有一条黄色提示），指向你的项目名称：&lt;a href=&#34;http://example.github.io&#34;&gt;example.github.io&lt;/a&gt; (example 换成你自己的)，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAANAZznaeDOMxW9uxbCrs1Cnz8m5HPYAAo_BMRtjQNBVdYP-CckDJPsBAAMCAAN5AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 然后静静等待生效即可！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;之前是没有这么麻烦的，也许你要使用的域名直接 CNAME 到你的项目名称可以省略最后一步，有兴趣可以自己测试！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;三-收尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三-收尾&#34;&gt;#&lt;/a&gt; 三、收尾&lt;/h1&gt;
+&lt;p&gt;最后，你要在你的本地博客文件夹的 source 文件夹中添加一个 CNAME 文件，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAANBZzncySb6abhePCpIy5DgijonwnAAApfBMRtjQNBVtnEs_gkhxCkBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt; 这个 CNAME 文件在你的项目分支中会自动生成，下载到 source 文件夹中即可，这个文件内容就是你要使用的域名。&lt;br /&gt;
+这一步可以保证你在更新项目时保持自定义域名，否则还需要手动验证。&lt;/p&gt;
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=28916645&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://suns.blogu.tc/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/</guid>
             <title>密码文章测试（仅好友可查看）</title>
