@@ -54,10 +54,10 @@ CNAME：&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;AAAA：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;指向以下四条ip
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
+2606:50c0:8000::153
+2606:50c0:8001::153
+2606:50c0:8002::153
+2606:50c0:8003::153
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这三个方式任选一种即可！！！&lt;br /&gt;
 像我就要选择添加 A 记录，&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/api/cfile/AgACAgUAAyEGAASL7UUBAAM_ZznZXNjfPMeEw96rz-vQNAj9k-QAAo3BMRtjQNBViOGPgVYbGxgBAAMCAAN3AAM2BA&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
