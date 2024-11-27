@@ -10,8 +10,23 @@
         </author>
         <description>往事总是在回忆时被赋予意义</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 18 Nov 2024 00:50:23 +0800</pubDate>
-        <lastBuildDate>Mon, 18 Nov 2024 00:50:23 +0800</lastBuildDate>
+        <pubDate>Thu, 28 Nov 2024 00:50:23 +0800</pubDate>
+        <lastBuildDate>Thu, 28 Nov 2024 00:50:23 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://suns.blogu.tc/Miscellaneous/%E8%87%AA%E5%B7%B1%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%BD%91%E7%AB%99%E2%80%94%E2%80%94Sunshine&#39;s%E4%B9%A6%E5%B1%8B/</guid>
+            <title>自己写了一个简易网站——Sunshine&#39;s书屋</title>
+            <link>https://suns.blogu.tc/Miscellaneous/%E8%87%AA%E5%B7%B1%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%BD%91%E7%AB%99%E2%80%94%E2%80%94Sunshine&#39;s%E4%B9%A6%E5%B1%8B/</link>
+            <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
+            <pubDate>Thu, 28 Nov 2024 00:50:23 +0800</pubDate>
+            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
+&lt;p&gt;地址:&lt;a href=&#34;https://book.5200810.xyz&#34;&gt;https://book.5200810.xyz&lt;/a&gt;&lt;br /&gt;
+ 每天都会更新，会出在线阅读及其他实用功能！&lt;/p&gt;
+&lt;p&gt;准备自己写，自己优化，自己维护网站，就先从这个网站开始。&lt;/p&gt;
+&lt;p&gt;主要是为了提升一下自己的编码能力，二来手上有很多渠道获取资源（主要是对搜索引擎的极致应用，嘿嘿😏）。将资源全部收藏在本地肯定是不现实的，所以要借助网络云端这种平台对资源进行细致的划分与管理。&lt;/p&gt;
+&lt;p&gt;秉着开放、共享的理念将行动进行下去！！&lt;/p&gt;
+&lt;p&gt;当然了，也不知有没有机会将这些东西一直维护下去......&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
             <title>记录一下Gihub Pages自定义域名</title>
@@ -72,25 +87,6 @@ CNAME：&lt;/p&gt;
 这一步可以保证你在更新项目时保持自定义域名，否则还需要手动验证。&lt;/p&gt;
 &lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=28916645&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://suns.blogu.tc/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/</guid>
-            <title>密码文章测试（仅好友可查看）</title>
-            <link>https://suns.blogu.tc/Privateuniverse/%E5%AF%86%E7%A0%81%E6%B5%8B%E8%AF%95/</link>
-            <category term="Privateuniverse" scheme="https://suns.blogu.tc/categories/Privateuniverse/" />
-            <pubDate>Thu, 24 Oct 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;抱歉, 这个密码看着不太对, 请再试试.&#34; data-whm=&#34;抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.&#34;&gt;
-  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;0133df5a47104bb353ee2cce33d8467c0455513376fbda28bedb059c14fa30e6&#34;&gt;307e18122f3607c1536f95a83c2ba3483894e43f440272e6ef8169a4a1e96276118d195c9a4569581e61d68bb34a94f205d0bf2cead51ac955bacac0cc3ce4c3&lt;/script&gt;
-  &lt;div class=&#34;hbe hbe-content&#34;&gt;
-    &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
-      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
-      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
-        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;请输入密码(博主姓名首字母+生日),然后回车即可阅读.&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script data-pjax src=&#34;/lib/hbe.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://suns.blogu.tc/Miscellaneous/Cloudflare%20for%20SaaS%EF%BC%88%E5%9B%9E%E6%BA%90%E5%8A%A0%E9%80%9F%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%90%8D/</guid>
