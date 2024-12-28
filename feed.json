@@ -7,12 +7,14 @@
     "home_page_url": "https://suns.blogu.tc",
     "items": [
         {
-            "id": "https://suns.blogu.tc/Algorithm/index/",
-            "url": "https://suns.blogu.tc/Algorithm/index/",
-            "title": "",
-            "date_published": "2024-12-28T04:29:58.699Z",
-            "content_html": "<blockquote>\n<p>本站加速链接:<a href=\"https://blog.kuiyr.space\">https://blog.kuiyr.space</a></p>\n</blockquote>\n<blockquote>\n<p>本站永久链接:<a href=\"https://kuiyr0810.github.io\">https://kuiyr0810.github.io</a><br />\n<a id=\"jump_8\"></a></p>\n</blockquote>\n",
-            "tags": []
+            "id": "https://suns.blogu.tc/Miscellaneous/%E5%85%B3%E4%BA%8EHexo%E9%83%A8%E7%BD%B2(hexo%20d)%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/",
+            "url": "https://suns.blogu.tc/Miscellaneous/%E5%85%B3%E4%BA%8EHexo%E9%83%A8%E7%BD%B2(hexo%20d)%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/",
+            "title": "关于Hexo部署(hexo d)错误的解决方法",
+            "date_published": "2024-11-27T16:50:23.000Z",
+            "content_html": "<img loading=\"lazy\" data-src=\"https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女\">\n<p>从内地放假回到家后，打开电脑准备修改一下博客，突然发现 hexo d 命令开始报错</p>\n<pre><code>ssh: connect to host ssh.github.com port 443: Connection refused\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\nFATAL Something's wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html\nError: Spawn failed\n    at ChildProcess.&lt;anonymous&gt; (D:\\blog\\node_modules\\hexo-deployer-git\\node_modules\\hexo-util\\lib\\spawn.js:51:21)\n    at ChildProcess.emit (node:events:519:28)\n    at cp.emit (D:\\blog\\node_modules\\cross-spawn\\lib\\enoent.js:34:29)\n    at ChildProcess._handle.onexit (node:internal/child_process:294:12)\n</code></pre>\n<p>解决方案：<br />\n打开曾经推送 hexo 所需要的密钥文件夹，一般都是<strong> C:/ 用户 / 用户名 /.ssh</strong>, 打开后在里面创建文件，名为 config 不要带后缀，在里面添加</p>\n<pre><code>Host github.com\nUser 你的github主邮箱\nHostname ssh.github.com\nPreferredAuthentications publickey\nIdentityFile ~/.ssh/id_rsa\nPort 443\n</code></pre>\n<p>再执行 hexo d 就成功啦！</p>\n",
+            "tags": [
+                "杂谈"
+            ]
         },
         {
             "id": "https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/",

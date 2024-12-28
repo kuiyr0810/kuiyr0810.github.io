@@ -8,20 +8,38 @@
     <author>
       <name>Sunshine.</name>
     </author>
-    <updated>2024-12-28T04:29:58.699Z</updated>
+    <updated>2024-11-27T16:50:23.000Z</updated>
     <entry>
-        <id>https://suns.blogu.tc/Algorithm/index/</id>
-        <title></title>
-        <link rel="alternate" href="https://suns.blogu.tc/Algorithm/index/"/>
-        <content type="html">&lt;blockquote&gt;
-&lt;p&gt;本站加速链接:&lt;a href=&#34;https://blog.kuiyr.space&#34;&gt;https://blog.kuiyr.space&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本站永久链接:&lt;a href=&#34;https://kuiyr0810.github.io&#34;&gt;https://kuiyr0810.github.io&lt;/a&gt;&lt;br /&gt;
-&lt;a id=&#34;jump_8&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+        <id>https://suns.blogu.tc/Miscellaneous/%E5%85%B3%E4%BA%8EHexo%E9%83%A8%E7%BD%B2(hexo%20d)%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
+        <title>关于Hexo部署(hexo d)错误的解决方法</title>
+        <link rel="alternate" href="https://suns.blogu.tc/Miscellaneous/%E5%85%B3%E4%BA%8EHexo%E9%83%A8%E7%BD%B2(hexo%20d)%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+        <content type="html">&lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
+&lt;p&gt;从内地放假回到家后，打开电脑准备修改一下博客，突然发现 hexo d 命令开始报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh: connect to host ssh.github.com port 443: Connection refused
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+FATAL Something&#39;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html
+Error: Spawn failed
+    at ChildProcess.&amp;lt;anonymous&amp;gt; (D:\blog\node_modules\hexo-deployer-git\node_modules\hexo-util\lib\spawn.js:51:21)
+    at ChildProcess.emit (node:events:519:28)
+    at cp.emit (D:\blog\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;解决方案：&lt;br /&gt;
+打开曾经推送 hexo 所需要的密钥文件夹，一般都是&lt;strong&gt; C:/ 用户 / 用户名 /.ssh&lt;/strong&gt;, 打开后在里面创建文件，名为 config 不要带后缀，在里面添加&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Host github.com
+User 你的github主邮箱
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再执行 hexo d 就成功啦！&lt;/p&gt;
 </content>
-        <updated>2024-12-28T04:29:58.699Z</updated>
+        <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
+        <updated>2024-11-27T16:50:23.000Z</updated>
     </entry>
     <entry>
         <id>https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</id>
