@@ -18,8 +18,7 @@
             <link>https://suns.blogu.tc/Miscellaneous/%E5%85%B3%E4%BA%8EHexo%E9%83%A8%E7%BD%B2(hexo%20d)%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Thu, 28 Nov 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
-&lt;p&gt;从内地放假回到家后，打开电脑准备修改一下博客，突然发现 hexo d 命令开始报错&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;从内地放假回到家后，打开电脑准备修改一下博客，突然发现 hexo d 命令开始报错&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ssh: connect to host ssh.github.com port 443: Connection refused
 fatal: Could not read from remote repository.
 
@@ -50,8 +49,7 @@ Port 443
             <link>https://suns.blogu.tc/Miscellaneous/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BGihub%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Mon, 18 Nov 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
-&lt;h1 id=&#34;一-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-前言&#34;&gt;#&lt;/a&gt; 一、前言&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;一-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-前言&#34;&gt;#&lt;/a&gt; 一、前言&lt;/h1&gt;
 &lt;p&gt;之前也搞过 Github Pages 自定义域名，后来忘了不知道什么原因删除了。现在又想起来换一个自己想要的好看的域名 ——&amp;quot;&lt;a href=&#34;http://suns.blogu.tc&#34;&gt;suns.blogu.tc&lt;/a&gt;&amp;quot;，“suns” 代表我自己，“blog” 代表是一个博客，属实是比较完美了！&lt;/p&gt;
 &lt;h1 id=&#34;二-教程开始&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-教程开始&#34;&gt;#&lt;/a&gt; 二、教程开始&lt;/h1&gt;
 &lt;h2 id=&#34;1验证域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1验证域名&#34;&gt;#&lt;/a&gt; 1. 验证域名&lt;/h2&gt;
@@ -111,8 +109,7 @@ CNAME：&lt;/p&gt;
             <link>https://suns.blogu.tc/Miscellaneous/Cloudflare%20for%20SaaS%EF%BC%88%E5%9B%9E%E6%BA%90%E5%8A%A0%E9%80%9F%EF%BC%89%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E6%9C%BA%E5%90%8D/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Wed, 23 Oct 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;hr /&gt;
 &lt;p&gt;双向解析的域名配置好了可以直接进行优选，那么不能进行双向解析的域名如何进行优选呢？没错，便是 Cloudflare 自带的&lt;strong&gt;自定义主机名&lt;/strong&gt;功能，接下来我就介绍一下如何使用自定义主机名功能来实现优选域名 CDN 加速！&lt;/p&gt;
 &lt;h1 id=&#34;一-准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-准备工作&#34;&gt;#&lt;/a&gt; 一、准备工作&lt;/h1&gt;
 &lt;p&gt;两个可以托管到 cloudflare 的域名（我这里使用&lt;strong&gt; 5200810.xyz（以下称主域名）&lt;strong&gt;和&lt;/strong&gt;&lt;a href=&#34;http://kuiyr.ggff.net&#34;&gt; kuiyr.ggff.net&lt;/a&gt;（辅助域名）&lt;/strong&gt;）&lt;br /&gt;
@@ -148,8 +145,7 @@ CNAME：&lt;/p&gt;
             <link>https://suns.blogu.tc/Miscellaneous/Cloudflare%20Workers%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8A%A0%E9%80%9F%E6%96%B9%E6%B3%95/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Wed, 16 Oct 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;hr /&gt;
 &lt;p&gt;上一篇帖子讲述了如何给自己的 CF Pages 项目的自定义域名加速，这篇帖子就来讲述一下如何给 CF Workers 加速。&lt;/p&gt;
 &lt;h1 id=&#34;一-准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-准备工作&#34;&gt;#&lt;/a&gt; 一。准备工作&lt;/h1&gt;
 &lt;p&gt;1.&lt;strong&gt; 托管在 cloudflare&lt;/strong&gt; 的域名，这里我用’&lt;a href=&#34;http://kuiyr.us.kg&#34;&gt;kuiyr.us.kg&lt;/a&gt;‘作演示。(注意不要用双向解析域名，也就是这篇文章&lt;a href=&#34;https://kuiyr0810.github.io/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/&#34;&gt;双向解析域名 (托管到 cloudflare) 使用方法 (kuiyr0810.github.io)&lt;/a&gt;)&lt;br /&gt;
@@ -175,8 +171,7 @@ Worker 选择你部署的 Worker 项目即可，保存之后即可！&lt;/p&gt;
             <link>https://suns.blogu.tc/Miscellaneous/Cloudflare%20Pages%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8A%A0%E9%80%9F%E6%96%B9%E6%B3%95/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Fri, 11 Oct 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;hr /&gt;
 &lt;h2 id=&#34;一前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一前言&#34;&gt;#&lt;/a&gt; 一。前言&lt;/h2&gt;
 &lt;p&gt;人称 “赛博菩萨” 的 cloudflare，不仅提供免费的 cdn，还提供了 Pages 和 Workers 两个免费服务，允许你构建和部署无服务器功能、站点和全栈应用程序，给各位开发者和白嫖怪提供了无比的便利的平台，你可以搭建一个博客，图床，监控面板甚至是一个完整的 Ai 对话系统，例如 github 开源的项目&lt;a href=&#34;https://github.com/Harry-zklcdc/go-proxy-bingai&#34;&gt; Harry-zklcdc/go-proxy-bingai: 用 Vue3 和 Go 搭建的微软 New Bing 演示站点，拥有一致的 UI 体验，支持 ChatGPT 提示词，支持 API 调用，国内可用。 (github.com)&lt;/a&gt;，这个项目你既可用 Pages 搭建，也可用 Workers 搭建（好像跑题了 doge）。&lt;br /&gt;
 像这种类似 Pages 的项目部署后都需要绑定自己的域名，因为其自带的域名已经被国内运营商屏蔽了，接下来我就教大家如何对 Pages 自定义域名进行 cloudflare 优选加速。&lt;/p&gt;
@@ -220,8 +215,7 @@ cloudflare 这边所有工作就完成了，只有四条 NS 记录。&lt;br /&gt
             <link>https://suns.blogu.tc/Miscellaneous/%E5%8F%8C%E5%90%91%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D(%E6%89%98%E7%AE%A1%E5%88%B0cloudflare)%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Sat, 28 Sep 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;hr /&gt;
 &lt;p&gt;我的这篇帖子&lt;a href=&#34;https://kuiyr0810.github.io/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/&#34;&gt;建站初期的免费域名 (持续更新) (kuiyr0810.github.io)&lt;/a&gt; 介绍了一些可以白嫖的域名，但是大家会发现，许多域名可以托管到 cloudflare（以下简称 cf），但是就是无法正常解析，但是注册商自带的 DNS 解析又能正常，这类域名就是需要双向解析的域名。例如 cloudns，&lt;a href=&#34;http://1gb.ua&#34;&gt;1gb.ua&lt;/a&gt; (部分类似域名未更新)，接下来我就来介绍如何将这类域名完美托管到 cloudflare。&lt;/p&gt;
 &lt;p&gt;我就用 cloudns 来举例吧！&lt;/p&gt;
 &lt;h1 id=&#34;一准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一准备工作&#34;&gt;#&lt;/a&gt; 一。准备工作&lt;/h1&gt;
@@ -288,8 +282,8 @@ cloudflare 这边所有工作就完成了，只有四条 NS 记录。&lt;br /&gt
             <link>https://suns.blogu.tc/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Sat, 21 Sep 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;hr /&gt;
 &lt;p&gt;免费域名为广大建站小白免去了建站测试初期高昂的费用，但其实现在大多云服务商都有着低价一年域名的活动。com，cn 等流行后缀只需 1 元 / 年，但是第二年续费价格就比较难以接受了，当然你通过域名带来足够的收益值得你续费这个域名的话（如果你很有钱的话），当我没说。&lt;br /&gt;
 下面我将分享一些比较适合白嫖的免费域名，全部可用，但有些条件比较苛刻。&lt;/p&gt;
 &lt;table&gt;
@@ -397,8 +391,7 @@ cloudflare 这边所有工作就完成了，只有四条 NS 记录。&lt;br /&gt
             <link>https://suns.blogu.tc/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E7%9A%84%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E4%B8%80)/</link>
             <category term="杂谈" scheme="https://suns.blogu.tc/categories/Miscellaneous/" />
             <pubDate>Fri, 06 Sep 2024 00:50:23 +0800</pubDate>
-            <description><![CDATA[ &lt;img loading=&#34;lazy&#34; data-src=&#34;https://api.vvhan.com/api/ipCard?tip=Hello 帅哥or美女&#34;&gt;
----
+            <description><![CDATA[ &lt;hr /&gt;
 &lt;h2 id=&#34;1-前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-前言&#34;&gt;#&lt;/a&gt; 1 . 前言&lt;/h2&gt;
 &lt;p&gt;免费虚拟主机作为一种公益产品，给建站小白提供了无比便利的测试建站平台。你可以搭建一个博客 —— 例如 typecho、emlog，抑或是功能更多的 wordpress。博主的博客框架是 hexo，基于 github pages, 这个需要花费很多的精力，因为大部分操作都是基于命令行，但是它的优点是虚拟主机和云服务器比不了的，这个我们后面再谈。&lt;br /&gt;
 不光是博客，你还可以搭建其他网站，不过也是需要要求虚拟主机拥有的环境。根据我的经验，国内的大部分虚拟主机只有 php 环境，而许多国外老厂的虚拟主机有其他环境例如 python、node.js 等等，甚至还带有 ssh 连接权限。接下来我就分享一些经过收集的虚拟主机。怎么说呢，多到用不完。&lt;/p&gt;
