@@ -1,0 +1,78 @@
+<html><head><style>.wallpaper-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+}
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.category-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(var(--theme-color), 0.1);
+    border: 1px solid rgba(var(--theme-color), 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.category-btn.active {
+    background: rgba(var(--theme-color), 0.9);
+    color: white;
+}
+.wallpaper-img {
+    width: 100%;
+    height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.loading {
+    filter: blur(10px);
+}
+</style><meta name="generator" content="Hexo 7.3.0"></head><body><div class="wallpaper-container"><div class="category-buttons"><button class="category-btn active" data-category="random">随机</button><button class="category-btn" data-category="风景">风景</button><button class="category-btn" data-category="动漫">动漫</button><button class="category-btn" data-category="游戏">游戏</button><button class="category-btn" data-category="星空">星空</button></div><div id="wallpaper-wrapper"><img class="wallpaper-img" id="wallpaper-image" src="" alt="随机壁纸"></div></div><script>document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.category-btn');
+    const imgElement = document.getElementById('wallpaper-image');
+    let currentCategory = 'random';
+
+    // 加载第一张图片
+    fetchWallpaper(currentCategory);
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 切换按钮状态
+            buttons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            currentCategory = this.dataset.category;
+            fetchWallpaper(currentCategory);
+        });
+    });
+
+    async function fetchWallpaper(category) {
+        try {
+            imgElement.classList.add('loading');
+            
+            const apiUrl = `https://wp.upx8.com/api.php?${category === 'random' ? '' : 'content=' + category}`;
+            const response = await fetch(apiUrl);
+            
+            if (!response.ok) throw new Error('网络响应异常');
+            
+            const data = await response.json();
+            // 如果API返回直接图片URL，改用这个：
+            // imgElement.src = apiUrl + '&_t=' + Date.now();
+            
+            const randomIndex = Math.floor(Math.random() * data.images.length);
+            imgElement.src = data.images[randomIndex];
+            
+            imgElement.onload = () => {
+                imgElement.classList.remove('loading');
+            };
+        } catch (error) {
+            console.error('加载失败:', error);
+            imgElement.alt = '图片加载失败，请刷新重试';
+            imgElement.classList.remove('loading');
+        }
+    }
+});</script></body></html>
