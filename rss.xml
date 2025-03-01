@@ -105,7 +105,7 @@ with open(&#39;weibo.txt&#39;, &#39;w&#39;, encoding=&amp;quot;utf-8&amp;quot;) 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;在以上三个例子中，可以作为简单的爬取简单元素的模板，每一条代码都进行了详细的解释，唯一有疑问的应该是&lt;span class=&#34;label&#34;&gt; moive_titles = soup.find_all ()&lt;/span&gt;, 这里面的参数是如何来的呢？&lt;br /&gt;
-接下来就需要你使用浏览器开发者工具分析网页结构，引号里面的是某个网页元素结构的&lt;span class=&#34;label primary&#34;&gt;标签&lt;/span&gt;，而 class_的值为网页元素的&lt;span ,label=&#34;&#34; class=&#34;primary&#34;&gt;属性&lt;/span&gt;（可能有小伙伴会有疑问，为什么使用 class_而不是 class，这是为了与 python 本身的类关键词 class 区分）&lt;br /&gt;
+接下来就需要你使用浏览器开发者工具分析网页结构，引号里面的是某个网页元素结构的&lt;span class=&#34;label primary&#34;&gt;标签&lt;/span&gt;，而 class_的值为网页元素的&lt;span class=&#34;label primary&#34;&gt;属性&lt;/span&gt;（可能有小伙伴会有疑问，为什么使用 class_而不是 class，这是为了与 python 本身的类关键词 class 区分）&lt;br /&gt;
 如何寻找呢？&lt;br /&gt;
 首先我们来观察豆瓣排行榜网页结构，鼠标放在标题上方，右键选择 “检查” 或者 “审查元素”，可快速定位位置&lt;br /&gt;
 &lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/1740839552612_image.png&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
