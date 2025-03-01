@@ -10,8 +10,109 @@
         </author>
         <description>往事总是在回忆时被赋予意义</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 05 Feb 2025 19:50:23 +0800</pubDate>
-        <lastBuildDate>Wed, 05 Feb 2025 19:50:23 +0800</lastBuildDate>
+        <pubDate>Mon, 17 Feb 2025 00:50:23 +0800</pubDate>
+        <lastBuildDate>Mon, 17 Feb 2025 00:50:23 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://suns.blogu.tc/Python/Python-%E5%9F%BA%E7%A1%80%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%B8%80)%20(1)/</guid>
+            <title>Python-基础爬虫学习(一)</title>
+            <link>https://suns.blogu.tc/Python/Python-%E5%9F%BA%E7%A1%80%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%B8%80)%20(1)/</link>
+            <category term="Python" scheme="https://suns.blogu.tc/categories/Python/" />
+            <pubDate>Mon, 17 Feb 2025 00:50:23 +0800</pubDate>
+            <description><![CDATA[ &lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;什么是爬虫？&lt;/summary&gt;&lt;div&gt;
+&lt;p&gt;爬虫是一种自动化程序，它按照一定的规则来爬取互联网上的各种有用的信息，为自己所用。&lt;br /&gt;
+爬取信息前务必遵守网站的 robots 协议，遵守网站服务条款，严禁爬取网站用户个人信息！！&lt;/p&gt;
+&lt;h1 id=&#34;爬虫的基本流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#爬虫的基本流程&#34;&gt;#&lt;/a&gt; 爬虫的基本流程&lt;/h1&gt;
+&lt;p&gt;・发送请求&lt;br /&gt;
+・解析网页&lt;br /&gt;
+・提取数据&lt;br /&gt;
+・存储数据&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;p&gt;先来一些简单的小例子！&lt;/p&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;豆瓣排行榜&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Python&#34;&gt;#导入两个必要的库 requests用来发送请求 BeautifulSoup用来解析网页内容  
+  
+import requests  
+from bs4 import BeautifulSoup  
+  
+#确定要爬取的网页  
+url = &amp;quot;http://movie.douban.com/top250&amp;quot;  
+#设置请求头,模拟真实浏览器访问，否则可能会被阻止访问  
+hearders = &amp;#123;  
+    &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&amp;quot;  
+&amp;#125;  
+#向网页发送http请求,获取网页内容  
+reponse = requests.get(url, headers=hearders)  
+#解析网页html内容,为下一步寻找网页标签做条件  
+soup = BeautifulSoup(reponse.text, &amp;quot;html.parser&amp;quot;)  
+#找到电影标题所在的标签，获得所有的电影标题。此处需要会利用开发者工具,懂简单的html知识  
+moive_titles = soup.find_all(&#39;span&#39;, class_=&#39;title&#39;)  
+#打印电影标题并储存到douban.txt文件  
+with open(&#39;douban.txt&#39;, &#39;w&#39;, encoding=&amp;quot;utf-8&amp;quot;) as e:  
+    for title in moive_titles:  
+        print(title.text)  
+        e.write(title.text + &#39;\n&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;知乎热榜&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Python&#34;&gt;#导入两个必要的库 requests用来发送请求 BeautifulSoup用来解析网页内容  
+  
+import requests  
+from bs4 import BeautifulSoup  
+  
+#确定要爬取的网页  
+url = &amp;quot;https://www.zhihu.com/billboard&amp;quot;  
+#设置请求头,模拟真实浏览器访问，否则可能会被阻止访问  
+hearders = &amp;#123;  
+    &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&amp;quot;  
+&amp;#125;  
+#向网页发送http请求,获取网页内容  
+reponse = requests.get(url, headers=hearders)  
+#解析网页html内容,为下一步寻找网页标签做条件  
+soup = BeautifulSoup(reponse.text, &amp;quot;html.parser&amp;quot;)  
+#找到电影标题所在的标签，获得所有的电影标题。此处需要会利用开发者工具,懂简单的html知识  
+moive_titles = soup.find_all(&#39;div&#39;, class_=&#39;HotList-itemTitle&#39;)  
+#打印电影标题并储存到douban.txt文件  
+with open(&#39;zhihu.txt&#39;, &#39;w&#39;, encoding=&amp;quot;utf-8&amp;quot;) as e:  
+    for title in moive_titles:  
+        print(title.text)  
+        e.write(title.text + &#39;\n&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;微博热榜&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Python&#34;&gt;#导入两个必要的库 requests用来发送请求 BeautifulSoup用来解析网页内容  
+  
+import requests  
+from bs4 import BeautifulSoup  
+  
+#确定要爬取的网页  
+url = &amp;quot;https://www.trendshub.today/medias/weibo&amp;quot;  
+#设置请求头,模拟真实浏览器访问，否则可能会被阻止访问  
+hearders = &amp;#123;  
+    &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&amp;quot;  
+&amp;#125;  
+#向网页发送http请求,获取网页内容  
+reponse = requests.get(url, headers=hearders)  
+print(&amp;quot;网页状态码:&amp;quot;, reponse.status_code)  
+#解析网页html内容,为下一步寻找网页标签做条件  
+soup = BeautifulSoup(reponse.text, &amp;quot;html.parser&amp;quot;)  
+#找到电影标题所在的标签，获得所有的电影标题。此处需要会利用开发者工具,懂简单的html知识  
+moive_titles = soup.find_all(&#39;div&#39;, class_=&#39;flex&#39;)  
+#打印电影标题并储存到douban.txt文件  
+with open(&#39;weibo.txt&#39;, &#39;w&#39;, encoding=&amp;quot;utf-8&amp;quot;) as e:  
+    for title in moive_titles:  
+        print(title.text)  
+        e.write(title.text + &#39;\n&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在以上三个例子中，可以作为简单的爬取简单元素的模板，每一条代码都进行了详细的解释，唯一有疑问的应该是&lt;span class=&#34;label&#34;&gt; moive_titles = soup.find_all ()&lt;/span&gt;, 这里面的参数是如何来的呢？&lt;br /&gt;
+接下来就需要你使用浏览器开发者工具分析网页结构，引号里面的是某个网页元素结构的&lt;span class=&#34;label primary&#34;&gt;标签&lt;/span&gt;，而 class_的值为网页元素的&lt;span ,label=&#34;&#34; class=&#34;primary&#34;&gt;属性&lt;/span&gt;（可能有小伙伴会有疑问，为什么使用 class_而不是 class，这是为了与 python 本身的类关键词 class 区分）&lt;br /&gt;
+如何寻找呢？&lt;br /&gt;
+首先我们来观察豆瓣排行榜网页结构，鼠标放在标题上方，右键选择 “检查” 或者 “审查元素”，可快速定位位置&lt;br /&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;https://img.5200810.xyz/file/1740839552612_image.png&#34; alt=&#34;image.png&#34; /&gt;&lt;br /&gt;
+ 我们可以观察到排行榜的每一个标题元素的标签都是&lt;strong&gt; span&lt;/strong&gt;，属性 class 都是&lt;strong&gt; title&lt;/strong&gt;，所以获取网页标题的主代码就是&lt;span class=&#34;label&#34;&gt; moive_titles = soup.find_all (&#39;span&#39;, class_ = &#39;title&#39;)&lt;/span&gt;。&lt;br /&gt;
+剩下的例子都是相同的道理，当然了，这只是最基础的，有时候我们会碰到更复杂的网页结构，后面我们会细讲。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://suns.blogu.tc/Miscellaneous/%E5%BB%BA%E7%AB%99%E5%88%9D%E6%9C%9F%E5%85%8D%E8%B4%B9%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA(%E5%9B%9B)/</guid>
             <title>建站初期的免费虚拟主机(四)</title>
