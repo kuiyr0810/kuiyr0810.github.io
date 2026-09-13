@@ -1,0 +1,1478 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><meta name="google-adsense-account" content="ca-pub-6063661802744287"><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux基础笔记 | Sunshine's blog</title><meta name="author" content="Sunshine."><meta name="copyright" content="Sunshine."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="linux全称GNU&#x2F;unix，是一种免费使用和自由传播的类unix操作系统，是一种多任务，多用户，支持多线程和多cpu的操作系统，如Debian，Rhel，SUSE，Oracle Linux。 unix也是一种操作系统，但是其商业化后变得非常封闭且昂贵，且都和价格较高的机器绑定，而linux开源且免费，可靠稳定，性价比很高。 操作系统是连接软硬件的中间层，软件上执行的操作通过操作系统传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础笔记">
+<meta property="og:url" content="https://kuiyr.de/Linux%E7%AC%94%E8%AE%B0/">
+<meta property="og:site_name" content="Sunshine&#39;s blog">
+<meta property="og:description" content="linux全称GNU&#x2F;unix，是一种免费使用和自由传播的类unix操作系统，是一种多任务，多用户，支持多线程和多cpu的操作系统，如Debian，Rhel，SUSE，Oracle Linux。 unix也是一种操作系统，但是其商业化后变得非常封闭且昂贵，且都和价格较高的机器绑定，而linux开源且免费，可靠稳定，性价比很高。 操作系统是连接软硬件的中间层，软件上执行的操作通过操作系统传">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wp.upx8.com/api.php?content=%E9%A3%8E%E6%99%AF">
+<meta property="article:published_time" content="2026-03-08T00:24:02.707Z">
+<meta property="article:modified_time" content="2026-04-16T21:12:19.399Z">
+<meta property="article:author" content="Sunshine.">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wp.upx8.com/api.php?content=%E9%A3%8E%E6%99%AF"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux基础笔记",
+  "url": "https://kuiyr.de/Linux%E7%AC%94%E8%AE%B0/",
+  "image": "https://wp.upx8.com/api.php?content=风景",
+  "datePublished": "2026-03-08T00:24:02.707Z",
+  "dateModified": "2026-04-16T21:12:19.399Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sunshine.",
+      "url": "https://kuiyr.de"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.webp"><link rel="canonical" href="https://kuiyr.de/Linux%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6063661802744287',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"VWBUIDVBKY","apiKey":"690e8b0a9173057be79b6bb354bd964a","indexName":"hexo","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sunshine.","link":"链接: ","source":"来源: Sunshine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux基础笔记',
+  isHighlightShrink: true,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" ><!-- hexo injector head_end start -->
+  <style>
+    /* AI 摘要容器 */
+    .ai-summary-container {
+      margin: 0 0 28px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      backdrop-filter: blur(10px);
+    }
+    
+    .ai-summary-container:hover {
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25);
+      transform: translateY(-3px);
+      border-color: rgba(102, 126, 234, 0.2);
+    }
+    
+    /* 头部区域 */
+    .ai-summary-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ai-summary-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    /* 头像/图标区域 */
+    .ai-summary-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      margin-right: 14px;
+      position: relative;
+    }
+    
+    .ai-summary-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: transparent !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .ai-summary-avatar-default {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .ai-summary-avatar-default svg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    /* 信息区域 */
+    .ai-summary-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .ai-summary-title {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .ai-summary-subtitle {
+      font-size: 12px;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    
+    /* AI 徽章 */
+    .ai-summary-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .ai-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    /* 内容区域 */
+    .ai-summary-content {
+      padding: 20px 24px;
+      background: linear-gradient(to bottom, #fefefe, #fafafa);
+      color: #374151;
+      line-height: 1.8;
+      font-size: 15px;
+      position: relative;
+    }
+    
+    .ai-summary-content::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-size: 48px;
+      font-family: Georgia, serif;
+      color: #667eea;
+      opacity: 0.1;
+      line-height: 1;
+    }
+    
+    .ai-summary-text {
+      display: inline;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* 加载状态 */
+    .ai-summary-loading {
+      padding: 24px;
+      background: linear-gradient(to bottom, #fefefe, #fafafa);
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+    
+    .ai-loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #667eea30;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* 错误状态 */
+    .ai-summary-error {
+      padding: 20px;
+      background: linear-gradient(to bottom, #fef2f2, #fef2f2);
+      color: #dc2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    
+    .ai-summary-error svg {
+      flex-shrink: 0;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .ai-summary-container {
+        margin: 0 0 20px 0;
+        border-radius: 12px;
+      }
+      
+      .ai-summary-header {
+        padding: 14px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .ai-summary-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      
+      .ai-summary-avatar,
+      .ai-summary-avatar-default {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .ai-summary-avatar-default svg {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .ai-summary-title {
+        font-size: 15px;
+      }
+      
+      .ai-summary-subtitle {
+        font-size: 11px;
+      }
+      
+      .ai-summary-badge {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+      
+      .ai-summary-content {
+        padding: 16px 18px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      
+      .ai-summary-content::before {
+        font-size: 36px;
+        left: 12px;
+      }
+    }
+    
+    /* 深色模式支持 */
+    @media (prefers-color-scheme: dark) {
+      .ai-summary-container {
+        background: linear-gradient(135deg, rgba(30,30,30,0.95), rgba(40,40,40,0.95));
+        border-color: rgba(255,255,255,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+      
+      .ai-summary-container:hover {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        border-color: rgba(102, 126, 234, 0.3);
+      }
+      
+      .ai-summary-content {
+        background: linear-gradient(to bottom, #1f1f1f, #1a1a1a);
+        color: #e5e7eb;
+      }
+      
+      .ai-summary-content::before {
+        opacity: 0.15;
+      }
+      
+      .ai-summary-loading {
+        background: linear-gradient(to bottom, #1f1f1f, #1a1a1a);
+        color: #9ca3af;
+      }
+      
+      .ai-summary-error {
+        background: linear-gradient(to bottom, #2d1f1f, #2d1f1f);
+      }
+    }
+  </style>
+  <meta name="google-site-verification" content="_V7Z8AaFEqtqtX5U0w5Eurq_p2Gkd3ZGu2IJuAI0dzU" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Sunshine's blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(https://img.5200810.xyz/file/api/1738664357765_001632-1720973792179d.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/favicon.webp" alt="Logo"><span class="site-name">Sunshine's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux基础笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Linux基础笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-08T00:24:02.707Z" title="发表于 2026-03-08 06:24:02">2026-03-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-16T21:12:19.399Z" title="更新于 2026-04-17 03:12:19">2026-04-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">16.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>57分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;已经过了&quot;,&quot;messageNext&quot;:&quot;天自上次更新，文章内容可能已过时。&quot;,&quot;postUpdate&quot;:&quot;2026-04-17 03:12:19&quot;}" hidden></div><p>linux全称GNU&#x2F;unix，是一种免费使用和自由传播的类unix操作系统，是一种多任务，多用户，支持多线程和多cpu的操作系统，如Debian，Rhel，SUSE，Oracle Linux。</p>
+<p>unix也是一种操作系统，但是其商业化后变得非常封闭且昂贵，且都和价格较高的机器绑定，而linux开源且免费，可靠稳定，性价比很高。</p>
+<p>操作系统是连接软硬件的中间层，软件上执行的操作通过操作系统传递给硬件进行响应。</p>
+<p>Linux特点：<br>免费开源，可靠稳定安全，多平台（手机，数码相机等），多用户多任务，多线程多cpu</p>
+<p>安卓系统是基于linux开发的系统，主要用于便携设备手机，数码相机，平板电脑等，由google公司开发</p>
+<p>红帽是一家开源软件方案供应商，总部位于美国，主要为操作系统，储存，中间件，虚拟化和云计算提供支持服务，红帽的开发源码模式为企业提供跨物理，虚拟，云平台的企业运算解决方案，帮助企业降本增效。也同时和全球用户合作提供技术支持，咨询培训服务</p>
+<p>2018年10月29日，ibm以340亿美元收购red hat,其设计领域包括操作系统，储存，云计算，中间件和虚拟化</p>
+<p>1.红帽企业Linux7 2014年6月发布，基于rhel7操作系统，企业可整合裸机服务器，虚拟机，基础设施即服务，平台即服务，构建一个强大的数据中心，满足各式各样的需求，最后的版本是7.9</p>
+<p>2.红帽企业linux8 2019年5月发布，基于rhel8操作系统，针对混合云时代重新设计的操作系统，旨在支持从企业数据中心到多个公共云的负载和操作，最后的版本是8.5</p>
+<p>3.红帽企业Linux9 2022年5月发布，第一个基于centos stream 构建的rhel9操作系统，从裸机服务器，云提供商，到最边缘的企业网络，该系统能跨越混合云环境，推动更加一致的创新，最后的版本是9.6</p>
+<p>4.红帽企业Linux10 2025年5月21日发布，基于linux6.12内核开发，是一款企业级操作系统，该系统整合了红帽的云原生技术，安全架构，和ai方面的创新技术，专为混合云和企业运算技术设计</p>
+<p>Centos Linux发行版是一款稳定的，可预测的，可复现的，可管理的平台，源于RHEL基于开放源代码规定释出的源码编译的，它是一款开源项目，旨在与RHEL在功能上兼容<br>Centos完全免费，可以在它的基础上构筑和rhel一样的企业级linux操作系统，不需要向其支付费用<br>每个版本的Centos都可以通过安全更新获得10年的支持，大概每两年发布一次的新的Centos系统，每个版本大概6个月更新一次以便支持新的硬件，通过这样建立一个安全稳定，高预测性，高重复性的linux环境</p>
+<p>CentOS Linux、CentOS Stream 和 RHEL 同属红帽生态，核心差异在于<strong>开发位置、更新模式、支持与稳定性</strong>，三者是上下游与商业&#x2F;社区的关系。</p>
+<h3 id="一、三者的核心联系（红帽生态链）"><a href="#一、三者的核心联系（红帽生态链）" class="headerlink" title="一、三者的核心联系（红帽生态链）"></a>一、三者的核心联系（红帽生态链）</h3><p>它们共享同一套技术栈，形成完整的开发与发布链路：</p>
+<ol>
+<li><strong>Fedora</strong>：最上游，是新技术、新功能的试验场。</li>
+<li><strong>CentOS Stream</strong>：RHEL 的<strong>上游开发分支</strong>，用于预发布、测试、集成即将进入 RHEL 的代码。</li>
+<li><strong>RHEL（Red Hat Enterprise Linux）</strong>：经过严格测试、稳定发布的<strong>商业企业版</strong>。</li>
+<li><strong>CentOS Linux（已停止）</strong>：RHEL 的<strong>下游重建版</strong>，是 RHEL 发布后的免费克隆。</li>
+</ol>
+<p>一句话总结：<br><strong>Fedora → CentOS Stream → RHEL → CentOS Linux（已停）</strong></p>
+<hr>
+<h3 id="二、三者详细区别对比"><a href="#二、三者详细区别对比" class="headerlink" title="二、三者详细区别对比"></a>二、三者详细区别对比</h3><h4 id="1-定位与开发位置"><a href="#1-定位与开发位置" class="headerlink" title="1. 定位与开发位置"></a>1. 定位与开发位置</h4><ul>
+<li><strong>RHEL（红帽企业Linux）</strong><ul>
+<li>定位：<strong>商业付费企业级发行版</strong>，面向生产环境，提供官方支持与SLA。</li>
+<li>位置：<strong>下游稳定版</strong>，所有代码经过充分测试后发布。</li>
+</ul>
+</li>
+<li><strong>CentOS Linux（传统CentOS）</strong><ul>
+<li>定位：<strong>免费社区版</strong>，RHEL 的“免费克隆”，移除红帽商标。</li>
+<li>位置：<strong>RHEL 的下游</strong>，在 RHEL 发布后，基于其源码重新编译而成。</li>
+</ul>
+</li>
+<li><strong>CentOS Stream</strong><ul>
+<li>定位：<strong>免费滚动开发版</strong>，RHEL 的“预览版&#x2F;开发版”。</li>
+<li>位置：<strong>RHEL 的上游</strong>，代码会先进入 Stream，测试稳定后才合并到 RHEL。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-更新与发布模式"><a href="#2-更新与发布模式" class="headerlink" title="2. 更新与发布模式"></a>2. 更新与发布模式</h4><ul>
+<li><strong>RHEL</strong><ul>
+<li>固定版本号（如 RHEL 8、9），<strong>定期发布小版本</strong>。</li>
+<li>更新保守、严格，追求极致稳定，补丁以安全修复为主。</li>
+</ul>
+</li>
+<li><strong>CentOS Linux</strong><ul>
+<li>与 RHEL 版本一一对应（如 CentOS 8 对应 RHEL 8）。</li>
+<li>大版本更新滞后 RHEL 数月，小更新同步但略晚。</li>
+</ul>
+</li>
+<li><strong>CentOS Stream</strong><ul>
+<li><strong>滚动更新</strong>，没有传统意义上的“小版本发布”，代码就绪即推送。</li>
+<li>版本号对应 RHEL 大版本（如 Stream 9 对应 RHEL 9 系列），持续接收下一个 RHEL 小版本的代码。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-生命周期与支持"><a href="#3-生命周期与支持" class="headerlink" title="3. 生命周期与支持"></a>3. 生命周期与支持</h4><ul>
+<li><strong>RHEL</strong><ul>
+<li>付费订阅，提供**10年+**官方技术支持、安全补丁、硬件认证、知识库等。</li>
+<li>有完整的服务等级协议（SLA）。</li>
+</ul>
+</li>
+<li><strong>CentOS Linux</strong><ul>
+<li>社区支持，无官方SLA。</li>
+<li><strong>已停止更新</strong>：CentOS 8 已于 2021-12-31 结束支持；CentOS 7 于 2024-06-30 结束支持。</li>
+</ul>
+</li>
+<li><strong>CentOS Stream</strong><ul>
+<li>社区支持，无官方SLA。</li>
+<li>生命周期与对应 RHEL 大版本的<strong>全支持阶段</strong>一致（约5年）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-稳定性与适用场景"><a href="#4-稳定性与适用场景" class="headerlink" title="4. 稳定性与适用场景"></a>4. 稳定性与适用场景</h4><ul>
+<li><strong>RHEL</strong><ul>
+<li>最高稳定性，经过红帽全面QA与硬件认证。</li>
+<li>适用：<strong>生产环境、关键业务、数据库、核心服务器</strong>。</li>
+</ul>
+</li>
+<li><strong>CentOS Linux</strong><ul>
+<li>极高稳定性，与 RHEL 二进制兼容。</li>
+<li>适用：<strong>非关键生产、学习、测试</strong>（现已不可用）。</li>
+</ul>
+</li>
+<li><strong>CentOS Stream</strong><ul>
+<li>稳定性中等，比 Fedora 稳，但比 RHEL 激进。</li>
+<li>适用：<strong>开发、预生产、测试、提前体验 RHEL 新特性</strong>，不建议用于核心生产。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="三、关键时间线与现状"><a href="#三、关键时间线与现状" class="headerlink" title="三、关键时间线与现状"></a>三、关键时间线与现状</h3><ul>
+<li>2020年底：红帽宣布<strong>CentOS Linux 8 提前终止</strong>，重心转向 CentOS Stream。</li>
+<li>2021-12-31：CentOS Linux 8 停止支持。</li>
+<li>2024-06-30：CentOS Linux 7 停止支持。</li>
+<li>现状：<ul>
+<li><strong>RHEL</strong>：主流商业企业版，持续更新。</li>
+<li><strong>CentOS Linux</strong>：历史产物，不再维护。</li>
+<li><strong>CentOS Stream</strong>：红帽官方主推的社区版，是未来 RHEL 小版本的上游，开发公测版。</li>
+</ul>
+</li>
+</ul>
+<p>国产linux<br>1.kylin os:麒麟软件公司开发， Debian系<br>2.Red Flag os:红旗软件公司开发，Debian系<br>3.中科方德 os：中科方得软件公司开发，Debian系<br>4.New Star os：由中兴通讯子公司中兴新支点开发<br>5.deepin os：武汉深之度科技公司开发，Debian系<br>6.统信U os：统信软件技术公司开发，Debian系<br>7.Start os：东莞软件技术公司开发，前身是雨林木风 os，Debian系<br>*8.Euler os：华为捐赠给开放原子开源中心的linux操作系统，基于Centos源代码开发，面向企业级的商用linux发行版，开源（Open Euler os）<br>9.Hope Edge os：江苏润和软件公司开发的一款轻量级物联网linux操作系统<br>10.Fyde os:燧炻科技公司开发的一款轻量级中国版google chrome操作系统<br>11.Harmoney os：华为开发的鸿蒙系统，用于物联网和智能终端<br>*12.CTyun os:基于华为的开源欧拉，经过中国电信天翼技术团队的改进，CTyun os内核的各项性能指标全面提升，相比于Centos7.6cpu调度时延降低了约5%，存储关键路径每面读写次数提升了约3%，容器部署密度也大约提升了3%</p>
+<p>VMware workstation Pro<br>可以借助它在单台linux或者pc windows上作为虚拟机安装多个操作系统<br>1.选择安装语言，推荐选择英文<br>2.日期时间选择上海时区时间<br>3.键盘选择默认<br>4.语言环境<br>5.介质源默认，也就是我们选择的镜像，可以远程下载<br>6.定制软件包按需安装，可以选择最小的安装，后续如果需要可以安装完成后自行安装<br>7.磁盘分区，类似于windows分盘，通常是三个分区（boot，&#x2F;，swap(交换分区)）<br>swap相当于windows的虚拟内存</p>
+<p>关于swap分区，实际上就是从硬盘上划分出来的一小块分区，当物理内存不够的时候，为了不让系统崩溃，操作系统将那些在后台不活跃的进程或者缓存挪到swap分区，将物理内存腾出来给占用较大的进程用<br>如果是物理内存小于4gb，那么swap内存就可以设置两倍的物理内存大小，如果大于4gb,就可以设置2或4的固定值，防止操作系统性能下降，swap内存只是做应急用</p>
+<p>换出：将不活跃的进程挪进swap分区<br>换入：不活跃的进程被唤醒重新进入物理内存，此时可能会挤掉其他进程</p>
+<p>8.Kdump（关闭），是Linux中一个内核转储机制，用于在内核崩溃时保存相关信息，平常我们个人使用时可以关闭它，因为使用kdump需要预留一部分物理内存，这对个人开发者测试是极其不值得，且如果内核崩溃一般都是开发者自己的原因无需分析内核转储的文件，一般只需要重装系统就能解决<br>内核转储的文件可能非常巨大，基本等同物理大小，如果磁盘太小很容易爆满导致故障</p>
+<p>9.网络和主机名，需要远程下载资源时网络可以选择打开，主机名可以自己设置<br>10.安全策略，通过scap（Security Content Automation Protocol）标准定义，如果设定了安全策略安装程序会自动把系统配置为符合安全标准的状态，例如强密码策略，ssh端口配置<br>在实际生产环境中一般不会选择很严格的安全策略，因为其有可能会导致一些老旧的脚本跑不通，服务器部署变得困难，更加推荐系统安装完成后，根据业务需求一步步手动加固，这样更灵活，排查问题也方便</p>
+<p>11.root密码<br>12.创建普通用户<br>13.license接受<br>14.桌面初始化，首语言选择<br>15.关闭selinux(安全增强型linux)，<br>selinux旨防提权，防止横向移动，严格规定用户的权限范围，让有些危险的操作即使是root用户也不能执行<br>vim &#x2F;etc&#x2F;selinux&#x2F;config<br>SELINUX&#x3D;disabled<br>重启后生效<br>一共有三种模式<br>1.严格模式Enforcing（阻止并记录）<br>2.宽容模式Permissive（不阻止但记录）<br>3.禁用模式Disabled（完全关闭）不加载安全策略<br>setenforce 0 临时关闭selinux，相当于切换到Permissive<br>getenforce 获取selinux状态</p>
+<p>16.重启（reboot，shutdown -r 0） r是restart<br>安全关闭系统 shutdown -h 0 h是halt</p>
+<p>runlevel等级介绍</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>英文名称</th>
+<th>状态</th>
+<th>用途</th>
+<th>对应 systemd Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Halt</td>
+<td>关机</td>
+<td>安全停机、断电</td>
+<td>poweroff.target</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Single User</td>
+<td>单用户</td>
+<td>维护、修密码、文件系统</td>
+<td>rescue.target</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Multiuser</td>
+<td>多用户</td>
+<td>本地多用户、无网络</td>
+<td>multi-user.target（部分等同 3）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Multiuser with Network</td>
+<td>完整多用户（文本）</td>
+<td>服务器默认、远程登录、网络服务</td>
+<td>multi-user.target</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reserved</td>
+<td>保留</td>
+<td>自定义、特殊场景</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Graphical</td>
+<td>图形界面</td>
+<td>桌面、GUI 登录</td>
+<td>graphical.target</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reboot</td>
+<td>重启</td>
+<td>正常重启、循环重启</td>
+<td>reboot.target</td>
+</tr>
+</tbody></table>
+<p>桌面布局介绍</p>
+<p>Ctrl+Alt+F1图形界面模式<br>Ctrl+Alt+F2命令行界面模式</p>
+<p>设置主机名为自己姓名全拼<br>hostnamectl set-hostname zhongli</p>
+<p>Bash (GNU Bourne-Again Shell) 是许多Linux发行版的默认Shell（命令行解释器） 。事实上，还有许多传统UNIX上用的Shell，例如tcsh、csh、ash、bsh、ksh等等，Shell Script大致都类同，当您学会一种Shell以后，其它的Shell会很快就上手，大多数的时候，一个Shell Script通常可以在很多种Shell上使用。<br>bash是大多数Linux系统以及Mac OS X默认的shell，它能运行于大多数类Unix风格的操作系统之上，甚至被移植到了Microsoft Windows上的Cygwin系统中，以实现Windows的POSIX虚拟接口</p>
+<p>环境变量设置<br>.bashrc与.bash_profile区别<br>几乎没有区别，.bashrc在交互式非登录shell时读取，.bash_profile在交互式登录shell时读取；但前者可以通过后者在文件中添加判断条件同时读取</p>
+<p>[root@thy ~]#<br>[thy@thy root]$</p>
+<p>tab补全信息 上下翻命令<br>常用快捷操作<br>ctrl+a 移动光标至行首<br>ctrl+e 移动光标至行尾<br>ctrl+u 剪切光标到行首处的字符<br>ctrl+向左箭头<br>ctrl+向右箭头<br>ctrl+d 退出终端<br>ctrl+c 终止当前正在运行的命令</p>
+<p>基础命令</p>
+<ul>
+<li><code>date</code>：查看&#x2F;更改系统时间</li>
+<li><code>uptime</code>：查看系统自启动以来的运行时长</li>
+<li><code>who</code>：查看所有已登录用户的信息</li>
+<li><code>history</code>：查看成功运行的命令历史记录</li>
+<li><code>hostname</code>：查看当前主机名</li>
+<li><code>whoami</code>：查看当前登录的用户名</li>
+<li><code>id</code>：查看当前用户的UID&#x2F;GID等身份信息</li>
+<li><code>uname -a</code>：查看系统详细内核信息</li>
+<li><code>cat /etc/redhat-release</code>：查看红帽系列系统版本信息</li>
+<li><code>cat /etc/os-release</code>:其他系列系统版本信息</li>
+<li><code>cat /proc/cpuinfo</code>：查看CPU硬件详细信息</li>
+<li><code>cat /proc/meminfo</code>：查看物理内存详细信息</li>
+<li><code>free</code>：查看物理内存的可用&#x2F;使用大小</li>
+<li><code>su</code>：用户提权&#x2F;切换（<code>su - name</code> 带环境变量切换，<code>su name</code> 仅切换用户）</li>
+<li><code>passwd</code>：更改当前用户&#x2F;指定用户密码</li>
+<li><code>chown</code>：设置文件&#x2F;目录的所有者和所属组</li>
+<li><code>chmod</code>：设置用户对文件&#x2F;目录的读、写、执行权限</li>
+<li><code>ls</code>：列出当前目录下的所有文件和目录</li>
+<li><code>cd</code>：切换工作目录（<code>cd ~</code> 回主目录，<code>cd ..</code> 回上级目录）</li>
+<li><code>pwd</code>：显示当前工作目录的完整绝对路径</li>
+<li><code>cp</code>：复制文件&#x2F;目录（<code>cp -r</code> 递归复制目录）</li>
+<li><code>rm</code>：删除文件&#x2F;目录（<code>rm -rf</code> 强制递归删除）</li>
+<li><code>mv</code>：移动&#x2F;重命名文件&#x2F;目录</li>
+<li><code>mkdir</code>：创建目录（<code>mkdir -p</code> 递归创建多级目录）</li>
+<li><code>rmdir</code>：删除空目录</li>
+<li><code>file</code>：查看指定文件的类型&#x2F;属性</li>
+<li><code>touch</code>：创建空文件&#x2F;更改文件的时间戳属性</li>
+<li><code>find</code>：在指定目录下查找文件&#x2F;目录<ul>
+<li>-name pattern：按文件名查找，支持使用通配符 <code>*</code> 和 <code>?</code>。</li>
+<li>-type type：按文件类型查找，可以是 <code>f</code>（普通文件）、<code>d</code>（目录）、<code>l</code>（符号链接）等。</li>
+<li>-size [+-]size[cwbkMG]：按文件大小查找，支持使用 <code>+</code> 或 <code>-</code> 表示大于或小于指定大小，单位可以是 <code>c</code>（字节）、<code>w</code>（字数）、<code>b</code>（块数）、<code>k</code>（KB）、<code>M</code>（MB）或 <code>G</code>（GB）。</li>
+<li>-mtime days：按修改时间查找，支持使用 <code>+</code> 或 <code>-</code> 表示在指定天数前或后，days 是一个整数表示天数。</li>
+<li>-user username：按文件所有者查找。</li>
+<li>-group groupname：按文件所属组查找。</li>
+<li>-exec rm {} \ ;查找后执行的操作</li>
+<li>-perm 拥有指定权限的</li>
+</ul>
+</li>
+<li><code>du</code>：显示指定文件&#x2F;目录占用的磁盘空间大小</li>
+<li><code>df</code>：显示文件系统的磁盘空间使用情况（含挂载点、使用率）</li>
+<li><code>ifconfig</code>：查看&#x2F;更改网卡网络配置</li>
+<li><code>netstat</code>：查看网络连接、端口、路由等配置信息</li>
+<li><code>route</code>：查看&#x2F;更改系统路由表</li>
+<li><code>mount</code>：挂载文件系统&#x2F;设备</li>
+<li><code>umount</code>：卸载已挂载的文件系统&#x2F;设备</li>
+<li><code>gzip</code>：压缩文件（生成.gz格式，原文件消失）</li>
+<li><code>gunzip</code>：解压缩.gz文件（等同于<code>gzip -d</code>）</li>
+<li><code>tar</code>：打包&#x2F;压缩&#x2F;解压缩（常用：<code>tar -zcvf</code> 压缩，<code>tar -zxvf</code> 解压缩）<br>末尾添加<code>--exclude=</code>排除指定模式文件，必须放到要压缩目录的前面<br>-p 选项用于保留文件原有权限<br>-z压缩文件为tar.gz格式<br>-j压缩文件为tar.bz2格式<br>-J压缩文件为tar.xz格式</li>
+<li><code>cat</code>：一次性输出文件全部内容</li>
+<li><code>more</code>：滚动式查看文件内容（仅向下翻）</li>
+<li><code>less</code>：分页式查看文件内容（上下翻、搜索）</li>
+<li><code>tail</code>：查看文件行尾内容（<code>tail -f</code> 实时监控最新内容）</li>
+<li><code>head</code>：查看文件行首内容</li>
+<li><code>man</code>：查看命令&#x2F;配置文件的帮助手册（最常用）</li>
+<li><code>info</code>：查看更详细的命令说明</li>
+<li><code>--help</code>：查看命令的简易帮助文档（如 <code>ls --help</code>）</li>
+<li><code>top</code>：实时动态显示当前正在运行的进程（按资源占用排序）</li>
+<li><code>ps</code>：查看当前系统的进程状态（常用 <code>ps -ef</code>）<ul>
+<li>ps -aux：BSD 风格格式，显示更全、更易读，适合看负载、CPU &#x2F; 内存占用<ul>
+<li><strong>a</strong> &#x3D; 显示所有用户的进程（all users）</li>
+<li><strong>u</strong> &#x3D; 显示用户、CPU、内存等详细信息（user-oriented）</li>
+<li><strong>x</strong> &#x3D; 显示无终端的进程（后台进程）</li>
+</ul>
+</li>
+<li>ps -ef：UNIX System V 风格，列更精简，侧重看父子进程关系*<ul>
+<li><strong>-e</strong> &#x3D; 显示所有进程（every process）</li>
+<li><strong>-f</strong> &#x3D; 完整格式输出（full format）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>kill</code>：杀死指定进程（<code>kill -9 进程ID</code> 强制杀死）</li>
+<li><code>pkill</code>:杀死所有相关进程（和<code>killall</code>等价）</li>
+<li><code>clear</code>：清空终端屏幕内容</li>
+<li><code>which</code>：查找可执行文件的绝对路径</li>
+<li><code>whereis</code>：查找可执行文件的二进制、源代码、man手册路径</li>
+<li><code>bc</code>：调用任意精度计算器（终端内进行数值计算）<br>-<code>tar -zxvf xxx.tar.gz -C directory</code> 解压缩一个被gzip 压缩的归档文件到指定目录</li>
+<li><code>tar -zcvf xxx+$(date +\%Y\%m\%d\%H\%M\%S).tar.gz directory</code>定时任务备份时带备份时间后缀</li>
+<li><code>ntpdate ntp服务器地址</code>   将系统时间同步到网络时间服务器</li>
+<li><code>w</code> 查看所有已登陆用户的详细信息（用户名，登录终端，登陆时间等）</li>
+<li><code>who -u</code>  查看所有已登录用户的信息</li>
+<li><code>last -a</code>  查看历史登录记录</li>
+<li><code>fdisk -l/parted -l</code>查看所有磁盘分区信息</li>
+<li><code>chronyd -q &quot;server ntp.aliyun.com iburst&quot;</code>临时同步系统时间到ntp服务器时间</li>
+<li><code>iostat</code> 查看磁盘 IO 明细</li>
+<li><code>vmstat</code> 查看系统整体资源</li>
+<li><code>crontab -l</code> 查看当前用户定时任务</li>
+<li><code>cat /etc/crontab</code> 查看系统级定时任务</li>
+<li><code>ls /var/spool/cron</code> 列出用户存放定时任务目录中的文件</li>
+<li><code>cat /var/spool/cron/*</code> 查看所有用户定时任务内容</li>
+<li><code>sysctl -a</code> 查看所有内核参数</li>
+<li><code>vi /etc/security/limits.conf</code> 限制用户进程数的文件</li>
+<li><code>vi /etc/sudoers </code> 规定sudo命令可以做什么的文件</li>
+<li><code>vi /etc/bashrc</code> 系统全局的的bash配置文件，对所有用户生效</li>
+<li><code>runlevel</code>查看运行级别数字</li>
+<li><code>systemctl get-default</code> 查看运行级别</li>
+</ul>
+<p>如何查看cpu,内存和磁盘使用情况<br>top,lscpu<br>top free -h<br>df -h  –total</p>
+<p>文件颜色分类<br>蓝色：目录<br>浅蓝色：链接<br>黄色：字符设备<br>绿色：可执行文件<br>红色：压缩包<br>灰色：简单文件</p>
+<h1 id="top总结补充"><a href="#top总结补充" class="headerlink" title="top总结补充"></a>top总结补充</h1><p>top -o %MEM 系统进程占用内存排序<br>top -o %CPU  系统进程占用cpu排序<br>top -o TIME+ 系统进程占用cpu时间</p>
+<h4 id="二、top-界面逐行详解（最核心）"><a href="#二、top-界面逐行详解（最核心）" class="headerlink" title="二、top 界面逐行详解（最核心）"></a>二、top 界面逐行详解（最核心）</h4><h5 id="第-1-行：系统整体状态（时间、登录、负载）"><a href="#第-1-行：系统整体状态（时间、登录、负载）" class="headerlink" title="第 1 行：系统整体状态（时间、登录、负载）"></a>第 1 行：系统整体状态（时间、登录、负载）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top - 15:30:00 up 10 days,  3:45,  2 users,  load average: 0.05, 0.03, 0.01</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<ul>
+<li><code>15:30:00</code>：当前系统时间</li>
+<li><code>up 10 days</code>：系统已运行 10 天（没重启）</li>
+<li><code>2 users</code>：当前登录 2 个用户</li>
+<li><code>load average: 0.05, 0.03, 0.01</code>：<strong>1分钟、5分钟、15分钟系统平均负载</strong><ul>
+<li>单核 CPU：<strong>&gt;1 就开始忙</strong></li>
+<li>多核 CPU：<strong>总核数以内都正常</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="第-2-行：进程总数统计"><a href="#第-2-行：进程总数统计" class="headerlink" title="第 2 行：进程总数统计"></a>第 2 行：进程总数统计</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tasks: 150 total,   1 running, 148 sleeping,   0 stopped,   1 zombie</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>total</code>：总进程数</li>
+<li><code>running</code>：正在运行的进程</li>
+<li><code>sleeping</code>：休眠进程（最常见）</li>
+<li><code>stopped</code>：停止的进程</li>
+<li><code>zombie</code>：僵尸进程（子进程挂了，但是父进程还没有清理）</li>
+</ul>
+<hr>
+<h5 id="第-3-行：CPU-使用率（最重要）"><a href="#第-3-行：CPU-使用率（最重要）" class="headerlink" title="第 3 行：CPU 使用率（最重要）"></a>第 3 行：CPU 使用率（最重要）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%Cpu(s):  2.0 us,  0.5 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.5 si,  0.0 st</span><br></pre></td></tr></table></figure>
+
+<p>每个字段含义：</p>
+<ul>
+<li><code>us</code>：用户进程占用 CPU（正常 1–30%）</li>
+<li><code>sy</code>：系统内核占用 CPU</li>
+<li><code>ni</code>：优先级调整过的进程</li>
+<li><code>id</code>：空闲 CPU（越高越好）</li>
+<li><code>wa</code>：IO 等待（硬盘慢、磁盘压力大时升高）</li>
+<li><code>hi</code>：硬件中断</li>
+<li><code>si</code>：软件中断</li>
+<li><code>st</code>：虚拟化被偷走的资源（云服务器，物理机抢占cpu时间越长值越高）</li>
+</ul>
+<p><strong>快速判断：</strong></p>
+<ul>
+<li>id 很低 → CPU 满了</li>
+<li>wa 很高 → 硬盘&#x2F;IO 慢</li>
+</ul>
+<hr>
+<h5 id="第-4-行：内存（Mem）"><a href="#第-4-行：内存（Mem）" class="headerlink" title="第 4 行：内存（Mem）"></a>第 4 行：内存（Mem）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MiB Mem :  3800 total,  1200 free,  1500 used,  1100 buff/cache</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>total</code>：总内存</li>
+<li><code>free</code>：完全空闲内存</li>
+<li><code>used</code>：已用内存</li>
+<li><code>buff（写到硬盘.设备时的临时缓冲）/cache（从硬盘，设备读出的缓存）</code>：系统缓存（<strong>不是真的被占用</strong>）</li>
+</ul>
+<p><strong>重点：</strong><br>Linux 会把空闲内存当缓存，所以<strong>used 高不代表内存不够</strong>，要看 <strong>free + buff&#x2F;cache</strong>。</p>
+<hr>
+<h5 id="第-5-行：交换分区（Swap）"><a href="#第-5-行：交换分区（Swap）" class="headerlink" title="第 5 行：交换分区（Swap）"></a>第 5 行：交换分区（Swap）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MiB Swap:  2048 total,  2048 free,     0 used，1024 avail mem</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>used</code> 越高 → 内存越不够用</li>
+<li>经常 swap 被使用 → 建议加内存<br>-<code>avail mem</code>真实可用的物理内存</li>
+</ul>
+<hr>
+<h4 id="三、top-进程列表（最关键的监控区域）"><a href="#三、top-进程列表（最关键的监控区域）" class="headerlink" title="三、top 进程列表（最关键的监控区域）"></a>三、top 进程列表（最关键的监控区域）</h4><p>从第 7 行开始是进程列表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND</span><br></pre></td></tr></table></figure>
+
+<h2 id="每一列含义（必须掌握）"><a href="#每一列含义（必须掌握）" class="headerlink" title="每一列含义（必须掌握）"></a>每一列含义（必须掌握）</h2><ol>
+<li><strong>PID</strong>：进程 ID（杀进程用）</li>
+<li><strong>USER</strong>：进程所属用户</li>
+<li><strong>PR</strong>：进程的实际优先级</li>
+<li><strong>NI</strong>：nice 值（负数&#x3D;优先级高，用户调整的优先级偏移量）</li>
+<li><strong>VIRT</strong>：虚拟内存（不代表真实占用，进程预估&#x2F;预测的内存使用量）</li>
+<li><strong>RES</strong>：<strong>真实物理内存占用</strong>（重点看）</li>
+<li><strong>SHR</strong>：共享内存</li>
+<li><strong>S</strong>：进程状态<ul>
+<li>R &#x3D; running</li>
+<li>S &#x3D; sleeping</li>
+<li>Z &#x3D; zombie（僵尸）</li>
+</ul>
+</li>
+<li><strong>%CPU</strong>：CPU 使用率</li>
+<li><strong>%MEM</strong>：内存使用率</li>
+<li><strong>TIME+</strong>：进程累计占用 CPU 时间</li>
+<li><strong>COMMAND</strong>：进程名称</li>
+</ol>
+<h4 id="四、top-常用快捷键"><a href="#四、top-常用快捷键" class="headerlink" title="四、top 常用快捷键"></a>四、top 常用快捷键</h4><ul>
+<li><code>P</code>：按 CPU 使用率排序（最常用）</li>
+<li><code>M</code>：按内存使用率排序</li>
+<li><code>1</code>：显示每个 CPU 核心使用率</li>
+<li><code>q</code>：退出 top</li>
+<li><code>h</code>：帮助</li>
+<li><code>k</code>：输入 PID 杀进程</li>
+<li><code>c</code>：显示完整命令行</li>
+<li><code>u</code>：按用户查看进程</li>
+</ul>
+<hr>
+<p>vi编辑器<br>三种模式<br>1)命令模式  dd剪切 yy复制 G跳转到最后一行 gg跳转到第一行<br>:进入底线命令模式  p粘贴内容到光标下方 P粘贴内容到光标上方 u撤销上一次的操作 Ctrl+r重做上一次的撤销操作<br>2）插入模式 按a或者i，o，O进入插入模式<br>3）esc:进入底线命令模式<br>编辑器显示行号<br>1.永久显示<br>vi &#x2F;etc&#x2F;virc 和vi &#x2F;etc&#x2F;vimrc<br>在文件最后一行添加<br>set number<br>2.临时显示<br>在底线命令模式时输入<br>:set nu</p>
+<p>|grep<br>关于grep：按字符串 &#x2F; 正则搜索文本并输出匹配行<br>grep -i 忽略大小写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-v是grep排除的参数，例：查询不包含字母abc的行，例如cat test.txt |grep -v &#x27;abc&#x27;</span><br><span class="line">^代表行首，$代表行尾。 ^$是空行的意思</span><br><span class="line">^#表示首字母为#的行，linux里的文件，#号开头一般都是注释内容</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/ssh/sshd_config|grep -v ^# |grep -v ^$&gt;&gt;/tmp/a.log</span><br><span class="line">&gt;覆盖 </span><br><span class="line">&gt;&gt;追加 </span><br><span class="line">&lt; 输入重定向，将符号右边中的文件内容作为左边命令的标准输入</span><br><span class="line">&lt;&lt;即时输入重定向，将输入命令即时写入文件，通常用于写shell脚本</span><br></pre></td></tr></table></figure>
+
+<p>目录结构<br>&#x2F;根目录<br>&#x2F;usr 系统软件、应用程序、库、命令存放处<br>&#x2F;bin用户级二进制文件存放目录 &#x2F;sbin系统级二进制文件存放目录 centos7、8中是usr&#x2F;bin或者usr&#x2F;sbin的软链接<br>&#x2F;var&#x2F; 经常变化的文件存放的目录，系统和服务日志存放目录<br>&#x2F;boot 启动系统要用的文件：内核、grub 引导文件<br>&#x2F;etc 系统环境配置文件目录<br>&#x2F;opt 用户的安装程序目录，第三方软件目录<br>&#x2F;tmp 临时文件，谁都能写，重启自动清空<br>&#x2F;dev 设备文件目录<br>硬盘：&#x2F;dev&#x2F;sda、&#x2F;dev&#x2F;sdb<br>光驱：&#x2F;dev&#x2F;cdrom<br>终端：&#x2F;dev&#x2F;tty<br>空设备：&#x2F;dev&#x2F;null<br>无限填0的设备：&#x2F;dev&#x2F;zero<br>&#x2F;home 普通用户家目录<br>&#x2F;lib 动态链接库目录<br>&#x2F;proc 进程和缓存目录 （不占硬盘，内存动态生成的虚拟文件系统），操作系统运行时的状态</p>
+<p>总结&#x2F;var&#x2F;log<br><strong>存放系统与所有服务的日志文件</strong>，默认只有 root 能完整查看</p>
+<table>
+<thead>
+<tr>
+<th>日志文件</th>
+<th>作用 &#x2F; 记录内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/var/log/messages</code></td>
+<td>系统全局日志，大部分服务、内核、系统报错都在这里（CentOS&#x2F;RHEL）</td>
+</tr>
+<tr>
+<td><code>/var/log/syslog</code></td>
+<td>类Ubuntu&#x2F;Debian系统的全局系统日志，类似messages</td>
+</tr>
+<tr>
+<td><code>/var/log/dmesg</code></td>
+<td>内核启动、硬件检测、驱动加载信息</td>
+</tr>
+<tr>
+<td><code>/var/log/secure</code></td>
+<td>SSH登录、用户认证、sudo操作等安全相关日志</td>
+</tr>
+<tr>
+<td><code>/var/log/cron</code></td>
+<td>定时任务 crontab 的执行记录与报错</td>
+</tr>
+<tr>
+<td><code>/var/log/maillog</code></td>
+<td>邮件服务（postfix&#x2F;sendmail）收发日志</td>
+</tr>
+<tr>
+<td><code>/var/log/boot.log</code></td>
+<td>系统启动过程日志</td>
+</tr>
+<tr>
+<td><code>/var/log/firewalld</code></td>
+<td>防火墙 firewalld 运行日志</td>
+</tr>
+<tr>
+<td><code>/var/log/yum.log</code></td>
+<td>Yum&#x2F;dnf 安装、卸载、更新软件包记录</td>
+</tr>
+<tr>
+<td><code>/var/log/nginx/access.log</code></td>
+<td>Nginx访问日志</td>
+</tr>
+<tr>
+<td><code>/var/log/nginx/error.log</code></td>
+<td>Nginx错误日志</td>
+</tr>
+<tr>
+<td><code>/var/log/mysqld.log</code></td>
+<td>MySQL&#x2F;MariaDB 启动、查询、错误日志</td>
+</tr>
+</tbody></table>
+<p>用户及用户组<br>添加 删除<br>useradd userdel<br>userdel -r 删除用户时同时删除家目录<br>示例：useradd -d -m -s -u -g -c -e username</p>
+<p>groupadd groupdel<br>修改用户及用户组<br>usermod groupmod</p>
+<p>&#x2F;etc&#x2F;passwd 存放所有用户的信息，对所有用户可读，有7段<br>用户名:密码占位（x 表示密码在 shadow:UID（用户 ID):GID（主组 ID）:注释 &#x2F; 说明:家目录<br>登录 Shell（&#x2F;bin&#x2F;bash 表示能登录）</p>
+<p>&#x2F;etc&#x2F;group  存放所有用户组的信息，对所有用户可读，有4段<br>组名:密码占位符:GID:此组的附加用户</p>
+<p>&#x2F;etc&#x2F;shadow 存放所有用户加密密码和密码策略，只有root用户可读，有9段<br>用户名:加密密码:最后修改时间:密码最小有效期:密码最大有效期:密码到期前警告期:不活动期密码过期后仍能登录:账号过期时间:保留字段</p>
+<p>示例：修改上文件中的值chage -E -m -M -W -I username</p>
+<p>ls -l aaa<br>-rw-r–r– 1 root root 1024 3月 10 14:30 aaa</p>
+<p>chown 修改文件或者目录 拥有者或者和拥有者及用户组</p>
+<p>chmod 修改文件或者目录 权限<br>r  4 读<br>w 2 写<br>x 1 执行<br>用户：用户组：其他<br>文件所有者：文件所有者所在用户组：不属于该用户组的其他用户</p>
+<p>常用权限组：<br>755<br>644<br>700</p>
+<p>-R 对当前目录及其子目录进行递归的操作</p>
+<p>问题：<br>1）特殊权限：</p>
+<p>s：进行权限传递；有时候是大写，这时候说明文件底层没有执行权限，此时s无效<br>SUID4: 临时切换用户身份为文件所有者，操作执行完成之后恢复<br>比如passwd<br>SGID2：一个组用户创建的文件继承上级目录所属组，这样其他的目录所属组用户也能对文件进行操作</p>
+<p>t:防止误操作<br>sticky1：同一组的用户可以任意创建文件，但是无法删除或者重命名别人的文件<br>比如&#x2F;tmp 用户只能删除自己的临时文件</p>
+<p>设置SUID 4777 u+s<br>设置SGID 2777 g+s<br>设置Sticky 1777 o+t<br>全部都给 7777 u+s,g+s,o+t</p>
+<p>权限开头<br>d目录<br>-普通文件<br>l链接<br>软链接：可以跨文件系统，可以对目录进行链接<br>硬链接：不能跨文件系统 ，不能对目录链接<br>b块设备文件<br>c字符设备文件</p>
+<p>2）设备：<br>b：表示块设备文件，以块为单位进行读写，随机访问有缓冲，储存量大，例如硬盘，U盘，光盘  ，我们有时候写文档没保存结果电脑突然断电，重启之后文档内容就没了，这是因为没保存的文件内容仍然在缓冲区没有写进硬盘</p>
+<p>c：表示字符设备文件，以字符单位进行读写，顺序访问无缓冲，实时性强，例如键盘，鼠标，终端，做什么动作及时反馈，比如命令行，敲什么出来什么</p>
+<p>sda表示整个硬盘 sda1硬盘上的一个分区 sda2也是硬盘上的一个分区 传统MBR分区只允许建立4个分区，如果要建立更多分区必须扩展一个分区，这个扩展的分区只是一个外壳，里面可以建立许多的逻辑分区，逻辑分区必须从5开始；现代为GPT分区，可以划分任意数量的分区<br>tty tty1代表终端（已经涵盖为终端接口的统称，泛指linux中所有与用户交互的终端会话），配置文件在&#x2F;etc&#x2F;systemd&#x2F;logind.conf</p>
+<p>网络配置<br>1、图形化界面<br>2、编辑配置文件 直接编辑配置文件 &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33</p>
+<p>从centos8开始network-scripts文件夹消失，此时修改配置文件都是nmcli的配置文件<br>3、nmcli（自学）用于替代ifconfig命令，修改配置精准且永久生效<br>查看nmcli d&#x2F;c<br>查看网络状态<br>nmcli general status<br>管理网络连接<br>nmcli connection show<br>管理网络设备<br>nmcli device show<br>管理wifi<br>nmcli device wifi list<br>配置网络<br>nmcli connection  modify ens33 ipv4.addresses 192.168.142.99&#x2F;24 ipv4.gateway 192.168.142.2 ipv4.dns 114.114.114.114<br>修改配置后一键激活<br>nmcli connection up 网卡名<br>添加默认网关<br>route add default gw 1.1.1.1<br>ip route add default via 1.1.1.1</p>
+<p>nmcli网卡配置文件，格式和内容<br>配置文件在&#x2F;etc&#x2F;NetworkManager&#x2F;system-connections<br>内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[connection]</span><br><span class="line">id=ens33                # 连接名称（nmcli 显示的名称）</span><br><span class="line">uuid=xxxx-xxxx-xxxx     # 唯一标识（nmcli 自动生成）</span><br><span class="line">type=ethernet           # 连接类型（ethernet/802-11-wireless/vlan 等）</span><br><span class="line">interface-name=ens33    # 网卡名（如 eth0、ens33、wlan0）</span><br><span class="line">autoconnect=yes         # 开机自动连接</span><br><span class="line">permissions=            # 权限（默认空）</span><br><span class="line"></span><br><span class="line">[ethernet]</span><br><span class="line">mac-address-blacklist=  # MAC 黑名单（默认空）</span><br><span class="line">mtu=1500                # MTU 值（默认1500），最大传输单元</span><br><span class="line"></span><br><span class="line">[ipv4]</span><br><span class="line">method=manual           # IP 配置方式（manual=静态/dhcp=自动/disabled=禁用）</span><br><span class="line">addresses=192.168.1.100/24,192.168.1.1  # IP/子网掩码 + 网关（多IP用逗号分隔）</span><br><span class="line">dns=8.8.8.8;114.114.114.114             # DNS 服务器（分号分隔）</span><br><span class="line">dns-search=example.com  # DNS 搜索域（可选，自动补全后缀）</span><br><span class="line">may-fail=no             # 配置失败是否影响连接（no=配置失败直接不启动，yes=配置失败仍然启动，缺功能）</span><br><span class="line"></span><br><span class="line">[ipv6]</span><br><span class="line">method=disabled         # 禁用 IPv6（常用，也可设 auto/manual）</span><br><span class="line"></span><br><span class="line">[proxy]</span><br><span class="line">method=none             # 代理（默认无）</span><br></pre></td></tr></table></figure>
+
+<p>4、双网卡绑定（自学）bonding<br>分为主备模式：一张网卡主用，一张网卡做备用<br>和轮询模式：两张网卡一起用<br>将两张物理网卡绑定为一张逻辑网卡</p>
+<h1 id="一、核心原理"><a href="#一、核心原理" class="headerlink" title="一、核心原理"></a>一、核心原理</h1><ul>
+<li>把 <strong>2 块物理网卡</strong> 绑定成 <strong>1 块逻辑网卡 bond0</strong></li>
+<li>常用模式：<ul>
+<li><strong>mode&#x3D;1（主备）</strong>：一块坏了自动切另一块，最稳</li>
+<li><strong>mode&#x3D;0（轮询）</strong>：负载均衡</li>
+</ul>
+</li>
+<li>生产&#x2F;考试 <strong>优先用 mode&#x3D;1</strong></li>
+</ul>
+<hr>
+<h1 id="二、环境说明"><a href="#二、环境说明" class="headerlink" title="二、环境说明"></a>二、环境说明</h1><p>假设：</p>
+<ul>
+<li>物理网卡：<code>eth0</code>、<code>eth1</code></li>
+<li>绑定网卡：<code>bond0</code></li>
+<li>IP：<code>192.168.1.100/24</code></li>
+<li>网关：<code>192.168.1.1</code></li>
+<li>DNS：<code>223.5.5.5</code></li>
+</ul>
+<hr>
+<h1 id="三、步骤（直接复制执行）"><a href="#三、步骤（直接复制执行）" class="headerlink" title="三、步骤（直接复制执行）"></a>三、步骤（直接复制执行）</h1><h2 id="1-安装-bonding-模块（一般已装）"><a href="#1-安装-bonding-模块（一般已装）" class="headerlink" title="1. 安装 bonding 模块（一般已装）"></a>1. 安装 bonding 模块（一般已装）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y bonding</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-加载模块"><a href="#2-加载模块" class="headerlink" title="2. 加载模块"></a>2. 加载模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">modprobe bonding</span><br><span class="line"><span class="built_in">echo</span> bonding &gt;&gt; /etc/modules-load.d/bonding.conf</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="四、配置文件（重点）"><a href="#四、配置文件（重点）" class="headerlink" title="四、配置文件（重点）"></a>四、配置文件（重点）</h1><p>进入网卡目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/sysconfig/network-scripts/</span><br></pre></td></tr></table></figure>
+
+<h2 id="1）创建-bond0-配置"><a href="#1）创建-bond0-配置" class="headerlink" title="1）创建 bond0 配置"></a>1）创建 bond0 配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ifcfg-bond0</span><br></pre></td></tr></table></figure>
+
+<p>内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">TYPE</span>=Bond</span><br><span class="line"><span class="attr">BOOTPROTO</span>=static</span><br><span class="line"><span class="attr">NAME</span>=bond0</span><br><span class="line"><span class="attr">DEVICE</span>=bond0</span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPADDR</span>=<span class="number">192.168</span>.<span class="number">1.100</span></span><br><span class="line"><span class="attr">PREFIX</span>=<span class="number">24</span></span><br><span class="line"><span class="attr">GATEWAY</span>=<span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line"><span class="attr">DNS1</span>=<span class="number">223.5</span>.<span class="number">5.5</span></span><br><span class="line"><span class="attr">BONDING_MASTER</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">BONDING_OPTS</span>=<span class="string">&quot;mode=1 miimon=100&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2）配置第一块网卡-eth0"><a href="#2）配置第一块网卡-eth0" class="headerlink" title="2）配置第一块网卡 eth0"></a>2）配置第一块网卡 eth0</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ifcfg-eth0</span><br></pre></td></tr></table></figure>
+
+<p>内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">TYPE</span>=Ethernet</span><br><span class="line"><span class="attr">BOOTPROTO</span>=none</span><br><span class="line"><span class="attr">NAME</span>=eth0</span><br><span class="line"><span class="attr">DEVICE</span>=eth0</span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">MASTER</span>=bond0</span><br><span class="line"><span class="attr">SLAVE</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3）配置第二块网卡-eth1"><a href="#3）配置第二块网卡-eth1" class="headerlink" title="3）配置第二块网卡 eth1"></a>3）配置第二块网卡 eth1</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ifcfg-eth1</span><br></pre></td></tr></table></figure>
+
+<p>内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">TYPE</span>=Ethernet</span><br><span class="line"><span class="attr">BOOTPROTO</span>=none</span><br><span class="line"><span class="attr">NAME</span>=eth1</span><br><span class="line"><span class="attr">DEVICE</span>=eth1</span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">MASTER</span>=bond0</span><br><span class="line"><span class="attr">SLAVE</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="五、重启网络生效"><a href="#五、重启网络生效" class="headerlink" title="五、重启网络生效"></a>五、重启网络生效</h1><h2 id="CentOS-7"><a href="#CentOS-7" class="headerlink" title="CentOS 7"></a>CentOS 7</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<h2 id="CentOS-8-Rocky-8"><a href="#CentOS-8-Rocky-8" class="headerlink" title="CentOS 8 &#x2F; Rocky 8"></a>CentOS 8 &#x2F; Rocky 8</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection reload</span><br><span class="line">systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="六、查看绑定状态"><a href="#六、查看绑定状态" class="headerlink" title="六、查看绑定状态"></a>六、查看绑定状态</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/net/bonding/bond0</span><br></pre></td></tr></table></figure>
+
+<p>看到：</p>
+<ul>
+<li><code>Slave Interface: eth0</code></li>
+<li><code>Slave Interface: eth1</code></li>
+<li><code>Mode: fault-tolerance (active-backup)</code></li>
+</ul>
+<p><strong>就是成功了。</strong></p>
+<hr>
+<h1 id="七、常用模式说明"><a href="#七、常用模式说明" class="headerlink" title="七、常用模式说明"></a>七、常用模式说明</h1><ul>
+<li><strong>mode&#x3D;0</strong> 平衡轮询（负载）</li>
+<li><strong>mode&#x3D;1</strong> 主备（高可用，考试&#x2F;生产最常用）</li>
+<li><strong>mode&#x3D;4</strong> 802.3ad（需要交换机支持链路聚合）</li>
+</ul>
+<p>!!!当存在多网卡时，仅第一张网卡配置默认网关，其他网卡通信写路由。</p>
+<p>内网网卡配置静态路由 nmcli connection modify ens34 ipv4.gateway “”  &amp;&amp; nmcli connections modify ens34 +ipv4.routes”10.0.0.0&#x2F;24 10.0.0.1”</p>
+<p>相关网络命令<br>ifconfig 显示或设置网络设备<br>netstat -nr 显示ip路由表<br>netstat -an 显示活跃的网络连接，包括tcp（数据传输协议）、udp（用户数据报协议），走网卡，要经过复杂的网络协议；和unix套接字，走文件系统，a写b读，但不显示进程和id<br>netstat -natlp 显示活跃的网络tcp连接，并显示进程id和程序名</p>
+<p>ss 查看套接字统计信息命令，速度更快，提供更详细的网络链接<br>ss -ln 只显示端口<br>ss -lnp  查端口并显示进程<br>ss -a 查看所有链接 tcp&#x2F;udp&#x2F;unix套接字</p>
+<p>ethtool 查询修改网卡设置<br>ifdown&#x2F;ifup 关闭或者启动指定的网卡</p>
+<p>route add&#x2F;del -host&#x2F;-net 增加&#x2F;删除 数据包到内网服务器的路由<br>route add -net 10.0.0.0&#x2F;24 gw 192.168.1.254 添加路由<br>添加静态路由<br>route add -net 目标网段 netmask 子网掩码 gw 网关IP dev 网卡名<br>route add -net 10.0.0.0 netmask 255.255.255.0 gw 192.168.1.254 dev ens33<br>添加主机路由<br>route add -host 目标IP gw 网关IP dev 网卡名<br>route add -host 192.168.2.100 gw 192.168.1.254 dev ens33</p>
+<p>SSH 为 Secure Shell 的缩写，SSH 为建立在应用层基础上的安全协议。SSH 专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。<br>telnet 也是远程桌面链接，默认端口为23</p>
+<p>默认端口22，相关配置文件在&#x2F;etc&#x2F;ssh&#x2F;下<br>ssh有两个配置文件，ssh_config和sshd_config,前者是客户端的配置文件，后者是服务端的配置文件<br>ssh配置文件修改完成后使用<code>sshd -t</code>验证语法，无输出则说明语法正确<br>从客户端来看，SSH提供两种级别的安全验证。</p>
+<p>第一种级别（基于口令的安全验证）输入密码登录<br>第二种级别（基于密匙的安全验证）客户端生成公钥和私钥，公钥放在服务器上是加密的，私钥自己保存是解密的</p>
+<p>SSH是由客户端和服务端的软件组成的，有两个不兼容的版本分别是：1.x和2.x。 用SSH 2.x的客户程序是不能连接到SSH 1.x的服务程序上去的。OpenSSH 2.x同时支持SSH 1.x和2.x。</p>
+<p>服务端是一个守护进程(daemon)，他在后台运行并响应来自客户端的连接请求。服务端一般是sshd进程，提供了对远程连接的处理，一般包括公共密钥认证、密钥交换、对称密钥加密和非安全连接。</p>
+<p>客户端包含ssh程序以及像scp（远程拷贝）指定文件进行本地和远程的传输、slogin（远程登陆）直接登录远程服务器的shell、sftp（安全文件传输）可以浏览和传输远程服务器的文件，等其他的应用程序。</p>
+<p>scp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 本地 → 远程</span><br><span class="line">scp 本地文件 远程用户@IP:远程路径</span><br><span class="line"></span><br><span class="line"># 远程 → 本地</span><br><span class="line">scp 远程用户@IP:远程文件 本地路径</span><br></pre></td></tr></table></figure>
+
+<p>sftp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sftp user@192.168.1.100</span><br><span class="line"></span><br><span class="line">进入后常用命令</span><br><span class="line">- `ls`：看远程目录</span><br><span class="line">- `lls`：看本地目录</span><br><span class="line">- `cd`：切换远程目录</span><br><span class="line">- `lcd`：切换本地目录</span><br><span class="line">- `get 文件名`：下载</span><br><span class="line">- `put 文件名`：上传</span><br><span class="line">- `exit`：退出</span><br></pre></td></tr></table></figure>
+
+<p>slogin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">就是ssh</span><br></pre></td></tr></table></figure>
+
+<p>sshd_config 配置文件常见的安全加固参数修改<br>Port 18933 ssh；连接的默认端口<br>PermitRootLogin no 是否允许远程用户直接以root登陆，一般都需要进入提权输入密码保证安全<br>PermitEmptyPasswords no 是否允许空密码用户登录<br>PasswordAuthentication yes 是否进行密码验证 口令验证</p>
+<p>ssh配置免密登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">ssh-copy-id root@192.168.142.67</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">passwordAuthentication no</span><br><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;etc&#x2F;services 端口号与服务名称的对照表，用于让系统和程序识别端口对应的服务</p>
+<p>如果修改或添加了&#x2F;etc&#x2F;systemd&#x2F;system下的*.service后需要执行命令systemctl daemon-reload</p>
+<p>如果ssh登录对话框反应异常慢<br>修改sshd_config<br>改UseDNS yes 为no</p>
+<p>systemctl stop sshd<br>systemctl start sshd<br>systemctl restart sshd<br>systemctl status sshd</p>
+<p>PS:如果配置文件修改正确 但是服务启动失败 请检查selinux状态，<br>[root@localhost ~]# getenforce<br>Disabled<br>[root@localhost ~]#</p>
+<p>安装方式<br>1.源码编译安装&#x2F;configure; make; make install</p>
+<h4 id="1-准备编译环境"><a href="#1-准备编译环境" class="headerlink" title="1. 准备编译环境"></a>1. 准备编译环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装编译依赖（编译器、依赖库）</span></span><br><span class="line">dnf install -y gcc gcc-c++ make pcre-devel zlib-devel openssl-devel wget</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>gcc/gcc-c++</code>：C&#x2F;C++ 编译器（核心）</li>
+<li><code>pcre-devel</code>：正则表达式库（Nginx 地址重写必备）</li>
+<li><code>zlib-devel</code>：压缩库（传输压缩必备）</li>
+<li><code>openssl-devel</code>：SSL 库（HTTPS 必备）</li>
+</ul>
+<h4 id="2-下载源码包"><a href="#2-下载源码包" class="headerlink" title="2. 下载源码包"></a>2. 下载源码包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 Nginx 稳定版源码（可替换为最新版本）</span></span><br><span class="line">wget https://nginx.org/download/nginx-1.26.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf nginx-1.26.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.26.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-配置编译参数（核心：自定义功能）"><a href="#3-配置编译参数（核心：自定义功能）" class="headerlink" title="3. 配置编译参数（核心：自定义功能）"></a>3. 配置编译参数（核心：自定义功能）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置编译参数（指定安装路径、启用/禁用模块）</span></span><br><span class="line">./configure \</span><br><span class="line">  --prefix=/usr/local/nginx \          <span class="comment"># 安装根目录</span></span><br><span class="line">  --sbin-path=/usr/local/nginx/sbin/nginx \  <span class="comment"># 可执行文件路径</span></span><br><span class="line">  --conf-path=/usr/local/nginx/conf/nginx.conf \  <span class="comment"># 配置文件路径</span></span><br><span class="line">  --with-http_ssl_module \             <span class="comment"># 启用 HTTPS 模块</span></span><br><span class="line">  --with-http_gzip_static_module       <span class="comment"># 启用 gzip 压缩模块</span></span><br></pre></td></tr></table></figure>
+
+<p>.&#x2F;configure –prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx –sbin-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx –conf-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf –with-http_ssl_module –with-http_gzip_static_module</p>
+<ul>
+<li>执行后无报错 → 配置成功；若报错，检查依赖是否安装完整。</li>
+</ul>
+<h4 id="4-编译-安装"><a href="#4-编译-安装" class="headerlink" title="4. 编译 + 安装"></a>4. 编译 + 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译（-j 后接 CPU 核心数，加速编译，如 -j4）</span></span><br><span class="line">make -j2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装（将编译好的文件复制到指定路径）</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-验证安装-启动"><a href="#5-验证安装-启动" class="headerlink" title="5. 验证安装 &amp; 启动"></a>5. 验证安装 &amp; 启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 验证版本（确认安装成功）</span></span><br><span class="line">/usr/local/nginx/sbin/nginx -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Nginx</span></span><br><span class="line">/usr/local/nginx/sbin/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证运行状态</span></span><br><span class="line">ss -tulnp | grep nginx</span><br></pre></td></tr></table></figure>
+
+<p>2.直接下载二进制可执行文件解压即用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新创建临时目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/nodejs &amp;&amp; <span class="built_in">cd</span> /tmp/nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载 Node.js 18.20.1（适配 CentOS 7/8，无库版本问题）</span></span><br><span class="line">wget https://nodejs.org/dist/v18.20.1/node-v18.20.1-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 国内镜像（更快）：</span></span><br><span class="line"><span class="comment"># wget https://cdn.npmmirror.com/binaries/node/v18.20.1/node-v18.20.1-linux-x64.tar.xz</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤-1：解压安装并验证"><a href="#步骤-1：解压安装并验证" class="headerlink" title="步骤 1：解压安装并验证"></a>步骤 1：解压安装并验证</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xJf node-v18.20.1-linux-x64.tar.xz</span><br><span class="line"><span class="comment"># 移动到系统目录</span></span><br><span class="line"><span class="built_in">mv</span> node-v18.20.1-linux-x64 /usr/local/nodejs</span><br><span class="line"><span class="comment"># 配置环境变量（若之前配过可跳过）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$PATH:/usr/local/nodejs/bin&#x27;</span> &gt;&gt; /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证（无报错即成功）</span></span><br><span class="line">node -v  <span class="comment"># 输出 v18.20.1</span></span><br><span class="line">npm -v   <span class="comment"># 输出 10.5.0</span></span><br></pre></td></tr></table></figure>
+
+<p>rpm（英文全拼：redhat package manager） 原本是 Red Hat Linux 发行版专门用来管理 Linux 各项套件的程序，让 Linux 易于安装，升级，间接提升了 Linux 的适用度。<br>套件：软件包工具集合</p>
+<p>rpm -qa |grep xxx 查询所有含关键词xxx的套件<br>rpm -ivh xxx.rpm 安装套件<br>rpm -e xxx删除指定的套件<br>rpm -e xxx –nodeps 　强制卸载，不验证套件档的相互关联性，不在卸载被依赖套件时同时卸载依赖套件</p>
+<p>qt-mysql-4.8.7-8.el7.x86_64.rpm<br>包名-版本号-发布号.适用系统.架构.后缀</p>
+<p>yum<br>基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。</p>
+<p>配置本地源<br>cd &#x2F;etc&#x2F;yum.repos.d&#x2F;<br>vi dvd.repo<br>[dvd]仓库id<br>name&#x3D;dvdrom 下载源名<br>baseurl&#x3D;file:&#x2F;&#x2F;&#x2F;dvd 下载链接或者本地dvd下的file文件<br>gpgcheck&#x3D;0检查数字签名，防止下载被篡改的套件<br>gpgkey&#x3D;gpg密钥文件路径<br>enabled&#x3D;1是否启用<br>priority&#x3D;1配置多个源时使用的优先级</p>
+<p>为什么要配置本地源<br>本地源快，稳，断网可用<br>网络源全，新，可按需更新</p>
+<p>配置行	详细解释	关键注意事项<br>[dvd]	仓库 ID（repository ID）<br>作用：YUM 识别不同仓库的唯一标识，不能重复（如多个 repo 文件中不能有相同的 ID）；✅ 要求：只能包含字母、数字、下划线、短横线，不能有空格 &#x2F; 特殊字符；<br>示例：可改为[local-dvd]，更直观。	必须用[]包裹，是配置块的开始，缺一不可。</p>
+<p>name&#x3D;dvdrom 下载源名	仓库名称（描述信息）<br>作用：对仓库的备注说明，方便管理员识别（如 “本地 DVD 源”），不影响 YUM 功能；<br>要求：可自定义，支持中文（建议用英文避免乱码）。	仅为注释，无严格格式要求，但name&#x3D;前缀必须保留。</p>
+<p>baseurl&#x3D;file:&#x2F;&#x2F;&#x2F;dvd	仓库地址（YUM 获取安装包的路径）<br>核心含义：- file:&#x2F;&#x2F;：表示本地文件协议（区别于外网的http:&#x2F;&#x2F;&#x2F;ftp:&#x2F;&#x2F;）；- &#x2F;dvd：是你本地挂载 CentOS DVD 光盘的目录（需先执行mount &#x2F;dev&#x2F;cdrom &#x2F;dvd挂载）；<br>作用：告诉 YUM“从&#x2F;dvd目录下读取安装包”。<br>关键前提：必须先将 DVD 光盘挂载到&#x2F;dvd目录，否则 YUM 会报错 “找不到源”；<br>路径格式：file:&#x2F;&#x2F;后必须跟绝对路径，且三个斜杠（file:&#x2F;&#x2F;&#x2F;）是固定格式（file:&#x2F;&#x2F;是协议，&#x2F;dvd是路径）。</p>
+<p>gpgcheck&#x3D;0	GPG 签名校验开关<br>核心含义：- gpgcheck&#x3D;1：开启校验（默认），YUM 会检查安装包的 GPG 数字签名，确认包未被篡改、来源合法；- gpgcheck&#x3D;0：关闭校验，跳过签名检查；<br>为什么设为 0：本地 DVD 是官方原版光盘，包本身可信，关闭校验可加快安装速度，避免因缺少 GPG 密钥导致安装失败。<br>补充：若要开启校验（gpgcheck&#x3D;1），需额外添加gpgkey&#x3D;参数指定密钥文件路径（如gpgkey&#x3D;file:&#x2F;&#x2F;&#x2F;dvd&#x2F;RPM-GPG-KEY-CentOS-7）。</p>
+<p>配置网络 联网状态下 获得国内开源 .repo（阿里 腾讯 百度 清华等等开源源）</p>
+<p>yum clean all 清除全部</p>
+<p>安装软件(以foo-x.x.x.rpm为例）：yum install foo-x.x.x.rpm<br>删除软件：yum remove foo-x.x.x.rpm或者yum erase foo-x.x.x.rpm<br>升级软件：yum upgrade foo删除过时包或者yum update foo保留过时包<br>查询信息：yum info foo<br>搜索软件（以包含foo字段为例）：yum search foo<br>显示软件包依赖关系：yum deplist foo<br>列出所有可用软件包：yum list<br>清除缓存：yum clean all<br>查看所有可更新软件清单的命令</p>
+<p>自学DNF<br>DNF是yum的升级版，解析更快，内存占用低，API更加友好，从centos8开始就已经开始使用，此时还能使用的yum在底层是dnf的软链接</p>
+<p>什么是文件系统：操作系统用来管理存储设备上的数据和文件<br>win底层文件系统是NTFS，微软独有，安全但封闭；插入多少硬盘就有多少个根目录，分盘之后每个盘都是一个根目录；windows的设备是独立的，可以直接读取，互不影响；对文件名大小写不敏感<br>linux底层文件系统是Ext4（centos6&#x2F;7）,或者XFS(centos8)，它的文件系统类型很多，因为它开源，所有的文件系统类型都能识别，包括NTFS；不管插入多少块硬盘，都只有一个根目录，新加入的设备不能直接读取，需要挂载到media目录或者mnt目录；对文件名大小写敏感</p>
+<p>rhel5（ext3）&#x2F;6(ext4)&#x2F;7(XFS)<br>ext3 在ext2的基础上新增了日志功能，重启后不需要文件系统检查，速度很快, 支持的最大16TB文件系统和最大2TB文件，只能创建32000个子目录，传统服务器小规模使用<br>ext4 在ext3的基础上进行了大容量优化，支持最大1EB文件系统，单个文件最大16TB，支持无限子目录，中小规模<br>xfs 最大支持8EB减1字节的单个文件系统，在多线程，大文件读写场景下性能很高，xfs只能扩大超大规模，企业使用</p>
+<p>FAT32(单个文件不能超过4GB)&#x2F;exFAT(支持单个文件超大16EB) 最通用，兼容性最强，能够同时被linux和windows识别</p>
+<p>lsblk 树状结构列出所有可用的块设备信息，并显示其基本信息 其显示的类型有：disk硬盘 part分区 rom光驱 lvm逻辑卷<br>blkid 识别块设备属性，显示块设备标签，uuid，文件系统类型<br>UUID 通用设备唯一识别码</p>
+<p>&#x2F;etc&#x2F;fstab规定系统启动时硬盘分区挂载目录·</p>
+<p>fdisk&#x2F;parted都是磁盘分区管理工具<br>fdisk是传统的MBR分区使用，最大只支持2tb的硬盘<br>parted默认GPT分区使用，适应现代大容量储存，最高支持PB级别</p>
+<p>mkfs.xfs 格式化</p>
+<p>mount 设备 挂载点  挂载linux系统之外的文件<br>umount 设备&#x2F;挂载点 卸载已经挂载的文件</p>
+<p>MBR&#x2F;msdos（最大支持四个主分区）<br>主引导记录（Master Boot Record ， MBR）是指一个存储设备的开头 512 字节（第0个扇区），每512个字节为一个扇区。它包含操作系统的引导器和存储设备的分区表。磁盘容量最大支持2TB，无法备份</p>
+<p>GPT&#x2F;guid（支持无限个分区）<br>全局唯一标识分区表（GUID Partition Table，缩写：GPT）是一个实体硬盘的分区表的结构布局的标准。它是统一可扩展固件接口标准的一部分，它使用全局唯一标识来标识设备。它是新一代分区表格式，用以替代 MBR 分区表。它用来解决 MBR 分区表的缺点，同时带来了一些优点。磁盘容量支持无限大，支持备份</p>
+<p>如何去实现一个文件系统的挂载</p>
+<p>1.lsblk查看要挂载的文件<br>2.创建要挂载的目录<br>3.<br>使用mount挂载（临时挂载，重启之后失效）<br>写入配置文件挂载<br>1）获取uuid<br>2）编辑&#x2F;etc&#x2F;fstab<br>3)在文件末尾添加要挂载的信息<br>UUID&#x3D;ssa-3546-….. &#x2F;wuxie xfs defaults 0 0<br>要挂载的文件uuid或者是绝对路径 挂载点 文件系统类型 权限（defaults可读可写） 是否备份 是否开机检查磁盘<br>4)使用mount -a验证是否有报错，有报错千万不能重启，立即检查修改</p>
+<p>4.使用df -h查看新目录是否有空间大小<br>5.使用umount卸载</p>
+<p>添加磁盘1 10GB 分区 格式化 永久挂载 fdisk 只能进行MBR分区，最大只支持2tb的硬盘</p>
+<p>1.虚拟机设置新建磁盘,假设为sdb<br>2.fdisk sdb<br>3.n 新建分区<br>4.p 分区类型为主分区<br>5.选择分区号，起始扇区（这里直接默认），最后必须输入w保存<br>6.退出quit<br>6.5.通知系统更新分区表partprobe<br>7.格式化分区 mkfs.xfs &#x2F;dev&#x2F;sdb 或者使用mkfs.ext4<br>8.挂载分区后即可使用 blkid - vim &#x2F;etc&#x2F;fstab -添加-mount -a验证</p>
+<p>添加磁盘2 10GB 分区 格式化 永久挂载 parted 支持两种分区</p>
+<p>1.虚拟机设置新建磁盘,假设为sdb<br>2.parted sdb<br>print<br>3.mklabel gpt<br>print<br>4.mkpart<br>5.选择名称，文件系统类型，起止位置（start0-end100%）<br>6.退出quit<br>6.5.通知系统更新分区表partprobe<br>7.格式化分区 mkfs.xfs &#x2F;dev&#x2F;sdb<br>8.挂载分区后即可使用 blkid - vim &#x2F;etc&#x2F;fstab -添加-mount -a验证</p>
+<p>parted分区扩容</p>
+<h4 id="1-确认磁盘与分区"><a href="#1-确认磁盘与分区" class="headerlink" title="1. 确认磁盘与分区"></a>1. 确认磁盘与分区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk          <span class="comment"># 看磁盘（如/dev/sda）、分区、挂载</span></span><br><span class="line">parted /dev/sda <span class="built_in">print</span>  <span class="comment"># 查看分区表、磁盘总大小、分区起止</span></span><br></pre></td></tr></table></figure>
+
+<p>记录：<strong>磁盘路径</strong>、<strong>目标分区号</strong>、<strong>当前结束位置</strong></p>
+<h4 id="2-进入-parted-交互"><a href="#2-进入-parted-交互" class="headerlink" title="2. 进入 parted 交互"></a>2. 进入 parted 交互</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sda</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-扩容分区（关键）"><a href="#3-扩容分区（关键）" class="headerlink" title="3. 扩容分区（关键）"></a>3. 扩容分区（关键）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(parted) print                # 确认分区信息</span><br><span class="line">(parted) resizepart 分区号    # 如 resizepart 1</span><br><span class="line">结束位置？ [当前大小]? 100%   # 扩到磁盘末尾；也可写 50GiB</span><br><span class="line">(parted) print                # 检查是否生效</span><br><span class="line">(parted) quit                 # 退出</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>100% &#x3D; 扩到磁盘末尾（最常用）</li>
+<li>也可指定具体大小：<code>50GiB</code>、<code>20000MB</code></li>
+</ul>
+<h4 id="4-刷新内核分区表（可选，部分系统自动生效）"><a href="#4-刷新内核分区表（可选，部分系统自动生效）" class="headerlink" title="4. 刷新内核分区表（可选，部分系统自动生效）"></a>4. 刷新内核分区表（可选，部分系统自动生效）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">partprobe /dev/sda</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-扩容文件系统"><a href="#5-扩容文件系统" class="headerlink" title="5. 扩容文件系统"></a>5. 扩容文件系统</h4><p>根据文件系统类型选其一：</p>
+<ul>
+<li><strong>ext4&#x2F;ext3&#x2F;ext2</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resize2fs /dev/sda1  <span class="comment"># 自动扩满分区</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>xfs</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs /挂载点    <span class="comment"># 如 /、/data</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="6-验证"><a href="#6-验证" class="headerlink" title="6. 验证"></a>6. 验证</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+<p>与逻辑分区有关<br>高级扩展-LVM管理（弹性管理空间）<br>pv 物理卷  pvcreate pvs查看物理卷信息<br>vg 卷组由物理卷组成 vgcreate vgs查看卷组信息<br>lv  逻辑卷从卷组中拿取空间后挂载使用 lvcreate lvs查看逻辑卷信息<br>pv组成vg，vg提供空间划分lv，lv上创建文件系统，提供存储空间</p>
+<p>1.pvcreate 创建物理卷，打个标签<br>2.vgcreate 创建卷组 vgextend(lvresize) vg_data &#x2F;dev&#x2F;sdc 拓展卷组  vgreduce vg_data &#x2F;dev&#x2F;sdb-&gt;vgremove vg_data<br>3.lvcreate -L 5G -n lv_data vg_data<br>4.mkfs.xfs &#x2F;dev&#x2F;vg_data&#x2F;lv_data<br>5.执行挂载操作<br>6.这里扩容的是逻辑卷lvextend -L 1G &#x2F;dev&#x2F;vg_data&#x2F;lv_data 扩容到多少GB，不是扩容多少GB，属于在线扩容<br>离线扩容需要先卸载文件系统，一般用于缩容和老版本ext<br>7.这里扩容文件系统<br>命令	适用文件系统	核心作用	关键特性<br>xfs_growfs &#x2F;dev&#x2F;vg_data&#x2F;lv_data	XFS（CentOS7+&#x2F;RHEL7 + 默认）	在线扩展 XFS 文件系统到逻辑卷的最大可用空间	仅支持扩容，不支持缩容；无需指定扩容大小，自动识别 LV 新容量<br>resize2fs &#x2F;dev&#x2F;vg_data&#x2F;lv_data	ext系列	在线扩展 ext 系列文件系统到逻辑卷的最大可用空间	支持扩容（在线），ext4 可有限缩容（需离线）；可指定扩容大小</p>
+<p>xfs只可以扩容不可以缩容<br>ext4 是 Linux 中最经典、最稳定的日志型文件系统之一，支持<strong>创建、在线扩容、离线缩容</strong>（缩容有风险，需谨慎）。下面我会按「创建 → 扩容 → 缩容」的完整流程，结合实操命令和注意事项详细讲解，所有步骤都可直接在 CentOS&#x2F;RHEL 7+ 中验证。</p>
+<h3 id="一、ext4-文件系统的创建"><a href="#一、ext4-文件系统的创建" class="headerlink" title="一、ext4 文件系统的创建"></a>一、ext4 文件系统的创建</h3><p>创建 ext4 的核心命令是 <code>mkfs.ext4</code>，需先准备好<strong>块设备</strong>（物理磁盘分区、LVM 逻辑卷等），再格式化。</p>
+<h4 id="1-前置条件"><a href="#1-前置条件" class="headerlink" title="1. 前置条件"></a>1. 前置条件</h4><ul>
+<li>准备待格式化的设备（如 <code>/dev/sdb1</code> 分区、<code>/dev/vg_data/lv_data</code> 逻辑卷）；</li>
+<li>设备未被挂载（<code>umount /dev/sdb1</code> 确保卸载）；</li>
+<li>备份设备内原有数据（格式化会清空所有数据）。</li>
+</ul>
+<h4 id="2-核心命令（基础创建）"><a href="#2-核心命令（基础创建）" class="headerlink" title="2. 核心命令（基础创建）"></a>2. 核心命令（基础创建）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式化 /dev/sdb1 为 ext4 文件系统（最常用）</span></span><br><span class="line">mkfs.ext4 /dev/sdb1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：自定义参数（如指定块大小、卷标）</span></span><br><span class="line">mkfs.ext4 -b 4096 -L data_disk /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-关键参数解释"><a href="#3-关键参数解释" class="headerlink" title="3. 关键参数解释"></a>3. 关键参数解释</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>示例&#x2F;说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td>指定块大小（可选：1024&#x2F;2048&#x2F;4096字节，默认4096）</td>
+<td><code>-b 4096</code>：适合大文件场景，提升读写效率</td>
+</tr>
+<tr>
+<td><code>-L</code></td>
+<td>设置文件系统卷标（便于识别）</td>
+<td><code>-L data_disk</code>：卷标为 data_disk</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>指定 inode 密度（每多少字节分配一个 inode）</td>
+<td><code>-i 8192</code>：适合小文件多的场景，避免 inode 耗尽</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td>预留空间比例（默认5%，用于维护和防止磁盘满）</td>
+<td><code>-m 1</code>：仅预留1%空间（数据盘可减小）</td>
+</tr>
+<tr>
+<td><code>-F</code></td>
+<td>强制格式化（无需确认，适合脚本）</td>
+<td><code>mkfs.ext4 -F /dev/sdb1</code></td>
+</tr>
+</tbody></table>
+<h4 id="4-验证创建结果"><a href="#4-验证创建结果" class="headerlink" title="4. 验证创建结果"></a>4. 验证创建结果</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看文件系统类型和信息</span></span><br><span class="line">blkid /dev/sdb1  <span class="comment"># 确认 TYPE=&quot;ext4&quot;</span></span><br><span class="line">dumpe2fs /dev/sdb1 | <span class="built_in">head</span>  <span class="comment"># 查看 ext4 详细参数（超级块、块大小、inode 等）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-挂载使用（创建后必做）"><a href="#5-挂载使用（创建后必做）" class="headerlink" title="5. 挂载使用（创建后必做）"></a>5. 挂载使用（创建后必做）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建挂载点</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 临时挂载</span></span><br><span class="line">mount -t 文件系统类型 /dev/sdb1 /mnt/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久挂载（写入 /etc/fstab）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/dev/sdb1 /mnt/data ext4 defaults 0 0&quot;</span> &gt;&gt; /etc/fstab</span><br><span class="line">mount -a  <span class="comment"># 验证 fstab 配置</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二、ext4-文件系统的扩容（推荐在线操作）"><a href="#二、ext4-文件系统的扩容（推荐在线操作）" class="headerlink" title="二、ext4 文件系统的扩容（推荐在线操作）"></a>二、ext4 文件系统的扩容（推荐在线操作）</h3><p>ext4 支持<strong>在线扩容</strong>（无需卸载，业务无感知），核心流程是「先扩底层设备（分区&#x2F;LV）→ 再扩文件系统」。</p>
+<h4 id="1-前置条件-1"><a href="#1-前置条件-1" class="headerlink" title="1. 前置条件"></a>1. 前置条件</h4><ul>
+<li>底层设备（分区&#x2F;LV）有扩容空间（如 LVM 卷需先扩展 LV，分区需先调整分区大小）；</li>
+<li>文件系统已挂载（在线扩容），且无损坏（先执行 <code>fsck -n /dev/sdb1</code> 检查）。</li>
+</ul>
+<h4 id="2-完整扩容流程（以-LVM-逻辑卷为例）"><a href="#2-完整扩容流程（以-LVM-逻辑卷为例）" class="headerlink" title="2. 完整扩容流程（以 LVM 逻辑卷为例）"></a>2. 完整扩容流程（以 LVM 逻辑卷为例）</h4><p>假设要将 <code>/dev/vg_data/lv_data</code>（挂载到 <code>/mnt/data</code>）扩容 20G：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1：查看当前状态（确认初始容量）</span></span><br><span class="line"><span class="built_in">df</span> -Th /mnt/data          <span class="comment"># 查文件系统容量</span></span><br><span class="line">lvdisplay /dev/vg_data/lv_data  <span class="comment"># 查 LV 容量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2：扩展底层设备（LVM 卷）</span></span><br><span class="line"><span class="comment"># 方式1：增加 20G 空间</span></span><br><span class="line">lvextend -L +20G /dev/vg_data/lv_data</span><br><span class="line"><span class="comment"># 方式2：使用卷组中所有剩余空间</span></span><br><span class="line">lvextend -l +100%FREE /dev/vg_data/lv_data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤3：扩展 ext4 文件系统（核心）</span></span><br><span class="line">resize2fs /dev/vg_data/lv_data  <span class="comment"># 自动扩到设备最大容量</span></span><br><span class="line"><span class="comment"># 可选：指定扩容到固定大小（如 80G）</span></span><br><span class="line"><span class="comment"># resize2fs /dev/vg_data/lv_data 80G</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤4：验证扩容结果</span></span><br><span class="line"><span class="built_in">df</span> -Th /mnt/data  <span class="comment"># 查看文件系统容量是否增加</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-关键注意事项"><a href="#3-关键注意事项" class="headerlink" title="3. 关键注意事项"></a>3. 关键注意事项</h4><ul>
+<li>扩容顺序：<strong>先扩设备（LV&#x2F;分区），再扩文件系统</strong>，反之会损坏文件系统；</li>
+<li><code>resize2fs</code> 仅支持<strong>设备名</strong>（如 <code>/dev/vg_data/lv_data</code>），不支持挂载点；</li>
+<li>若扩容分区（非 LVM）：需先通过 <code>fdisk</code>&#x2F;<code>parted</code> 调整分区大小（需卸载），再执行 <code>resize2fs</code>。</li>
+</ul>
+<h3 id="三、ext4-文件系统的缩容（高风险，谨慎操作）"><a href="#三、ext4-文件系统的缩容（高风险，谨慎操作）" class="headerlink" title="三、ext4 文件系统的缩容（高风险，谨慎操作）"></a>三、ext4 文件系统的缩容（高风险，谨慎操作）</h3><p>ext4 仅支持<strong>离线缩容</strong>（必须卸载），且缩容失败易导致数据丢失，<strong>优先推荐「备份 → 格式化 → 恢复」</strong>，仅在无备份时尝试缩容。</p>
+<h4 id="1-前置条件（必须满足）"><a href="#1-前置条件（必须满足）" class="headerlink" title="1. 前置条件（必须满足）"></a>1. 前置条件（必须满足）</h4><ul>
+<li>卸载文件系统（<code>umount /dev/sdb1</code>）；</li>
+<li>备份所有数据（缩容前必做，防止数据丢失）；</li>
+<li>检查文件系统完整性（<code>fsck -f /dev/sdb1</code>，修复所有错误）。</li>
+</ul>
+<h4 id="2-完整缩容流程（以-dev-sdb1-缩容到-50G-为例）"><a href="#2-完整缩容流程（以-dev-sdb1-缩容到-50G-为例）" class="headerlink" title="2. 完整缩容流程（以 /dev/sdb1 缩容到 50G 为例）"></a>2. 完整缩容流程（以 <code>/dev/sdb1</code> 缩容到 50G 为例）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 步骤1：卸载文件系统（关键）</span></span><br><span class="line">umount /dev/sdb1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2：强制检查并修复文件系统（必须！）</span></span><br><span class="line">fsck -f /dev/sdb1  <span class="comment"># 若有错误未修复，缩容会失败</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤3：缩容 ext4 文件系统（先缩文件系统！）</span></span><br><span class="line">resize2fs /dev/sdb1 50G  <span class="comment"># 缩容到 50G（需小于当前设备容量）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤4：缩容底层设备（分区/LV）</span></span><br><span class="line"><span class="comment"># 若为 LVM 卷：</span></span><br><span class="line">lvreduce -L 50G /dev/sdb1</span><br><span class="line"><span class="comment"># 若为分区：通过 fdisk/parted 调整分区大小（删除原分区，重建更小的分区，注意保留签名）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤5：重新挂载验证</span></span><br><span class="line">mount /dev/sdb1 /mnt/data</span><br><span class="line"><span class="built_in">df</span> -Th /mnt/data  <span class="comment"># 确认容量为 50G</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>缩容顺序：<strong>先缩文件系统（resize2fs），再缩底层设备</strong>，顺序反了会直接损坏文件系统；</li>
+<li>缩容大小：<code>resize2fs</code> 指定的大小必须 ≤ 底层设备缩容后的大小，且不能小于文件系统实际已用空间；</li>
+<li>数据备份：即使步骤正确，也可能因磁盘坏块、元数据异常导致数据丢失，缩容前必须备份；</li>
+<li>不推荐场景：大容量（&gt;100G）、小文件多的 ext4 缩容，优先用「备份-格式化-恢复」替代。</li>
+</ul>
+<h3 id="四、ext4-创-扩-缩核心总结"><a href="#四、ext4-创-扩-缩核心总结" class="headerlink" title="四、ext4 创&#x2F;扩&#x2F;缩核心总结"></a>四、ext4 创&#x2F;扩&#x2F;缩核心总结</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>核心命令</th>
+<th>关键特性</th>
+<th>风险等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建</td>
+<td><code>mkfs.ext4 /dev/xxx</code></td>
+<td>支持自定义块大小、inode 密度、预留空间</td>
+<td>低（仅清空数据）</td>
+</tr>
+<tr>
+<td>扩容</td>
+<td><code>lvextend → resize2fs</code></td>
+<td>在线操作，无停机，自动扩展到最大容量</td>
+<td>低（几乎无风险）</td>
+</tr>
+<tr>
+<td>缩容</td>
+<td><code>umount → fsck → resize2fs → 缩设备</code></td>
+<td>离线操作，需严格按顺序，易丢数据</td>
+<td>高（谨慎操作）</td>
+</tr>
+</tbody></table>
+<h3 id="五、核心注意事项"><a href="#五、核心注意事项" class="headerlink" title="五、核心注意事项"></a>五、核心注意事项</h3><ol>
+<li>无论扩容&#x2F;缩容，先执行 <code>fsck</code> 检查文件系统完整性；</li>
+<li>缩容仅作为应急手段，生产环境优先用「备份-重建」替代；</li>
+<li>ext4 预留空间（默认5%）：系统盘保留5%，数据盘可通过 <code>tune2fs -m 1 /dev/sdb1</code> 减小到1%；</li>
+<li>查看 ext4 详细信息：<code>dumpe2fs /dev/sdb1</code>（超级块、inode、块大小等）。</li>
+</ol>
+<p>简单记：<strong>ext4 创建用 mkfs.ext4，扩容先扩卷再 resize2fs，缩容先 resize2fs 再缩卷（必备份！）</strong>。</p>
+<p>ext4文件系统的创建，扩容，缩容<br>工具	适用文件系统	核心作用	关键特性<br>xfs_repair	XFS（CentOS7+&#x2F;RHEL7 + 默认）	检测并修复损坏的 XFS 文件系统	专为 XFS 设计，支持大容量（TiB 级），需离线修复<br>fsck	ext2&#x2F;ext3&#x2F;ext4、FAT32、NTFS（需插件）	检测并修复损坏的非 XFS 文件系统	通用工具，ext 系列为主，支持自动 &#x2F; 交互修复</p>
+<p>与磁盘有关<br>raid 磁盘冗余（多存一份数据或校验）阵列（将所有盘整合在一起，提升性能空间安全性），把所有的硬盘拼在一起<br>主要应用在物理机上而不是虚拟机</p>
+<p>硬raid独立的raid硬件卡，成本很高，性能很高<br>软raid靠操作系统内核和主机的cpu模拟</p>
+<p>raid1.0 以盘为单位做冗余<br>raid级别<br>raid0 条带模式 要快不怕丢 数据切碎均匀分布到所有硬盘上，最快，空间利用率100%，适合临时或者缓存数据<br>raid1 镜像模式 要安全不缺钱 两个硬盘上的数据完全镜像，最安全，空间利用率只有50%，适合做物理机的系统盘<br>raid5 带校验的条带模式 平衡安全空间 数据也是分散存，但是会留一部分空间做校验，数据和校验也是轮流均匀存入在硬盘上，至少需要三块盘，一个盘坏了用其他的盘进行XOR，一个方程运算计算出坏盘的数据<br>raid6 带双校验的条带模式 更安全 至少四块盘，使用XOR和伽罗瓦域，两个方程将数据和双校验轮流均匀地储存在所有硬盘上 空间利用率较低<br>raid1+0 先镜像再条带模式 企业使用 既安全又稳定。但是空间利用率只有一半，允许坏一半的盘<br>raid0+1 先条带再镜像 没人用<br>hotspare热备盘 企业使用 随时待命的备用盘</p>
+<p>raid2.0 以块为单位做冗余，切块虚拟化冗余（现代系统使用，有很大数量的硬盘，以块为单位的数据丢失可以忽略）</p>
+<p>mdadm –create –verbose &#x2F;dev&#x2F;md0<br>–level&#x3D;5<br>–raid-devices&#x3D;3<br>&#x2F;dev&#x2F;sdb &#x2F;dev&#x2F;sdc &#x2F;dev&#x2F;sdd</p>
+<p>防火墙firewalld（面向服务和区域）<br>1.启动firewalld服务<br>systemctl start firewalld.service<br>2.关闭firewalld服务<br>systemctl stop firewalld.service<br>3.重启firewalld服务<br>systemctl restart firewalld.service<br>4.查看firewalld状态<br>systemctl status firewalld.service<br>5.开机自启firewalld<br>systemctl enable firewalld<br>6.查看版本<br>firewall-cmd –version<br>7.查看帮助<br>firewall-cmd –help<br>8.显示状态<br>firewall-cmd –state<br>9.查看所有打开的策略<br>firewall-cmd –zone&#x3D;public –list-all<br>10.更新防火墙规则<br>firewall-cmd –reload<br>11.添加开放端口<br>firewall-cmd –zone&#x3D;public –add-port&#x3D;80&#x2F;tcp –permanent<br>firewall-cmd –zone&#x3D;public –add-service&#x3D;ssh –permanent<br>(permanent永久生效，没有此参数重启后失效)<br>12.查看端口是否开放<br>firewall-cmd –zone&#x3D;public –query-port&#x3D;80&#x2F;tcp<br>13.删除开放端口<br>firewall-cmd –zone&#x3D;public –remove-port&#x3D;80&#x2F;tcp –permanent<br>14.允许某个IP(或者ip段)访问所有端口<br>firewall-cmd –add-source&#x3D;192.168.1.100&#x2F;24 –permanent<br>15.添加网卡到区域<br>firewall-cmd –zone&#x3D;trustd –add-interface&#x3D;ens33 –permanent<br>16.禁止某个网段访问某个端口<br>firewall-cmd –permanent –add-rich-rule&#x3D;’rule family&#x3D;”ipv4” source address&#x3D;”192.168.1.0&#x2F;24” port port&#x3D;”8080” protocol&#x3D;”tcp” reject’</p>
+<table>
+<thead>
+<tr>
+<th>区域名称</th>
+<th>安全级别</th>
+<th>核心含义</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>trusted</td>
+<td>最低</td>
+<td>允许所有流量，不做任何限制</td>
+<td>完全可信内网、测试机、关闭防火墙效果</td>
+</tr>
+<tr>
+<td>home</td>
+<td>低</td>
+<td>仅拒绝外部主动连接，放行常用内网服务</td>
+<td>家庭局域网、内网办公环境</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>低</td>
+<td>同 home，偏向企业内部网络</td>
+<td>公司内网服务器、内部业务环境</td>
+</tr>
+<tr>
+<td>work</td>
+<td>中低</td>
+<td>仅放行 ssh、dhcpv6 等基础服务</td>
+<td>办公区服务器、普通工作网络</td>
+</tr>
+<tr>
+<td><strong>public</strong></td>
+<td><strong>中等（默认）</strong></td>
+<td>仅放行 ssh、dhcpv6、icmp，其余拒绝</td>
+<td><strong>公网服务器、云主机、公共场所网络</strong></td>
+</tr>
+<tr>
+<td>dmz</td>
+<td>中高</td>
+<td>仅开放少量对外服务，严格限制</td>
+<td>对外暴露的前置服务器（隔离区）</td>
+</tr>
+<tr>
+<td>external</td>
+<td>中高</td>
+<td>用于网关 NAT 转发，默认开启伪装</td>
+<td>路由器、网关、防火墙出口设备</td>
+</tr>
+<tr>
+<td>block</td>
+<td>高</td>
+<td>拒绝所有连接，并返回拒绝提示</td>
+<td>高安全要求、明确拒绝外部访问</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>最高</td>
+<td>直接丢弃所有数据包，无任何响应</td>
+<td>最高安全场景、隐藏主机、防扫描</td>
+</tr>
+</tbody></table>
+<p>注：每次更改firewall规则后需重新加载（firewall-cmd –reload）</p>
+<p>6版本 iptables(面向端口和ip)</p>
+<p>service iptables stop<br>service iptables start<br>service iptables restatus<br>service iptables status<br>iptables -L<br>iptables -A INPUT -p tcp –dport 80 -j ACCEPT 添加<br>iptables -D INPUT -p udp –dport 53 -j ACCEPT删除<br>修改需要先删除再添加</p>
+<p>彻底关闭iptables<br>systemctl stop iptables<br>systemctl disable iptables<br>systemctl mask iptables<br>iptables -F<br>iptables -t nat -F<br>iptables -t mangle -F<br>iptables -X<br>iptables -L -n</p>
+<p>iptables 是底层静态防火墙，修改需要重启，会断开连接；firewalld 是上层动态防火墙管理服务<br>iptables 重启 &#x2F; 重载时会清空并重建规则，导致当前所有连接（包括你的 SSH）断开，必须重连；<br>firewalld 动态生效，不断开连接</p>
+<p>#查看已启动的服务列表</p>
+<p>systemctl list-unit-files –type&#x3D;service|grep enabled<br>作用是列出系统中所有类型为 “服务（service）”、且开机自启状态为 “enabled” 的单元文件</p>
+<p>ps:6版本-系统使用service chkconfig命令控制服务</p>
+<p>crontab定时任务<br>crontab -l 列出定时文件<br>crontab -e 编辑定时文件<br>相当于打开vi编辑器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*    *    *    *    *</span><br><span class="line">-    -    -    -    -</span><br><span class="line">|    |    |    |    |</span><br><span class="line">|    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)</span><br><span class="line">|    |    |    +---------- 月份 (1 - 12) </span><br><span class="line">|    |    +--------------- 一个月中的第几天 (1 - 31)</span><br><span class="line">|    +-------------------- 小时 (0 - 23)</span><br><span class="line">+------------------------- 分钟 (0 - 59)</span><br><span class="line"></span><br><span class="line">*表示每分钟/小时/执行一次</span><br><span class="line">a-b表示第a分钟到第b分钟执行......</span><br><span class="line">*/n表示每个n个时间间隔执行一次</span><br><span class="line">a,b,c表示第a,b,c分钟执行一次/第a,b,c小时执行一次......</span><br></pre></td></tr></table></figure>
+
+<p>快照：虚拟机在某个时间点状态下的副本，包含磁盘，内存，设备状态<br>内存快照：开机状态下，带内存<br>磁盘快照：关机状态下，不带内存</p>
+<p>linux单用户模式破解root密码</p>
+<p>1）开机时grup引导界面按下e编辑<br>2）找到linux16（centos7）那行，找到“ro”，ro的意思是read only，将“ro”替换成 rw init&#x3D;&#x2F;sysroot&#x2F;bin&#x2F;sh<br><strong>linux（centos8，9，10）将“ro”替换为rw 然后结尾添加init&#x3D;&#x2F;bin&#x2F;bash</strong><br>按Ctrl-x 进行进入单用户模式<br>3）执行chroot &#x2F;sysroot。其中chroot命令用来切换系统，&#x2F;sysroot&#x2F;目录就是原始系统<br>4）如果要修改root密码，passwd root，给予root用户新密码,用户密码存在etc&#x2F;shadow<br>touch &#x2F;.autorelabel 执行这行命令作用是让SELinux生效，新修改过的文件标签会变成通用标签etc_t，这条命令使其回到原来的标签shadow_t<br>如果不执行，密码不会生效。<br>exit,reboot 验证<br><strong>linux（centos8，9，10）exec &#x2F;sbin&#x2F;init</strong></p>
+<p>linux救援模式<br>1.选择需要救援的系统，dvd选项选择我们需要的镜像，并勾选启动时连接<br>2.启动虚拟机时进入固件<br>3.boot菜单下将CD—ROM Drive通过shift+移动到最上方，然后F10保存，然后重启<br>4.重启出现界面后选择Troubleshooting,回车，选择Rescue system<br>5.选择continue，之后的下一个选项直接回车<br>6.系统检测通过之后运行 chroot &#x2F;mnt&#x2F;sysimage,命令提示符从sh-4.2#变为bash-4.2#<br>7.此时可以使用ls检查本地目录<br>8.进入需要修改目录修改损坏的文件<br>9.exit退出 init 0关机<br>10.进入固件模式恢复boot然后重启<br>11.进入系统后查看修改后的文件</p>
+<p>如何查看系统内核参数并临时修改，最后永久生效<br>sysctl   内核参数名     查看指定参数值<br>sysctl -w 内核参数名&#x3D;值   临时修改参数值<br>vi &#x2F;etc&#x2F;sysctl.conf  永久修改内核参数值<br>sysctl -p  修改内核参数后重载</p>
+<p>三个文件描述符<br>0&#x3D;stdin 标准输入（键盘输入）<br>1&#x3D;stdout 标准输出 （正常打印内容）<br>2&#x3D;stderr  错误输出 （报错内容）<br>2&gt;$1   将错误输出重定向到标准输出</p>
+<p>kill,chmod&#x2F;chown,mv&#x2F;cp,rm&#x2F;touch,mkdir,ls使用管道符连接其它命令时都必须添加xargs传参，只添加管道符不生效</p>
+<p>lsof   查找与文件等相关的进程</p>
+<p>Linux启动过程<br>1.bios自检<br>2.加载MBR中的引导程序（GRUB）<br>3.引导程序加载内核<br>4.内核初始化硬件，挂载根文件系统<br>5.启动第一个进程init或systemctl (pid&#x3D;0)<br>6.根据&#x2F;etc&#x2F;inittab进入运行级别<br>7.进入指定界面，完成启动</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://kuiyr.de">Sunshine.</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://kuiyr.de/Linux%E7%AC%94%E8%AE%B0/">https://kuiyr.de/Linux笔记/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://kuiyr.de" target="_blank">Sunshine's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post-share"><div class="social-share" data-image="https://wp.upx8.com/api.php?content=风景" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/Linux%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/" title="Linux高级教程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tu.ltyuanfang.cn/api/fengjing.php" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Linux高级教程</div></div><div class="info-2"><div class="info-item-1">RHCE实验（对于个人开发者的虚拟机需要先配置镜像源）： 1、FTP （端口默认21&#x2F;tcp&#x2F;udp）多用于文件传输两种模式主动模式：服务器使用 20 端口主动连接客户端进行数据传输。被动模式：客户端主动连接服务器的随机端口进行数据传输。 先使用yum安装vsftpd包centos stream 9必须要换源BaseOS和AppStreamdnf clean all修改配置文件进行配置 &#x2F;etc&#x2F;vsftpd&#x2F;vsftp.confanonymous_enable 允许匿名用户登录local_enable 允许本地登录write_enable 允许上传chroot_local_enable将用户锁定在家目录anon_upload_enable 允许匿名用户上传centos stream9可能需要打开httpd的两个选项 如何禁止root用户登录在vsftpd.conf文件中添加或者修改userlist_deny&#x3D;NOuserlist_enable&#x3D;YESuserlist_file&#x3D;&#x2F;etc&#...</div></div></div></a><a class="pagination-related" href="/%E5%85%8D%E8%B4%B9API/" title="免费API"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://rpic.origz.com/api.php?category=gif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">免费API</div></div><div class="info-2"><div class="info-item-1"> .api-container {   display: flex;   flex-wrap: wrap;   gap: 20px;   justify-content: space-between;   margin-top: 20px; }  .api-card {   flex: 1 1 45%;    min-width: 300px;    background: var(--card-bg);    border: 1px solid #e0e3e7;   border-radius: 12px;   box-shadow: 0 8px 16px -4px rgba(0,0,0,0.05);   transition: transform 0.3s ease, box-shadow 0.3s ease;   overflow: hidden; }   [data-theme="dark"] .api-card {   border: 1px solid #444; }  .api-card:hover {   transform: translateY(-5px); ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/Linux%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/" title="Linux高级教程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://tu.ltyuanfang.cn/api/fengjing.php" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-09</div><div class="info-item-2">Linux高级教程</div></div><div class="info-2"><div class="info-item-1">RHCE实验（对于个人开发者的虚拟机需要先配置镜像源）： 1、FTP （端口默认21&#x2F;tcp&#x2F;udp）多用于文件传输两种模式主动模式：服务器使用 20 端口主动连接客户端进行数据传输。被动模式：客户端主动连接服务器的随机端口进行数据传输。 先使用yum安装vsftpd包centos stream 9必须要换源BaseOS和AppStreamdnf clean all修改配置文件进行配置 &#x2F;etc&#x2F;vsftpd&#x2F;vsftp.confanonymous_enable 允许匿名用户登录local_enable 允许本地登录write_enable 允许上传chroot_local_enable将用户锁定在家目录anon_upload_enable 允许匿名用户上传centos stream9可能需要打开httpd的两个选项 如何禁止root用户登录在vsftpd.conf文件中添加或者修改userlist_deny&#x3D;NOuserlist_enable&#x3D;YESuserlist_file&#x3D;&#x2F;etc&#...</div></div></div></a><a class="pagination-related" href="/centos7-10%E5%8F%AF%E7%94%A8%E9%95%9C%E5%83%8F%E6%95%B4%E7%90%86/" title="Centos7-10可用镜像源整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://rpic.origz.com/api.php?category=science" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-17</div><div class="info-item-2">Centos7-10可用镜像源整理</div></div><div class="info-2"><div class="info-item-1">CentOS 7-10 可用镜像源整理 更新时间：2026-04-17   版本状态总览   版本 状态 EOL 时间 说明    CentOS 7 已停服 2024-06-30 需使用 Vault 归档源   CentOS 8 已停服 2021-12-31 需切换至 CentOS Stream 8 或 Vault   CentOS Stream 8 已停服 2024-05-31 官方已结束支持   CentOS Stream 9 活跃维护 2027-05-31 推荐使用   CentOS Stream 10 活跃维护 2029-12-31 最新版本    CentOS 7 镜像源（Vault 归档）CentOS 7 已于 2024 年 6 月 30 日停止维护，标准镜像源已失效，需切换到 Vault 归档源。 可用镜像   镜像站 基础地址 说明    官方 Vault http://vault.centos.org/7.9.2009/ 官方归档，速度较慢   阿里云 https://mirrors.aliyun.com/centos-vault/ 国内推荐，速度快   清华大...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sunshine.</div><div class="author-info-description">往事总在回忆时被赋予意义.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kuiyr0810"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><a href="https://kuiyr.de/status/" title="网站可用性监控" class="anno_content"><font color="#5ea6e5">网站监控(点击查看)</font></a></center><center><b>--- Edgeone线路(加速线路)---<br><a target="_blank" rel="noopener" href="https://blog.kuiyr.de" title="此线路为加速线路" class="anno_content"><font color="#5ea6e5">blog.kuiyr.de</font></a>&nbsp; &nbsp;<br>--- vercel线路(加速线路) ---<br><a target="_blank" rel="noopener" href="https://blog.5200810.xyz" title="此线路属于加速线路" class="anno_content"><font color="#5ea6e5">blog.5200810.xyz</font></a>&nbsp; &nbsp;<br>--- netlify线路(加速线路) ---<br><a target="_blank" rel="noopener" href="https://sunsblog.netlify.app" title="此线路属于加速线路" class="anno_content"><font color="#5ea6e5">sunsblog.netlify.app</font></a></center></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%89%E8%80%85%E7%9A%84%E6%A0%B8%E5%BF%83%E8%81%94%E7%B3%BB%EF%BC%88%E7%BA%A2%E5%B8%BD%E7%94%9F%E6%80%81%E9%93%BE%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、三者的核心联系（红帽生态链）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E8%80%85%E8%AF%A6%E7%BB%86%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94"><span class="toc-number">2.</span> <span class="toc-text">二、三者详细区别对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%BC%80%E5%8F%91%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">1. 定位与开发位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9B%B4%E6%96%B0%E4%B8%8E%E5%8F%91%E5%B8%83%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2. 更新与发布模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8E%E6%94%AF%E6%8C%81"><span class="toc-number">2.3.</span> <span class="toc-text">3. 生命周期与支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%B8%8E%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.</span> <span class="toc-text">4. 稳定性与适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E6%97%B6%E9%97%B4%E7%BA%BF%E4%B8%8E%E7%8E%B0%E7%8A%B6"><span class="toc-number">3.</span> <span class="toc-text">三、关键时间线与现状</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#top%E6%80%BB%E7%BB%93%E8%A1%A5%E5%85%85"><span class="toc-number">4.</span> <span class="toc-text">top总结补充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81top-%E7%95%8C%E9%9D%A2%E9%80%90%E8%A1%8C%E8%AF%A6%E8%A7%A3%EF%BC%88%E6%9C%80%E6%A0%B8%E5%BF%83%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">二、top 界面逐行详解（最核心）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC-1-%E8%A1%8C%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%95%B4%E4%BD%93%E7%8A%B6%E6%80%81%EF%BC%88%E6%97%B6%E9%97%B4%E3%80%81%E7%99%BB%E5%BD%95%E3%80%81%E8%B4%9F%E8%BD%BD%EF%BC%89"><span class="toc-number">4.1.1.</span> <span class="toc-text">第 1 行：系统整体状态（时间、登录、负载）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC-2-%E8%A1%8C%EF%BC%9A%E8%BF%9B%E7%A8%8B%E6%80%BB%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="toc-number">4.1.2.</span> <span class="toc-text">第 2 行：进程总数统计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC-3-%E8%A1%8C%EF%BC%9ACPU-%E4%BD%BF%E7%94%A8%E7%8E%87%EF%BC%88%E6%9C%80%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">4.1.3.</span> <span class="toc-text">第 3 行：CPU 使用率（最重要）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC-4-%E8%A1%8C%EF%BC%9A%E5%86%85%E5%AD%98%EF%BC%88Mem%EF%BC%89"><span class="toc-number">4.1.4.</span> <span class="toc-text">第 4 行：内存（Mem）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC-5-%E8%A1%8C%EF%BC%9A%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA%EF%BC%88Swap%EF%BC%89"><span class="toc-number">4.1.5.</span> <span class="toc-text">第 5 行：交换分区（Swap）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81top-%E8%BF%9B%E7%A8%8B%E5%88%97%E8%A1%A8%EF%BC%88%E6%9C%80%E5%85%B3%E9%94%AE%E7%9A%84%E7%9B%91%E6%8E%A7%E5%8C%BA%E5%9F%9F%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">三、top 进程列表（最关键的监控区域）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E4%B8%80%E5%88%97%E5%90%AB%E4%B9%89%EF%BC%88%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">4.3.</span> <span class="toc-text">每一列含义（必须掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81top-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.3.1.</span> <span class="toc-text">四、top 常用快捷键</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">一、核心原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E8%AF%B4%E6%98%8E"><span class="toc-number">6.</span> <span class="toc-text">二、环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%AD%A5%E9%AA%A4%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">三、步骤（直接复制执行）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-bonding-%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%80%E8%88%AC%E5%B7%B2%E8%A3%85%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">1. 安装 bonding 模块（一般已装）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">7.2.</span> <span class="toc-text">2. 加载模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">四、配置文件（重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%BC%89%E5%88%9B%E5%BB%BA-bond0-%E9%85%8D%E7%BD%AE"><span class="toc-number">8.1.</span> <span class="toc-text">1）创建 bond0 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%BC%89%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%B8%80%E5%9D%97%E7%BD%91%E5%8D%A1-eth0"><span class="toc-number">8.2.</span> <span class="toc-text">2）配置第一块网卡 eth0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%BC%89%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%BA%8C%E5%9D%97%E7%BD%91%E5%8D%A1-eth1"><span class="toc-number">8.3.</span> <span class="toc-text">3）配置第二块网卡 eth1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%87%8D%E5%90%AF%E7%BD%91%E7%BB%9C%E7%94%9F%E6%95%88"><span class="toc-number">9.</span> <span class="toc-text">五、重启网络生效</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-7"><span class="toc-number">9.1.</span> <span class="toc-text">CentOS 7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS-8-Rocky-8"><span class="toc-number">9.2.</span> <span class="toc-text">CentOS 8 &#x2F; Rocky 8</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%9F%A5%E7%9C%8B%E7%BB%91%E5%AE%9A%E7%8A%B6%E6%80%81"><span class="toc-number">10.</span> <span class="toc-text">六、查看绑定状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E"><span class="toc-number">11.</span> <span class="toc-text">七、常用模式说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-number">11.1.</span> <span class="toc-text">1. 准备编译环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E5%8C%85"><span class="toc-number">11.2.</span> <span class="toc-text">2. 下载源码包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0%EF%BC%88%E6%A0%B8%E5%BF%83%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%9F%E8%83%BD%EF%BC%89"><span class="toc-number">11.3.</span> <span class="toc-text">3. 配置编译参数（核心：自定义功能）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%BC%96%E8%AF%91-%E5%AE%89%E8%A3%85"><span class="toc-number">11.4.</span> <span class="toc-text">4. 编译 + 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85-%E5%90%AF%E5%8A%A8"><span class="toc-number">11.5.</span> <span class="toc-text">5. 验证安装 &amp; 启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%B9%B6%E9%AA%8C%E8%AF%81"><span class="toc-number">11.6.</span> <span class="toc-text">步骤 1：解压安装并验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E8%AE%A4%E7%A3%81%E7%9B%98%E4%B8%8E%E5%88%86%E5%8C%BA"><span class="toc-number">11.7.</span> <span class="toc-text">1. 确认磁盘与分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%9B%E5%85%A5-parted-%E4%BA%A4%E4%BA%92"><span class="toc-number">11.8.</span> <span class="toc-text">2. 进入 parted 交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%89%A9%E5%AE%B9%E5%88%86%E5%8C%BA%EF%BC%88%E5%85%B3%E9%94%AE%EF%BC%89"><span class="toc-number">11.9.</span> <span class="toc-text">3. 扩容分区（关键）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%88%B7%E6%96%B0%E5%86%85%E6%A0%B8%E5%88%86%E5%8C%BA%E8%A1%A8%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%8C%E9%83%A8%E5%88%86%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%95%88%EF%BC%89"><span class="toc-number">11.10.</span> <span class="toc-text">4. 刷新内核分区表（可选，部分系统自动生效）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%89%A9%E5%AE%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">11.11.</span> <span class="toc-text">5. 扩容文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E9%AA%8C%E8%AF%81"><span class="toc-number">11.12.</span> <span class="toc-text">6. 验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81ext4-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">11.13.</span> <span class="toc-text">一、ext4 文件系统的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="toc-number">11.13.1.</span> <span class="toc-text">1. 前置条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%E5%88%9B%E5%BB%BA%EF%BC%89"><span class="toc-number">11.13.2.</span> <span class="toc-text">2. 核心命令（基础创建）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%B3%E9%94%AE%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A"><span class="toc-number">11.13.3.</span> <span class="toc-text">3. 关键参数解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%AA%8C%E8%AF%81%E5%88%9B%E5%BB%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">11.13.4.</span> <span class="toc-text">4. 验证创建结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%8C%82%E8%BD%BD%E4%BD%BF%E7%94%A8%EF%BC%88%E5%88%9B%E5%BB%BA%E5%90%8E%E5%BF%85%E5%81%9A%EF%BC%89"><span class="toc-number">11.13.5.</span> <span class="toc-text">5. 挂载使用（创建后必做）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81ext4-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%89%A9%E5%AE%B9%EF%BC%88%E6%8E%A8%E8%8D%90%E5%9C%A8%E7%BA%BF%E6%93%8D%E4%BD%9C%EF%BC%89"><span class="toc-number">11.14.</span> <span class="toc-text">二、ext4 文件系统的扩容（推荐在线操作）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6-1"><span class="toc-number">11.14.1.</span> <span class="toc-text">1. 前置条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%8C%E6%95%B4%E6%89%A9%E5%AE%B9%E6%B5%81%E7%A8%8B%EF%BC%88%E4%BB%A5-LVM-%E9%80%BB%E8%BE%91%E5%8D%B7%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">11.14.2.</span> <span class="toc-text">2. 完整扩容流程（以 LVM 逻辑卷为例）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%B3%E9%94%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">11.14.3.</span> <span class="toc-text">3. 关键注意事项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81ext4-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%A9%E5%AE%B9%EF%BC%88%E9%AB%98%E9%A3%8E%E9%99%A9%EF%BC%8C%E8%B0%A8%E6%85%8E%E6%93%8D%E4%BD%9C%EF%BC%89"><span class="toc-number">11.15.</span> <span class="toc-text">三、ext4 文件系统的缩容（高风险，谨慎操作）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%EF%BC%88%E5%BF%85%E9%A1%BB%E6%BB%A1%E8%B6%B3%EF%BC%89"><span class="toc-number">11.15.1.</span> <span class="toc-text">1. 前置条件（必须满足）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%8C%E6%95%B4%E7%BC%A9%E5%AE%B9%E6%B5%81%E7%A8%8B%EF%BC%88%E4%BB%A5-dev-sdb1-%E7%BC%A9%E5%AE%B9%E5%88%B0-50G-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">11.15.2.</span> <span class="toc-text">2. 完整缩容流程（以 &#x2F;dev&#x2F;sdb1 缩容到 50G 为例）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81ext4-%E5%88%9B-%E6%89%A9-%E7%BC%A9%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="toc-number">11.16.</span> <span class="toc-text">四、ext4 创&#x2F;扩&#x2F;缩核心总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A0%B8%E5%BF%83%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">11.17.</span> <span class="toc-text">五、核心注意事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Hexobeautify/Hexo%E7%BE%8E%E5%8C%96-%E4%B8%BB%E9%A2%98Shokax%E5%BC%B9%E7%AA%97%E5%85%AC%E5%91%8A%E6%8F%92%E4%BB%B6popup-announcement/" title="Hexo美化-主题Shokax弹窗公告插件popup-announcement">Hexo美化-主题Shokax弹窗公告插件popup-announcement</a><time datetime="2026-09-13T05:46:48.562Z" title="发表于 2026-09-13 11:46:48">2026-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/centos7-10%E5%8F%AF%E7%94%A8%E9%95%9C%E5%83%8F%E6%95%B4%E7%90%86/" title="Centos7-10可用镜像源整理">Centos7-10可用镜像源整理</a><time datetime="2026-04-16T22:10:24.654Z" title="发表于 2026-04-17 04:10:24">2026-04-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Linux%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/" title="Linux高级教程">Linux高级教程</a><time datetime="2026-03-09T03:16:11.675Z" title="发表于 2026-03-09 09:16:11">2026-03-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Linux%E7%AC%94%E8%AE%B0/" title="Linux基础笔记">Linux基础笔记</a><time datetime="2026-03-08T00:24:02.707Z" title="发表于 2026-03-08 06:24:02">2026-03-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%8D%E8%B4%B9API/" title="免费API">免费API</a><time datetime="2026-01-04T06:00:00.000Z" title="发表于 2026-01-04 12:00:00">2026-01-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2026 By Sunshine.</span></div><div class="footer_custom_text"><font style="font-size:16px"><img style="width:32px;height:32px;margin-bottom:-8px" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/" target="_blank"><span style="color:#ff0000">萌</span><span style="color:#ca7900">I</span><span style="color:#48ab18">C</span><span style="color:#2720ac">P</span><span style="color:#9b17ae">备</span> </a><a href="https://icp.gov.moe/?keyword=20240810" target="_blank"> <span style="color:#ff0000">20</span><span style="color:#ca7900">24</span><span style="color:#48ab18">08</span><span style="color:#2720ac">10</span><span style="color:#f40428">号</span></a></font></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.5200810.xyz',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="8861917529" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true"> </div><script defer src="https://visitor.kuiyr.de/widget/visitor-globe.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div><!-- hexo injector body_end start -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('AI摘要插件：开始执行');
+      
+      // 打字效果函数（无光标）
+      function typeWriter(element, text, speed = 50) {
+        let i = 0;
+        element.innerHTML = '';
+        
+        // 创建文本节点
+        const textNode = document.createTextNode('');
+        element.appendChild(textNode);
+        
+        // 打字效果
+        function type() {
+          if (i < text.length) {
+            textNode.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        
+        // 开始打字
+        type();
+      }
+      
+      // 只处理文章详情页
+      if (document.querySelector('.post-content, .article-content, .entry-content')) {
+        console.log('AI摘要插件：检测到文章详情页');
+        
+        const currentUrl = window.location.pathname;
+        let jsonUrl = currentUrl;
+        
+        // 确保URL以/结尾
+        if (!jsonUrl.endsWith('/')) {
+          jsonUrl += '/';
+        }
+        
+        // 创建摘要容器
+        const summaryDiv = document.createElement('div');
+        summaryDiv.className = 'ai-summary-container';
+        summaryDiv.innerHTML = '<div class="ai-summary-loading"><div class="ai-loading-spinner"></div><span>AI 正在思考中...</span></div>';
+        
+        // 查找文章内容区域
+        const contentElement = document.querySelector('.post-content, .article-content, .entry-content');
+        
+        if (contentElement) {
+          // 将摘要插入到文章内容的最前面
+          contentElement.insertBefore(summaryDiv, contentElement.firstChild);
+          
+          // 获取摘要数据
+          fetch(`${jsonUrl}index.json`)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log('AI摘要插件：获取到数据', data);
+              if (data.excerpt) {
+                // 头像部分：使用 CSS 背景图避开 Butterfly 主题懒加载
+                const customAvatar = '';
+                const avatarHtml = customAvatar && customAvatar.length > 0
+                  ? '<div class="ai-summary-avatar" style="background-image: url(\'' + customAvatar + '\') !important;"></div>'
+                  : `<div class="ai-summary-avatar-default">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#gradient1)"/>
+                        <circle cx="9" cy="10" r="1.5" fill="white"/>
+                        <circle cx="15" cy="10" r="1.5" fill="white"/>
+                        <path d="M12 16c-1.48 0-2.75-.81-3.45-2h6.9c-.7 1.19-1.97 2-3.45 2z" fill="white"/>
+                        <path d="M19 8l2-2M5 8l-2-2M12 2V0" stroke="url(#gradient2)" stroke-width="1.5" stroke-linecap="round"/>
+                        <defs>
+                          <linearGradient id="gradient1" x1="2" y1="2" x2="22" y2="22">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                          </linearGradient>
+                          <linearGradient id="gradient2" x1="0" y1="0" x2="24" y2="24">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>`;
+                
+                // 清空容器
+                summaryDiv.innerHTML = `
+                  <div class="ai-summary-header">
+                    <div class="ai-summary-icon">
+                      ${avatarHtml}
+                    </div>
+                    <div class="ai-summary-info">
+                      <div class="ai-summary-title">Sunshine的小助手</div>
+                      <div class="ai-summary-subtitle">AI 智能摘要</div>
+                    </div>
+                    <div class="ai-summary-badge">
+                      <span class="ai-badge-dot"></span>
+                      <span>AI 生成</span>
+                    </div>
+                  </div>
+                  <div class="ai-summary-content">
+                    <div class="ai-summary-text"></div>
+                  </div>
+                `;
+                
+                // 获取文本元素
+                const textElement = summaryDiv.querySelector('.ai-summary-text');
+                
+                // 使用打字效果显示摘要
+                typeWriter(
+                  textElement, 
+                  data.excerpt, 
+                  50
+                );
+                
+                console.log('AI摘要插件：开始打字效果');
+              } else {
+                console.warn('AI摘要插件：数据中没有excerpt字段');
+                summaryDiv.style.display = 'none';
+              }
+            })
+            .catch(error => {
+              console.error('AI摘要插件：获取摘要失败', error);
+              summaryDiv.innerHTML = '<div class="ai-summary-error"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg><span>AI摘要加载失败</span></div>';
+            });
+        } else {
+          console.error('AI摘要插件：未找到文章内容区域');
+        }
+      } else {
+        console.log('AI摘要插件：不是文章详情页，跳过');
+      }
+    });
+  </script>
+  <!-- hexo injector body_end end --></body></html>

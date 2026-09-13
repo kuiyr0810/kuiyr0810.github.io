@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><meta name="google-adsense-account" content="ca-pub-6063661802744287"><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无邪h5合集 | Sunshine's blog</title><meta name="author" content="Sunshine."><meta name="copyright" content="Sunshine."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=":root {   --wx-primary: #ff4757;   --wx-secondary: #ff6b81;   --wx-bg: #f9f9f9;   --wx-card-bg: #ffffff;   --wx-text: #333333;   --wx-gray: #666666; }  #wuxie-container {   max-width: 1000px;   margi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="无邪h5合集">
+<meta property="og:url" content="https://kuiyr.de/h5/">
+<meta property="og:site_name" content="Sunshine&#39;s blog">
+<meta property="og:description" content=":root {   --wx-primary: #ff4757;   --wx-secondary: #ff6b81;   --wx-bg: #f9f9f9;   --wx-card-bg: #ffffff;   --wx-text: #333333;   --wx-gray: #666666; }  #wuxie-container {   max-width: 1000px;   margi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kuiyr.de/img/avatar.webp">
+<meta property="article:published_time" content="2023-10-27T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-13T05:46:48.565Z">
+<meta property="article:author" content="Sunshine.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kuiyr.de/img/avatar.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.webp"><link rel="canonical" href="https://kuiyr.de/h5/"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6063661802744287',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"VWBUIDVBKY","apiKey":"690e8b0a9173057be79b6bb354bd964a","indexName":"hexo","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sunshine.","link":"链接: ","source":"来源: Sunshine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无邪h5合集',
+  isHighlightShrink: true,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" ><!-- hexo injector head_end start --><meta name="google-site-verification" content="_V7Z8AaFEqtqtX5U0w5Eurq_p2Gkd3ZGu2IJuAI0dzU" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Sunshine's blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(https://img.5200810.xyz/file/api/1738664357765_001632-1720973792179d.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://img1.baidu.com/it/u=2151984052,1909457001&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/favicon.webp" alt="Logo"><span class="site-name">Sunshine's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">无邪h5合集</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+:root {
+  --wx-primary: #ff4757;
+  --wx-secondary: #ff6b81;
+  --wx-bg: #f9f9f9;
+  --wx-card-bg: #ffffff;
+  --wx-text: #333333;
+  --wx-gray: #666666;
+}
+
+#wuxie-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.wx-hero {
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  border-radius: 16px;
+  padding: 50px 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.3);
+  margin-bottom: 40px;
+}
+.wx-hero h1 {
+  font-size: 2.8rem;
+  margin: 0 0 15px 0;
+  font-weight: 800;
+}
+.wx-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+.wx-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+}
+.wx-btn-download {
+  background: white;
+  color: var(--wx-primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.wx-btn-download:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.wx-free-tag {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.wx-section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--wx-text);
+  margin: 40px 0 25px 0;
+  font-weight: 700;
+}
+.wx-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.wx-card {
+  background: var(--wx-card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.wx-card:hover {
+  transform: translateY(-5px);
+}
+.wx-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.wx-card h3 {
+  margin: 0 0 10px 0;
+  color: var(--wx-text);
+}
+.wx-card p {
+  color: var(--wx-gray);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.wx-games-showcase {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+}
+.wx-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+.wx-game-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.wx-game-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.wx-game-thumb {
+  width: 100%;
+  height: 100px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.wx-game-name {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--wx-text);
+  font-weight: 600;
+}
+
+.wx-donate {
+  background: #fff8e1;
+  border: 1px solid #ffecb3;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.wx-donate h2 {
+  color: #ff9800;
+  margin-top: 0;
+}
+.wx-donate p {
+  color: #8d6e63;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.wx-donate-box {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.wx-qr-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.wx-qr-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.wx-qr-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+.wx-tutorial {
+  background: #f0f7ff;
+  border-radius: 12px;
+  padding: 30px;
+  color: #333;
+}
+.wx-tutorial ol {
+  line-height: 2;
+  padding-left: 20px;
+}
+.wx-tutorial strong {
+  color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+  .wx-hero h1 { font-size: 2rem; }
+  .wx-hero p { font-size: 1rem; }
+}
+</style>
+
+<div id="wuxie-container">
+
+<div class="wx-hero">
+    <div class="wx-free-tag">⚡ 完全免费 · 无广告干扰</div>
+    <h1>无邪h5合集</h1>
+    <p>汇集全网最火的抖音H5小游戏，一秒打开，即点即玩！<br>为你带来轻松解压的休闲时光。</p>
+    <a href="#download-link" class="wx-btn wx-btn-download" onclick="alert('请替换为实际下载链接')">立即免费下载</a>
+  </div>
+
+<h2 class="wx-section-title">为什么选择无邪H5？</h2>
+  <div class="wx-features">
+    <div class="wx-card">
+      <div class="wx-card-icon">🎮</div>
+      <h3>海量抖音游戏</h3>
+      <p>精选抖音热门H5小游戏，持续更新，紧跟潮流，不错过任何一个爆款。</p>
+    </div>
+    <div class="wx-card">
+      <div class="wx-card-icon">💰</div>
+      <h3>永久免费</h3>
+      <p>下载、安装、使用、游玩全流程完全免费。没有任何隐藏收费项目和弹窗广告。</p>
+    </div>
+    <div class="wx-card">
+      <div class="wx-card-icon">🚀</div>
+      <h3>轻量极速</h3>
+      <p>无需下载庞大的游戏安装包，H5技术让你即开即玩，不占手机内存。</p>
+    </div>
+    <div class="wx-card">
+      <div class="wx-card-icon">❤️</div>
+      <h3>用爱发电</h3>
+      <p>作者纯个人维护，如果你觉得好玩，可以通过自愿捐赠来支持作者继续更新。</p>
+    </div>
+  </div>
+
+<h2 class="wx-section-title">部分游戏一览</h2>
+  <div class="wx-games-showcase">
+    <div class="wx-game-grid">
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🧩</div>
+        <div class="wx-game-name">羊了个羊</div>
+      </div>
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🎣</div>
+        <div class="wx-game-name">钓鱼大师</div>
+      </div>
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🔫</div>
+        <div class="wx-game-name">合成大西瓜</div>
+      </div>
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🏃</div>
+        <div class="wx-game-name">跳一跳</div>
+      </div>
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🔥</div>
+        <div class="wx-game-name">砖块破坏者</div>
+      </div>
+      <div class="wx-game-item">
+        <div class="wx-game-thumb">🧠</div>
+        <div class="wx-game-name">脑洞大师</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px; color: #999;">* 更多游戏请在软件内体验，持续更新中...</p>
+  </div>
+
+<div class="wx-donate">
+    <h2>☕ 请作者喝杯咖啡</h2>
+    <p>“无邪h5合集”承诺永久免费提供给所有玩家使用。<br>如果你在软件中找到了快乐，欢迎通过捐赠支持作者！<br>你的支持是我们持续更新和维护的最大动力。</p>
+    <div class="wx-donate-box">
+      <div class="wx-qr-card">
+        <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://via.placeholder.com/150/07C160/FFFFFF?text=WeChat+Pay" alt="微信捐赠">
+        <span>微信捐赠</span>
+      </div>
+      <div class="wx-qr-card">
+        <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://via.placeholder.com/150/1677FF/FFFFFF?text=AliPay" alt="支付宝捐赠">
+        <span>支付宝捐赠</span>
+      </div>
+    </div>
+  </div>
+
+<h2 class="wx-section-title">使用教程</h2>
+  <div class="wx-tutorial">
+    <ol>
+      <li><strong>下载软件：</strong>点击上方“立即免费下载”按钮，获取最新版本的安装包。</li>
+      <li><strong>安装运行：</strong>双击安装包按提示完成安装（安卓手机需允许未知来源应用安装）。</li>
+      <li><strong>选择游戏：</strong>打开软件，在首页或分类中找到你感兴趣的抖音H5小游戏。</li>
+      <li><strong>开始游玩：</strong>点击游戏图标即可秒开游玩，无需额外下载任何资源。</li>
+    </ol>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('触发下载逻辑');
+    });
+  });
+</script>
+
+</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://img1.baidu.com/it/u=2151984052,1909457001&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2026 By Sunshine.</span></div><div class="footer_custom_text"><font style="font-size:16px"><img style="width:32px;height:32px;margin-bottom:-8px" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/" target="_blank"><span style="color:#ff0000">萌</span><span style="color:#ca7900">I</span><span style="color:#48ab18">C</span><span style="color:#2720ac">P</span><span style="color:#9b17ae">备</span> </a><a href="https://icp.gov.moe/?keyword=20240810" target="_blank"> <span style="color:#ff0000">20</span><span style="color:#ca7900">24</span><span style="color:#48ab18">08</span><span style="color:#2720ac">10</span><span style="color:#f40428">号</span></a></font></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.5200810.xyz',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="8861917529" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true"> </div><script defer src="https://visitor.kuiyr.de/widget/visitor-globe.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

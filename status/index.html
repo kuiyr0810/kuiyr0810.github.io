@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><meta name="google-adsense-account" content="ca-pub-6063661802744287"><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>服务监控 | Sunshine's blog</title><meta name="author" content="Sunshine."><meta name="copyright" content="Sunshine."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#status-app {     min-height: 300px;     font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif;   }    .status-overview {     padding: 20px;     border-radius: 12px;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="服务监控">
+<meta property="og:url" content="https://kuiyr.de/status/">
+<meta property="og:site_name" content="Sunshine&#39;s blog">
+<meta property="og:description" content="#status-app {     min-height: 300px;     font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif;   }    .status-overview {     padding: 20px;     border-radius: 12px;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kuiyr.de/img/avatar.webp">
+<meta property="article:published_time" content="2025-11-30T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-01T21:09:06.395Z">
+<meta property="article:author" content="Sunshine.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kuiyr.de/img/avatar.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.webp"><link rel="canonical" href="https://kuiyr.de/status/"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6063661802744287',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"VWBUIDVBKY","apiKey":"690e8b0a9173057be79b6bb354bd964a","indexName":"hexo","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sunshine.","link":"链接: ","source":"来源: Sunshine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '服务监控',
+  isHighlightShrink: true,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" ><!-- hexo injector head_end start --><meta name="google-site-verification" content="_V7Z8AaFEqtqtX5U0w5Eurq_p2Gkd3ZGu2IJuAI0dzU" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Sunshine's blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(https://img.5200810.xyz/file/api/1738664357765_001632-1720973792179d.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div></div></div><div class="page type-status" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/favicon.webp" alt="Logo"><span class="site-name">Sunshine's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">服务监控</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container">
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<style>
+  #status-app {
+    min-height: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .status-overview {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .status-overview.ok { background: linear-gradient(135deg, #49b1f5, #0078d7); }
+  .status-overview.down { background: linear-gradient(135deg, #ff7242, #d63031); }
+  .status-overview i { margin-right: 8px; }
+
+  .monitor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .monitor-card {
+    background: var(--card-bg, #fff);
+    border: 1px solid #e3e8f7;
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  [data-theme="dark"] .monitor-card {
+    background: #232425;
+    border-color: #42444a;
+  }
+  .monitor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .monitor-title {
+    font-weight: 700;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+  }
+
+  .status-badge {
+    font-size: 0.75em;
+    padding: 3px 10px;
+    border-radius: 20px;  */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .badge-green { background: rgba(82, 196, 26, 0.12); color: #52c41a; }
+  .badge-red { background: rgba(245, 34, 45, 0.12); color: #f5222d; }
+  .badge-gray { background: rgba(0,0,0,0.06); color: #999; }
+  [data-theme="dark"] .badge-gray { background: rgba(255,255,255,0.1); color: #ccc; }
+
+
+  .uptime-history {
+    display: flex;
+    gap: 3px;
+    height: 24px; 
+    margin-bottom: 15px;
+  }
+  .history-bar {
+    flex: 1;
+    background: #e6e8eb;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+    cursor: help;
+  }
+  .history-bar:hover { opacity: 0.8; }
+  .bar-green { background: #52c41a; }
+  .bar-red { background: #f5222d; }
+  
+  [data-theme="dark"] .history-bar.no-data { background: #3a3a3a; }
+
+
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #858585;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+  }
+  [data-theme="dark"] .stats-row { border-top-color: #42444a; }
+  .stat-col { text-align: center; }
+  .stat-val {
+    display: block;
+    font-weight: bold;
+    color: var(--font-color);
+    margin-top: 4px;
+    font-family: monospace;
+    font-size: 1.1em;
+  }
+
+  .skeleton-bg {
+    background: #f0f2f5;
+    background: linear-gradient(90deg, #f0f2f5 25%, #e6e8eb 37%, #f0f2f5 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+    border-radius: 6px;
+  }
+  [data-theme="dark"] .skeleton-bg {
+    background: #2c2c2c;
+    background: linear-gradient(90deg, #2c2c2c 25%, #3a3a3a 37%, #2c2c2c 63%);
+    background-size: 400% 100%;
+  }
+  @keyframes skeleton-loading {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+  }
+  .sk-title { height: 24px; width: 50%; margin-bottom: 15px; }
+  .sk-bars { height: 24px; width: 100%; margin-bottom: 15px; display: flex; gap:3px;}
+  .sk-bar-item { flex: 1; height: 100%; border-radius: 4px; }
+  .sk-stat { height: 35px; width: 25%; }
+  .sk-stats-row { display: flex; justify-content: space-between; margin-top: auto; }
+</style>
+
+<div id="status-app"></div>
+
+<script type="text/x-template" id="status-template">
+  <div>
+    <div v-if="error" style="background:#fff2f0; border:1px solid #ffccc7; padding:15px; color:#ff4d4f; border-radius:8px; margin-bottom:20px; text-align:center;">
+      <i class="fas fa-exclamation-circle"></i> {{ error }}
+    </div>
+
+    <div v-if="loading">
+       <div class="status-overview skeleton-bg" style="height: 60px; margin-bottom: 30px;"></div>
+       <div class="monitor-grid">
+         <div class="monitor-card" v-for="n in 6" :key="n">
+            <div class="sk-title skeleton-bg"></div>
+            <div class="sk-bars">
+              <div class="sk-bar-item skeleton-bg" v-for="i in 30" :key="i" :style="`animation-delay: ${i*0.02}s`"></div>
+            </div>
+            <div class="sk-stats-row">
+                <div class="sk-stat skeleton-bg"></div>
+                <div class="sk-stat skeleton-bg"></div>
+                <div class="sk-stat skeleton-bg"></div>
+            </div>
+         </div>
+       </div>
+    </div>
+
+    <div v-else-if="!error">
+      <div :class="['status-overview', allOperational ? 'ok' : 'down']">
+        <i :class="['fas', allOperational ? 'fa-check-circle' : 'fa-exclamation-triangle']"></i>
+        {{ allOperational ? '所有服务正常运行' : '检测到部分服务异常' }}
+      </div>
+
+      <div class="monitor-grid">
+        <div v-for="monitor in monitors" :key="monitor.id" class="monitor-card">
+          <div class="card-header">
+            <div class="monitor-title">
+              {{ monitor.friendly_name }}
+            </div>
+            <span :class="['status-badge', getStatusBadgeClass(monitor.status)]">
+              {{ getStatusText(monitor.status) }}
+            </span>
+          </div>
+
+          <div class="uptime-history">
+            <div v-for="(bar, index) in getHistoryBars(monitor)" 
+                 :key="index"
+                 :class="['history-bar', bar.className]"
+                 :title="bar.tooltip">
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-col">
+              24小时
+              <span class="stat-val">{{ getRatio(monitor.custom_uptime_ratio, 0) }}%</span>
+            </div>
+            <div class="stat-col">
+              7天
+              <span class="stat-val">{{ getRatio(monitor.custom_uptime_ratio, 1) }}%</span>
+            </div>
+            <div class="stat-col">
+              当前延迟
+              <span class="stat-val">{{ getLastResponseTime(monitor) }}ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div style="text-align:center; margin-top:30px; font-size:12px; opacity:0.5">
+        最后更新: {{ lastUpdated }} | 条形图展示最近 30 次检测结果
+      </div>
+    </div>
+  </div>
+</script>
+
+<script>
+  (function() {
+    const { createApp } = Vue;
+    const API_URL = 'https://status.5200810.xyz/'; 
+
+    const App = {
+      template: '#status-template',
+      data() {
+        return {
+          monitors: [],
+          loading: true,
+          error: null,
+          lastUpdated: '-'
+        }
+      },
+      computed: {
+        allOperational() {
+          return this.monitors.every(m => m.status === 2);
+        }
+      },
+      methods: {
+        async fetchData() {
+          // await new Promise(r => setTimeout(r, 1500)); // 测试骨架屏用
+          try {
+            const res = await fetch(API_URL);
+            const data = await res.json();
+            if (data.stat === 'ok') {
+              this.monitors = data.monitors;
+              this.lastUpdated = new Date().toLocaleString();
+            } else {
+              throw new Error(data.error?.message || 'API Error');
+            }
+          } catch (e) {
+            this.error = '无法连接监控服务';
+            console.error(e);
+          } finally {
+            this.loading = false;
+          }
+        },
+        getHistoryBars(monitor) {
+          const maxBars = 30; 
+          let rawData = monitor.response_times || [];
+        
+          let recentData = rawData.slice(0, maxBars).reverse();
+
+          while (recentData.length < maxBars) {
+              recentData.unshift(null);
+          }
+          return recentData.map(rt => {
+              if (!rt) {
+                  return { className: 'no-data', tooltip: '无数据' };
+              }
+              const isUp = rt.value > 0;
+              const date = new Date(rt.datetime * 1000).toLocaleString();
+              return {
+                  className: isUp ? 'bar-green' : 'bar-red',
+                  tooltip: `${date}\n响应时间: ${rt.value}ms`
+              };
+          });
+        },
+        getStatusBadgeClass(status) {
+            if (status === 2) return 'badge-green';
+            if (status === 8 || status === 9) return 'badge-red';
+            return 'badge-gray';
+        },
+        getStatusText(status) {
+            const map = { 0: '已暂停', 1: '未检测', 2: '运行正常', 8: '疑似故障', 9: '服务中断' };
+            return map[status] || '未知';
+        },
+        getRatio(str, idx) {
+          if (!str) return '100.00';
+          return parseFloat(str.split('-')[idx]).toFixed(2);
+        },
+        getLastResponseTime(m) {
+          return (m.response_times && m.response_times.length && m.response_times[0].value > 0) 
+            ? parseInt(m.response_times[0].value) 
+            : '-';
+        }
+      },
+      mounted() {
+        this.fetchData();
+      }
+    };
+
+    const init = () => {
+      const el = document.getElementById('status-app');
+      if (el && !el.__vue_app__) {
+        createApp(App).mount('#status-app');
+      }
+    };
+    init();
+    document.addEventListener('pjax:complete', init);
+  })();
+</script>
+
+
+
+</div></div></main><footer id="footer" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2026 By Sunshine.</span></div><div class="footer_custom_text"><font style="font-size:16px"><img style="width:32px;height:32px;margin-bottom:-8px" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/" target="_blank"><span style="color:#ff0000">萌</span><span style="color:#ca7900">I</span><span style="color:#48ab18">C</span><span style="color:#2720ac">P</span><span style="color:#9b17ae">备</span> </a><a href="https://icp.gov.moe/?keyword=20240810" target="_blank"> <span style="color:#ff0000">20</span><span style="color:#ca7900">24</span><span style="color:#48ab18">08</span><span style="color:#2720ac">10</span><span style="color:#f40428">号</span></a></font></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8861917529" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true"> </div><script defer src="https://visitor.kuiyr.de/widget/visitor-globe.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

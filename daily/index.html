@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><meta name="google-adsense-account" content="ca-pub-6063661802744287"><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>全网热搜聚合 | Sunshine's blog</title><meta name="author" content="Sunshine."><meta name="copyright" content="Sunshine."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=".dailyhot-wrapper {         --dh-accent: #3b82f6;          --dh-bg: #f3f4f6;           --dh-card-bg: #ffffff;         --dh-text-main: #1f2937;         --dh-text-sub: #6b7280;         --dh-shado">
+<meta property="og:type" content="website">
+<meta property="og:title" content="全网热搜聚合">
+<meta property="og:url" content="https://kuiyr.de/daily/">
+<meta property="og:site_name" content="Sunshine&#39;s blog">
+<meta property="og:description" content=".dailyhot-wrapper {         --dh-accent: #3b82f6;          --dh-bg: #f3f4f6;           --dh-card-bg: #ffffff;         --dh-text-main: #1f2937;         --dh-text-sub: #6b7280;         --dh-shado">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kuiyr.de/img/avatar.webp">
+<meta property="article:published_time" content="2025-12-01T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-02T01:43:37.780Z">
+<meta property="article:author" content="Sunshine.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kuiyr.de/img/avatar.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.webp"><link rel="canonical" href="https://kuiyr.de/daily/"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6063661802744287',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"VWBUIDVBKY","apiKey":"690e8b0a9173057be79b6bb354bd964a","indexName":"hexo","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sunshine.","link":"链接: ","source":"来源: Sunshine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '全网热搜聚合',
+  isHighlightShrink: true,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" ><!-- hexo injector head_end start --><meta name="google-site-verification" content="_V7Z8AaFEqtqtX5U0w5Eurq_p2Gkd3ZGu2IJuAI0dzU" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Sunshine's blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(https://img.5200810.xyz/file/api/1738664357765_001632-1720973792179d.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/favicon.webp" alt="Logo"><span class="site-name">Sunshine's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">全网热搜聚合</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container">
+
+<style>
+    .dailyhot-wrapper {
+        --dh-accent: #3b82f6; 
+        --dh-bg: #f3f4f6;  
+        --dh-card-bg: #ffffff;
+        --dh-text-main: #1f2937;
+        --dh-text-sub: #6b7280;
+        --dh-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --dh-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      
+        /* 排名颜色 */
+        --rank-1: #ff4757;
+        --rank-2: #ffa502;
+        --rank-3: #eccc68;
+      
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--dh-text-main);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    [data-theme='dark'] .dailyhot-wrapper {
+        --dh-accent: #60a5fa;
+        --dh-bg: #1e1e1e; 
+        --dh-card-bg: #2b2b2b;
+        --dh-text-main: #f3f4f6;
+        --dh-text-sub: #9ca3af;
+        --dh-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        --dh-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .dh-menu-area {
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed rgba(0,0,0,0.1);
+    }
+
+    .dh-menu-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .dh-menu-btn {
+        background: transparent;
+        border: 1px solid transparent;
+        padding: 6px 16px;
+        border-radius: 50px; 
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--dh-text-sub);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dh-menu-btn:hover {
+        background: rgba(0,0,0,0.03);
+        color: var(--dh-accent);
+    }
+  
+    [data-theme='dark'] .dh-menu-btn:hover { background: rgba(255,255,255,0.05); }
+
+    .dh-menu-btn.active {
+        background: var(--dh-accent);
+        color: white;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        transform: scale(1.05);
+    }
+
+    .dh-list-container {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        opacity: 0; 
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dh-card-item {
+        background: var(--dh-card-bg);
+        padding: 16px;
+        border-radius: 12px;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        text-decoration: none !important;
+        color: var(--dh-text-main) !important;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.02);
+        box-shadow: var(--dh-shadow);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dh-card-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--dh-shadow-hover);
+        border-color: rgba(59, 130, 246, 0.1);
+    }
+
+    .dh-rank-num {
+        font-size: 18px;
+        font-weight: 800;
+        color: #d1d5db;
+        min-width: 28px;
+        text-align: center;
+        line-height: 1;
+        font-style: italic;
+    }
+
+
+    .dh-card-item.rank-1 .dh-rank-num { color: var(--rank-1); }
+    .dh-card-item.rank-2 .dh-rank-num { color: var(--rank-2); }
+    .dh-card-item.rank-3 .dh-rank-num { color: var(--rank-3); }
+
+
+    .dh-card-item.rank-1 { background: linear-gradient(to right bottom, var(--dh-card-bg) 70%, rgba(255, 71, 87, 0.05)); }
+    .dh-card-item.rank-2 { background: linear-gradient(to right bottom, var(--dh-card-bg) 70%, rgba(255, 165, 2, 0.05)); }
+    .dh-card-item.rank-3 { background: linear-gradient(to right bottom, var(--dh-card-bg) 70%, rgba(236, 204, 104, 0.05)); }
+
+    /* === 内容区域 === */
+    .dh-content { flex: 1; overflow: hidden; }
+  
+    .dh-item-title {
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.2s;
+    }
+
+    .dh-card-item:hover .dh-item-title {
+        color: var(--dh-accent);
+    }
+
+    .dh-item-meta {
+        font-size: 12px;
+        color: var(--dh-text-sub);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dh-hot-tag {
+        color: #ef4444;
+        background: rgba(239, 68, 68, 0.08);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 11px;
+    }
+
+    /* === Loading 动画 === */
+    .dh-loading {
+        text-align: center;
+        padding: 50px 0;
+        grid-column: 1 / -1;
+    }
+    .dh-spinner {
+        width: 30px;
+        height: 30px;
+        border: 3px solid #e5e7eb;
+        border-top-color: var(--dh-accent);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 15px;
+    }
+    .dh-msg-text { color: var(--dh-text-sub); }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+</style>
+
+<div class="dailyhot-wrapper">
+    <div class="dh-menu-area">
+        <div class="dh-menu-grid" id="dhMenuRoot"></div>
+    </div>
+
+<div id="dhListRoot" class="dh-list-container">
+    <div class="dh-loading">
+        <div class="dh-spinner"></div>
+        <div class="dh-msg-text">正在聚合全网热点...</div>
+    </div>
+</div>
+</div>
+
+<script>
+
+    const API_BASE = 'https://daily.5200810.xyz/'; 
+
+    // 定义需要展示的榜单
+    window.dailyHotSites = [
+        { key: 'weibo', name: '微博热榜' },
+        { key: 'zhihu', name: '知乎热榜' },
+        { key: 'bilibili', name: 'B站热榜' },
+        { key: 'douyin', name: '抖音热榜' },
+        { key: 'toutiao', name: '头条热榜' },
+        { key: 'baidu', name: '百度热榜' },
+        { key: '36kr', name: '36氪热榜' },
+        { key: 'sspai', name: '少数派热榜' },
+        { key: 'ithome', name: 'IT之家热榜' },
+        { key: 'thepaper', name: '澎湃热榜' },
+        { key: 'qq-news', name: '腾讯热榜' },
+        { key: 'netease-news', name: '网易热榜' },
+        { key: 'tieba', name: '贴吧热榜' },
+        { key: 'v2ex', name: 'V2EX热榜' },
+        { key: 'juejin', name: '掘金热榜' },
+        { key: 'csdn', name: 'CSDN热榜' },
+        { key: 'hellogithub', name: 'GitHub热榜' },
+        { key: 'hupu', name: '虎扑热榜' },
+        { key: 'coolapk', name: '酷安热榜' },
+        { key: 'douban-movie', name: '豆瓣电影热榜' },
+        { key: 'weread', name: '微信读书热榜' },
+        { key: 'lol', name: 'LOL热榜' }
+    ];
+
+    (function(){
+        const menuRoot = document.getElementById('dhMenuRoot');
+      
+        // 生成菜单
+        let html = '';
+        window.dailyHotSites.forEach(site => {
+            html += `<button class="dh-menu-btn" onclick="dailyHotSwitchTab(this, '${site.key}')">${site.name}</button>`;
+        });
+        menuRoot.innerHTML = html;
+
+        // 自动加载第一个
+        setTimeout(() => {
+            const firstBtn = menuRoot.querySelector('button');
+            if(firstBtn) dailyHotSwitchTab(firstBtn, window.dailyHotSites[0].key);
+        }, 100);
+    })();
+
+    window.dailyHotSwitchTab = async function(btn, type) {
+        const listRoot = document.getElementById('dhListRoot');
+
+        // 按钮样式切换
+        document.querySelectorAll('.dh-menu-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // 显示 Loading
+        listRoot.innerHTML = `
+            <div class="dh-loading">
+                <div class="dh-spinner"></div>
+                <div class="dh-msg-text">正在加载 ${btn.innerText}...</div>
+            </div>`;
+
+        try {
+            const finalUrl = API_BASE.replace(/\/$/, '') + '/' + type;
+            const res = await fetch(finalUrl);
+            const json = await res.json();
+
+            if (json.code === 200) {
+                renderDailyHotList(json.data);
+            } else {
+                listRoot.innerHTML = `<div class="dh-loading"><div class="dh-msg-text">❌ 获取失败: ${json.message}</div></div>`;
+            }
+        } catch (err) {
+            console.error(err);
+            listRoot.innerHTML = `<div class="dh-loading"><div class="dh-msg-text">❌ 暂时下线</div></div>`;
+        }
+    };
+
+    window.renderDailyHotList = function(data) {
+        const listRoot = document.getElementById('dhListRoot');
+      
+        // 重置动画
+        listRoot.style.animation = 'none';
+        listRoot.offsetHeight; /* trigger reflow */
+        listRoot.style.animation = 'fadeInUp 0.5s ease forwards';
+
+        if(!data || data.length === 0) {
+            listRoot.innerHTML = '<div class="dh-loading"><div class="dh-msg-text">📭 暂无数据</div></div>';
+            return;
+        }
+
+        let html = '';
+        data.forEach((item, index) => {
+            const rank = index + 1;
+            const link = item.mobileUrl || item.url || '#';
+            const hotVal = item.hot ? `<span class="dh-hot-tag">🔥 ${item.hot}</span>` : '';
+          
+            let cardClass = 'dh-card-item';
+            if(rank === 1) cardClass += ' rank-1';
+            if(rank === 2) cardClass += ' rank-2';
+            if(rank === 3) cardClass += ' rank-3';
+
+            html += `
+                <a href="${link}" target="_blank" class="${cardClass}">
+                    <div class="dh-rank-num">${rank}</div>
+                    <div class="dh-content">
+                        <div class="dh-item-title" title="${item.title}">${item.title}</div>
+                        <div class="dh-item-meta">
+                            ${hotVal}
+                            <span style="margin-left:auto; opacity:0.5; font-size:11px;">UP →</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        });
+        listRoot.innerHTML = html;
+    }
+</script>
+
+
+
+</div></div></main><footer id="footer" style="background-image: url(https://wp.upx8.com/api.php?content=风景);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2026 By Sunshine.</span></div><div class="footer_custom_text"><font style="font-size:16px"><img style="width:32px;height:32px;margin-bottom:-8px" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/" target="_blank"><span style="color:#ff0000">萌</span><span style="color:#ca7900">I</span><span style="color:#48ab18">C</span><span style="color:#2720ac">P</span><span style="color:#9b17ae">备</span> </a><a href="https://icp.gov.moe/?keyword=20240810" target="_blank"> <span style="color:#ff0000">20</span><span style="color:#ca7900">24</span><span style="color:#48ab18">08</span><span style="color:#2720ac">10</span><span style="color:#f40428">号</span></a></font></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8861917529" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true"> </div><script defer src="https://visitor.kuiyr.de/widget/visitor-globe.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

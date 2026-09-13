@@ -1,0 +1,667 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><meta name="google-adsense-account" content="ca-pub-6063661802744287"><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Qexo说说美化 | Sunshine's blog</title><meta name="author" content="Sunshine."><meta name="copyright" content="Sunshine."><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="此文章仅适用于已经安装好Qexo并已经适配其说说界面的hexo主题，单独使用无效！   Qexo有其独有的说说配置，和众多hexo主题的说说功能并不兼容 由于美化主题自带的说说界面需要改动主题本身的文件，对以后的主题升级很不友好 而Qexo的说说可以通过引入静态资源文件进行美化 于是博主就写了一个仿UyoAhz大佬的（大佬的代码在github是加密的，可个性化性不高） 食用方法： 在source&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qexo说说美化">
+<meta property="og:url" content="https://kuiyr.de/Qexo%E8%AF%B4%E8%AF%B4%E7%BE%8E%E5%8C%96/">
+<meta property="og:site_name" content="Sunshine&#39;s blog">
+<meta property="og:description" content="此文章仅适用于已经安装好Qexo并已经适配其说说界面的hexo主题，单独使用无效！   Qexo有其独有的说说配置，和众多hexo主题的说说功能并不兼容 由于美化主题自带的说说界面需要改动主题本身的文件，对以后的主题升级很不友好 而Qexo的说说可以通过引入静态资源文件进行美化 于是博主就写了一个仿UyoAhz大佬的（大佬的代码在github是加密的，可个性化性不高） 食用方法： 在source&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://random-api.czl.net/pic/fj">
+<meta property="article:published_time" content="2025-08-04T03:18:48.096Z">
+<meta property="article:modified_time" content="2025-08-18T21:19:35.489Z">
+<meta property="article:author" content="Sunshine.">
+<meta property="article:tag" content="hexo优化">
+<meta property="article:tag" content="qexo美化">
+<meta property="article:tag" content="说说美化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://random-api.czl.net/pic/fj"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Qexo说说美化",
+  "url": "https://kuiyr.de/Qexo%E8%AF%B4%E8%AF%B4%E7%BE%8E%E5%8C%96/",
+  "image": "https://random-api.czl.net/pic/fj",
+  "datePublished": "2025-08-04T03:18:48.096Z",
+  "dateModified": "2025-08-18T21:19:35.489Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sunshine.",
+      "url": "https://kuiyr.de"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.webp"><link rel="canonical" href="https://kuiyr.de/Qexo%E8%AF%B4%E8%AF%B4%E7%BE%8E%E5%8C%96/"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6063661802744287',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"VWBUIDVBKY","apiKey":"690e8b0a9173057be79b6bb354bd964a","indexName":"hexo","hitsPerPage":6,"languages":{"input_placeholder":"搜索文章","hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sunshine.","link":"链接: ","source":"来源: Sunshine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Qexo说说美化',
+  isHighlightShrink: true,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" ><!-- hexo injector head_end start -->
+  <style>
+    /* AI 摘要容器 */
+    .ai-summary-container {
+      margin: 0 0 28px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      backdrop-filter: blur(10px);
+    }
+    
+    .ai-summary-container:hover {
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25);
+      transform: translateY(-3px);
+      border-color: rgba(102, 126, 234, 0.2);
+    }
+    
+    /* 头部区域 */
+    .ai-summary-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ai-summary-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    /* 头像/图标区域 */
+    .ai-summary-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      margin-right: 14px;
+      position: relative;
+    }
+    
+    .ai-summary-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: transparent !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .ai-summary-avatar-default {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .ai-summary-avatar-default svg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    /* 信息区域 */
+    .ai-summary-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .ai-summary-title {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .ai-summary-subtitle {
+      font-size: 12px;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    
+    /* AI 徽章 */
+    .ai-summary-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .ai-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    /* 内容区域 */
+    .ai-summary-content {
+      padding: 20px 24px;
+      background: linear-gradient(to bottom, #fefefe, #fafafa);
+      color: #374151;
+      line-height: 1.8;
+      font-size: 15px;
+      position: relative;
+    }
+    
+    .ai-summary-content::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-size: 48px;
+      font-family: Georgia, serif;
+      color: #667eea;
+      opacity: 0.1;
+      line-height: 1;
+    }
+    
+    .ai-summary-text {
+      display: inline;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* 加载状态 */
+    .ai-summary-loading {
+      padding: 24px;
+      background: linear-gradient(to bottom, #fefefe, #fafafa);
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+    
+    .ai-loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #667eea30;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* 错误状态 */
+    .ai-summary-error {
+      padding: 20px;
+      background: linear-gradient(to bottom, #fef2f2, #fef2f2);
+      color: #dc2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    
+    .ai-summary-error svg {
+      flex-shrink: 0;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .ai-summary-container {
+        margin: 0 0 20px 0;
+        border-radius: 12px;
+      }
+      
+      .ai-summary-header {
+        padding: 14px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .ai-summary-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      
+      .ai-summary-avatar,
+      .ai-summary-avatar-default {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .ai-summary-avatar-default svg {
+        width: 26px;
+        height: 26px;
+      }
+      
+      .ai-summary-title {
+        font-size: 15px;
+      }
+      
+      .ai-summary-subtitle {
+        font-size: 11px;
+      }
+      
+      .ai-summary-badge {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+      
+      .ai-summary-content {
+        padding: 16px 18px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      
+      .ai-summary-content::before {
+        font-size: 36px;
+        left: 12px;
+      }
+    }
+    
+    /* 深色模式支持 */
+    @media (prefers-color-scheme: dark) {
+      .ai-summary-container {
+        background: linear-gradient(135deg, rgba(30,30,30,0.95), rgba(40,40,40,0.95));
+        border-color: rgba(255,255,255,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      }
+      
+      .ai-summary-container:hover {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        border-color: rgba(102, 126, 234, 0.3);
+      }
+      
+      .ai-summary-content {
+        background: linear-gradient(to bottom, #1f1f1f, #1a1a1a);
+        color: #e5e7eb;
+      }
+      
+      .ai-summary-content::before {
+        opacity: 0.15;
+      }
+      
+      .ai-summary-loading {
+        background: linear-gradient(to bottom, #1f1f1f, #1a1a1a);
+        color: #9ca3af;
+      }
+      
+      .ai-summary-error {
+        background: linear-gradient(to bottom, #2d1f1f, #2d1f1f);
+      }
+    }
+  </style>
+  <meta name="google-site-verification" content="_V7Z8AaFEqtqtX5U0w5Eurq_p2Gkd3ZGu2IJuAI0dzU" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Sunshine's blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(https://img.5200810.xyz/file/api/1738664357765_001632-1720973792179d.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://random-api.czl.net/pic/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/favicon.webp" alt="Logo"><span class="site-name">Sunshine's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Qexo说说美化</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 空间</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa-solid fa-user-group"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fa-solid fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-location-arrow"></i><span> 导航</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/status/"><i class="fa-fw fa-brands fa-battle-net"></i><span> 服务状态</span></a></li><li><a class="site-page child" href="/daily/"><i class="fa-fw fa-solid fa-fire"></i><span> 每日热榜</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-pager"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Qexo说说美化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-04T03:18:48.096Z" title="发表于 2025-08-04 09:18:48">2025-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-18T21:19:35.489Z" title="更新于 2025-08-19 03:19:35">2025-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hexo%E4%BC%98%E5%8C%96/">Hexo优化</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;已经过了&quot;,&quot;messageNext&quot;:&quot;天自上次更新，文章内容可能已过时。&quot;,&quot;postUpdate&quot;:&quot;2025-08-19 03:19:35&quot;}" hidden></div><div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>此文章仅适用于已经安装好Qexo并已经适配其说说界面的hexo主题，单独使用无效！</p>
+</div>
+
+<p>Qexo有其独有的说说配置，和众多hexo主题的说说功能并不兼容</p>
+<p>由于美化主题自带的说说界面需要改动主题本身的文件，对以后的主题升级很不友好</p>
+<p>而Qexo的说说可以通过引入静态资源文件进行美化</p>
+<p>于是博主就写了一个仿UyoAhz大佬的（大佬的代码在github是加密的，可个性化性不高）</p>
+<p>食用方法：</p>
+<p>在source&#x2F;talks&#x2F;index.md中添加如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://fastly.jsdelivr.net/gh/kuiyr0810/qexo-talks@main/suns/talk.min.css&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//fastly.jsdelivr.net/gh/kuiyr0810/qt@main/suns/talk.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;my-shouts-container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    myQexoShouts.<span class="title function_">init</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>: <span class="string">&quot;#my-shouts-container&quot;</span>, </span></span><br><span class="line"><span class="language-javascript">        <span class="attr">avatar</span>: <span class="string">&quot;https://img.kuiyr.de/file/1753932255231_image.png&quot;</span>, <span class="comment">// 你的头像</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&quot;Sunshine.&quot;</span>, <span class="comment">// 你的名字</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">limit</span>: <span class="number">10</span>, <span class="comment">// 加载几条</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">baseURL</span>: <span class="string">&quot;https://admin.example.com&quot;</span> <span class="comment">// 你的Qexo API地址</span></span></span><br><span class="line"><span class="language-javascript">    &#125;).<span class="title function_">catch</span>(<span class="keyword">function</span>(<span class="params">error</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;加载过程中出现问题:&quot;</span>, error);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存推送即可！</p>
+<p>源码在<a target="_blank" rel="noopener" href="https://github.com/kuiyr0810/qexo-talks">kuiyr0810&#x2F;qexo-talks: qexo简洁大方说说界面</a></p>
+<p>主要引用了两个文件</p>
+<p>一个js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"> myQexoShouts = &#123;</span><br><span class="line">  <span class="attr">talks</span>: [],</span><br><span class="line">  <span class="attr">currentPage</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">isLoading</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">config</span>: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">_formatTime</span>: <span class="keyword">function</span>(<span class="params">timestamp</span>) &#123;</span><br><span class="line">    <span class="comment">// 检查时间戳是否是10位数（秒），如果是，则乘以1000转为毫秒</span></span><br><span class="line">    <span class="keyword">const</span> ts = timestamp.<span class="title function_">toString</span>().<span class="property">length</span> === <span class="number">10</span> ? <span class="title class_">Number</span>(timestamp) * <span class="number">1000</span> : <span class="title class_">Number</span>(timestamp);</span><br><span class="line">    <span class="comment">// ----------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">const</span> past = <span class="keyword">new</span> <span class="title class_">Date</span>(ts); </span><br><span class="line">    <span class="keyword">const</span> diffInSeconds = <span class="title class_">Math</span>.<span class="title function_">floor</span>((now.<span class="title function_">getTime</span>() - past.<span class="title function_">getTime</span>()) / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> minute = <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">const</span> hour = minute * <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">const</span> day = hour * <span class="number">24</span>;</span><br><span class="line">    <span class="keyword">const</span> week = day * <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (diffInSeconds &lt; minute) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;刚刚&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (diffInSeconds &lt; hour) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.floor(diffInSeconds / minute)&#125;</span>分钟前`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (diffInSeconds &lt; day) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.floor(diffInSeconds / hour)&#125;</span>小时前`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (diffInSeconds &lt; week) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.floor(diffInSeconds / day)&#125;</span>天前`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> year = past.<span class="title function_">getFullYear</span>();</span><br><span class="line">      <span class="keyword">const</span> month = (past.<span class="title function_">getMonth</span>() + <span class="number">1</span>).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">      <span class="keyword">const</span> date = past.<span class="title function_">getDate</span>().<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>-<span class="subst">$&#123;date&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="attr">_createTalkItemHTML</span>: <span class="keyword">function</span>(<span class="params">talk</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> formattedTime = <span class="variable language_">this</span>.<span class="title function_">_formatTime</span>(talk.<span class="property">time</span>);</span><br><span class="line">    <span class="keyword">const</span> isoTime = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">Number</span>(talk.<span class="property">time</span>)).<span class="title function_">toISOString</span>();</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">const</span> tagsHTML = talk.<span class="property">tags</span>.<span class="title function_">map</span>(<span class="function"><span class="params">tag</span> =&gt;</span> </span><br><span class="line">      <span class="string">`&lt;a class=&quot;qexot-tag-item&quot;&gt;#<span class="subst">$&#123;tag&#125;</span>&lt;/a&gt;`</span></span><br><span class="line">    ).<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="comment">// ----------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> likedIcon = <span class="string">`&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;16&quot; width=&quot;16&quot; fill=&quot;red&quot;&gt;&lt;path transform=&quot;scale(0.03,0.03)&quot; d=&quot;M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9L0 190.9z&quot;/&gt;&lt;/svg&gt;`</span>;</span><br><span class="line">    <span class="keyword">const</span> unlikeIcon = <span class="string">`&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; height=&quot;16&quot; width=&quot;16&quot;&gt;&lt;path transform=&quot;scale(0.03,0.03)&quot; d=&quot;M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z&quot;/&gt;&lt;/svg&gt;`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;div class=&quot;qexot-item&quot; id=&quot;qexot-item-<span class="subst">$&#123;talk.id&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;div class=&quot;qexot-header&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;img class=&quot;qexot-avatar&quot; src=&quot;<span class="subst">$&#123;<span class="variable language_">this</span>.config.avatar&#125;</span>&quot; alt=&quot;<span class="subst">$&#123;<span class="variable language_">this</span>.config.name&#125;</span>&quot; onerror=&quot;this.style.display=&#x27;none&#x27;&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;div class=&quot;qexot-user-info&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;span class=&quot;qexot-name&quot;&gt;<span class="subst">$&#123;<span class="variable language_">this</span>.config.name&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">            &lt;time class=&quot;qexot-datatime&quot; datetime=&quot;<span class="subst">$&#123;isoTime&#125;</span>&quot;&gt;<span class="subst">$&#123;formattedTime&#125;</span>&lt;/time&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string">          &lt;div class=&quot;qexot-tags-container&quot;&gt;<span class="subst">$&#123;tagsHTML&#125;</span>&lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;div class=&quot;qexot-content&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;div class=&quot;datacont&quot;&gt;<span class="subst">$&#123;talk.content&#125;</span>&lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;div class=&quot;qexot-bottom&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;a class=&quot;qexot-like&quot; onclick=&quot;myQexoShouts.likeTalk(&#x27;<span class="subst">$&#123;talk.id&#125;</span>&#x27;)&quot;&gt;</span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;talk.liked ? likedIcon : unlikeIcon&#125;</span></span></span><br><span class="line"><span class="string">            &lt;span class=&quot;qexot-like-count&quot;&gt;<span class="subst">$&#123;talk.like&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">          &lt;/a&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="attr">_render</span>: <span class="keyword">function</span>(<span class="params">items, append = <span class="literal">false</span></span>) &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">  <span class="attr">_updateLoadMoreButton</span>: <span class="keyword">function</span>(<span class="params">totalCount</span>) &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">  <span class="attr">loadMoreTalks</span>: <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">  <span class="attr">likeTalk</span>: <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">id</span>) &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">init</span>: <span class="keyword">function</span>(<span class="params">userConfig</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">config</span> = &#123;</span><br><span class="line">      <span class="attr">el</span>: <span class="literal">null</span>,</span><br><span class="line">      <span class="attr">baseURL</span>: <span class="literal">null</span>,</span><br><span class="line">      <span class="attr">limit</span>: <span class="number">5</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Qexo User&#x27;</span>, </span><br><span class="line">      <span class="attr">avatar</span>: <span class="string">&#x27;&#x27;</span>,  </span><br><span class="line">      <span class="attr">timeFormat</span>: <span class="string">&#x27;YYYY-mm-dd HH:MM:SS&#x27;</span>, </span><br><span class="line">    &#125;;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">el</span> || !<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">baseURL</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Qexo Talks Error: &#x27;el&#x27; and &#x27;baseURL&#x27; are required.&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">loadMoreTalks</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myQexoShouts.<span class="property">_render</span> = <span class="keyword">function</span>(<span class="params">items, append = <span class="literal">false</span></span>) &#123;<span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">el</span>);<span class="keyword">if</span> (!container) <span class="keyword">return</span>;<span class="keyword">const</span> listContainer = container.<span class="title function_">querySelector</span>(<span class="string">&#x27;.qexot-list&#x27;</span>);<span class="keyword">if</span> (!append &amp;&amp; !listContainer) &#123;container.<span class="property">innerHTML</span> = <span class="string">`&lt;section class=&quot;qexot&quot;&gt;&lt;div class=&quot;qexot-list&quot;&gt;&lt;/div&gt;&lt;/section&gt;`</span>;&#125;<span class="keyword">const</span> targetList = container.<span class="title function_">querySelector</span>(<span class="string">&#x27;.qexot-list&#x27;</span>);<span class="keyword">const</span> itemsHTML = items.<span class="title function_">map</span>(<span class="function"><span class="params">talk</span> =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">_createTalkItemHTML</span>(talk)).<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);targetList.<span class="title function_">insertAdjacentHTML</span>(<span class="string">&#x27;beforeend&#x27;</span>, itemsHTML);&#125;;</span><br><span class="line">myQexoShouts.<span class="property">_updateLoadMoreButton</span> = <span class="keyword">function</span>(<span class="params">totalCount</span>) &#123;<span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">el</span>);<span class="keyword">let</span> moreButton = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;qexot-more&quot;</span>);<span class="keyword">if</span> (moreButton) moreButton.<span class="title function_">remove</span>();<span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">talks</span>.<span class="property">length</span> &lt; totalCount) &#123;<span class="keyword">const</span> buttonHTML = <span class="string">`&lt;center id=&quot;qexot-more&quot;&gt;&lt;div class=&quot;qexot-more&quot; onclick=&quot;myQexoShouts.loadMoreTalks()&quot;&gt;加载更多&lt;/div&gt;&lt;/center&gt;`</span>;container.<span class="title function_">insertAdjacentHTML</span>(<span class="string">&#x27;beforeend&#x27;</span>, buttonHTML);&#125;&#125;;</span><br><span class="line">myQexoShouts.<span class="property">loadMoreTalks</span> = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;<span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isLoading</span>) <span class="keyword">return</span>;<span class="variable language_">this</span>.<span class="property">isLoading</span> = <span class="literal">true</span>;<span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">el</span>);<span class="keyword">const</span> moreButton = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;qexot-more&quot;</span>);<span class="keyword">if</span> (moreButton) moreButton.<span class="property">innerHTML</span> = <span class="string">&#x27;加载中...&#x27;</span>;<span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">currentPage</span> === <span class="number">1</span>) &#123;container.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;div class=&quot;qexo_loading&quot;&gt;&lt;p style=&quot;text-align: center; display: block&quot;&gt;说说加载中...&lt;/p&gt;&lt;/div&gt;&#x27;</span>;&#125;<span class="keyword">try</span> &#123;<span class="keyword">const</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;/pub/talks/&#x27;</span>, <span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">baseURL</span>);url.<span class="property">searchParams</span>.<span class="title function_">append</span>(<span class="string">&#x27;page&#x27;</span>, <span class="variable language_">this</span>.<span class="property">currentPage</span>);url.<span class="property">searchParams</span>.<span class="title function_">append</span>(<span class="string">&#x27;limit&#x27;</span>, <span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">limit</span>);<span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url.<span class="property">href</span>);<span class="keyword">if</span> (!response.<span class="property">ok</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`HTTP error! status: <span class="subst">$&#123;response.status&#125;</span>`</span>);<span class="keyword">const</span> res = <span class="keyword">await</span> response.<span class="title function_">json</span>();<span class="keyword">if</span> (res.<span class="property">status</span>) &#123;<span class="variable language_">this</span>.<span class="title function_">_render</span>(res.<span class="property">data</span>, <span class="variable language_">this</span>.<span class="property">currentPage</span> &gt; <span class="number">1</span>);<span class="variable language_">this</span>.<span class="property">talks</span> = <span class="variable language_">this</span>.<span class="property">talks</span>.<span class="title function_">concat</span>(res.<span class="property">data</span>);<span class="variable language_">this</span>.<span class="title function_">_updateLoadMoreButton</span>(res.<span class="property">count</span>);<span class="variable language_">this</span>.<span class="property">currentPage</span>++;&#125; <span class="keyword">else</span> &#123;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(res.<span class="property">data</span>.<span class="property">msg</span> || <span class="string">&quot;API returned an error.&quot;</span>);&#125;&#125; <span class="keyword">catch</span> (error) &#123;<span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Failed to fetch talks:&quot;</span>, error);<span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">currentPage</span> === <span class="number">1</span>) &#123;container.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;blockquote&gt;说说加载失败，请检查 API 地址或网络连接。&lt;br&gt;错误详情请查看 F12 控制台。&lt;/blockquote&gt;&#x27;</span>;&#125;&#125; <span class="keyword">finally</span> &#123;<span class="variable language_">this</span>.<span class="property">isLoading</span> = <span class="literal">false</span>;&#125;&#125;;</span><br><span class="line">myQexoShouts.<span class="property">likeTalk</span> = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params">id</span>) &#123;<span class="keyword">const</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;/pub/like_talk/&#x27;</span>, <span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">baseURL</span>);<span class="keyword">const</span> talk = <span class="variable language_">this</span>.<span class="property">talks</span>.<span class="title function_">find</span>(<span class="function"><span class="params">t</span> =&gt;</span> t.<span class="property">id</span> === id);<span class="keyword">if</span> (!talk) <span class="keyword">return</span>;<span class="keyword">try</span> &#123;<span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url.<span class="property">href</span>, &#123;<span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,<span class="attr">headers</span>: &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span> &#125;,<span class="attr">body</span>: <span class="string">`id=<span class="subst">$&#123;id&#125;</span>`</span>&#125;);<span class="keyword">if</span> (!response.<span class="property">ok</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`HTTP error! status: <span class="subst">$&#123;response.status&#125;</span>`</span>);<span class="keyword">const</span> res = <span class="keyword">await</span> response.<span class="title function_">json</span>();<span class="keyword">if</span> (res.<span class="property">status</span>) &#123;talk.<span class="property">liked</span> = res.<span class="property">action</span>;talk.<span class="property">like</span> += res.<span class="property">action</span> ? <span class="number">1</span> : -<span class="number">1</span>;<span class="keyword">const</span> talkElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">`qexot-item-<span class="subst">$&#123;id&#125;</span>`</span>);<span class="keyword">if</span> (talkElement) &#123;<span class="keyword">const</span> likeElement = talkElement.<span class="title function_">querySelector</span>(<span class="string">&#x27;.qexot-like&#x27;</span>);<span class="keyword">const</span> likeCountElement = likeElement.<span class="title function_">querySelector</span>(<span class="string">&#x27;.qexot-like-count&#x27;</span>);<span class="keyword">const</span> svgElement = likeElement.<span class="title function_">querySelector</span>(<span class="string">&#x27;svg&#x27;</span>);<span class="keyword">const</span> newIcon = <span class="variable language_">this</span>.<span class="title function_">_createTalkItemHTML</span>(talk).<span class="title function_">match</span>(<span class="regexp">/&lt;a class=&quot;qexot-like&quot;.*?&gt;([\s\S]*?)&lt;\/a&gt;/</span>s)[<span class="number">1</span>].<span class="title function_">trim</span>().<span class="title function_">split</span>(<span class="regexp">/&lt;span/</span>)[<span class="number">0</span>];svgElement.<span class="property">outerHTML</span> = newIcon;likeCountElement.<span class="property">textContent</span> = talk.<span class="property">like</span>;&#125;&#125; <span class="keyword">else</span> &#123;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(res.<span class="property">data</span>.<span class="property">msg</span> || <span class="string">&quot;Like action failed.&quot;</span>);&#125;&#125; <span class="keyword">catch</span> (error) &#123;<span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Failed to like talk:&quot;</span>, error);&#125;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>一个css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 基础重置，确保内部元素盒模型统一 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> *,</span><br><span class="line"><span class="selector-id">#my-shouts-container</span> *<span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-id">#my-shouts-container</span> *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 卡片阴影与悬浮特效 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-item</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 1. 默认状态下的阴影 */</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>), <span class="number">0</span> <span class="number">1px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.06</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 2. 平滑过渡效果的关键 */</span></span><br><span class="line">  <span class="comment">/* 让 transform 和 box-shadow 属性的变化在 0.3 秒内平滑完成 */</span></span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">0.3s</span> ease, box-shadow <span class="number">0.3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 3. 鼠标悬浮时的动效 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-item</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 卡片向上平移 5 像素，产生“浮起”效果 */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">5px</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 阴影变得更深、更广，增强立体感 */</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">8px</span> <span class="number">16px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.06</span>), <span class="number">0</span> <span class="number">4px</span> <span class="number">12px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.08</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 头部容器: 保持 flex 布局 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-header</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">align-items</span>: center <span class="meta">!important</span>; <span class="comment">/* 垂直居中对齐所有项 */</span></span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* --- 动态头像边框样式 --- */</span></span><br><span class="line"><span class="keyword">@keyframes</span> pulseBorder &#123;</span><br><span class="line"> <span class="number">0%</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#007bff</span>; <span class="comment">/* 初始边框颜色 */</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">123</span>, <span class="number">255</span>, <span class="number">0.5</span>); <span class="comment">/* 初始阴影大小 */</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">70%</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#66a5ff</span>; <span class="comment">/* 中间边框颜色 */</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">8px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">123</span>, <span class="number">255</span>, <span class="number">0</span>); <span class="comment">/* 阴影扩大并消失 */</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">100%</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#007bff</span>; <span class="comment">/* 最终边框颜色 */</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">123</span>, <span class="number">255</span>, <span class="number">0</span>); <span class="comment">/* 阴影恢复 */</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-avatar</span> &#123;</span><br><span class="line"> <span class="comment">/* 保留原有的头像样式 */</span></span><br><span class="line"> <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line"> <span class="attribute">object-fit</span>: cover;</span><br><span class="line"> <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">12px</span> <span class="number">0</span> <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/* 添加动态边框 */</span></span><br><span class="line"> <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#007bff</span>; <span class="comment">/* 初始边框 */</span></span><br><span class="line"> <span class="attribute">animation</span>: pulseBorder <span class="number">2s</span> infinite alternate; <span class="comment">/* 应用动画 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用户信息容器: 让内部元素垂直排列 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-user-info</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 用户名: 无需额外边距 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-name</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">0</span>; <span class="comment">/* 必须移除大的边距 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 时间: 无需额外边距 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-datatime</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 内容区域 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-content</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#383838</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: pre-wrap; </span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;Kaiti SC&quot;</span>, KaiTi, <span class="string">&quot;FangSong&quot;</span>, <span class="string">&quot;Apple LiSung&quot;</span>, <span class="string">&quot;STKaiti&quot;</span>, cursive;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 标签的容器，让标签们靠右对齐 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-tags-container</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: auto; <span class="comment">/* 将整个标签容器推到最右边 */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap; <span class="comment">/* 如果标签太多，允许换行 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-end; <span class="comment">/* 让标签在容器内也靠右 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 单个标签的样式 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-tag-item</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f0f4ff</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#4a6dff</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">6px</span>; <span class="comment">/* 标签之间的间距 */</span></span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">4px</span>; <span class="comment">/* 标签换行时的垂直间距 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-content</span> <span class="selector-class">.datacont</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 图片样式 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-content</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">60%</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">6px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 底部区域 (点赞按钮) */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-bottom</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex <span class="meta">!important</span>; <span class="comment">/* 使用 !important 确保 flex 布局不被覆盖 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-end <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-like</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-like</span> <span class="selector-tag">svg</span> &#123;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 加载更多按钮 */</span></span><br><span class="line"><span class="selector-id">#my-shouts-container</span> <span class="selector-class">.qexot-more</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注释很详细了可以二次开发，改成自己喜欢的样式即可！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://kuiyr.de">Sunshine.</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://kuiyr.de/Qexo%E8%AF%B4%E8%AF%B4%E7%BE%8E%E5%8C%96/">https://kuiyr.de/Qexo说说美化/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://kuiyr.de" target="_blank">Sunshine's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo%E4%BC%98%E5%8C%96/">hexo优化</a><a class="post-meta__tags" href="/tags/qexo%E7%BE%8E%E5%8C%96/">qexo美化</a><a class="post-meta__tags" href="/tags/%E8%AF%B4%E8%AF%B4%E7%BE%8E%E5%8C%96/">说说美化</a></div><div class="post-share"><div class="social-share" data-image="https://random-api.czl.net/pic/fj" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/%E5%85%8D%E8%B4%B9API/" title="免费API"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://rpic.origz.com/api.php?category=gif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">免费API</div></div><div class="info-2"><div class="info-item-1"> .api-container {   display: flex;   flex-wrap: wrap;   gap: 20px;   justify-content: space-between;   margin-top: 20px; }  .api-card {   flex: 1 1 45%;    min-width: 300px;    background: var(--card-bg);    border: 1px solid #e0e3e7;   border-radius: 12px;   box-shadow: 0 8px 16px -4px rgba(0,0,0,0.05);   transition: transform 0.3s ease, box-shadow 0.3s ease;   overflow: hidden; }   [data-theme="dark"] .api-card {   border: 1px solid #444; }  .api-card:hover {   transform: translateY(-5px); ...</div></div></div></a><a class="pagination-related" href="/Qexo%E5%9C%A8%E7%BA%BF%E5%85%A8%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2hexo%E6%95%99%E7%A8%8B/" title="Qexo在线全自动部署hexo教程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://rpic.origz.com/api.php?category=aesthetic" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Qexo在线全自动部署hexo教程</div></div><div class="info-2"><div class="info-item-1">今天我们来聊点酷的——如何让你的 Hexo 博客“自动化”部署！ 相当于给静态博客添加了后台，非常nice！任何设备无需环境发博文！ 如果你是 Hexo 老用户，肯定没少经历过手动发布博客的“折磨”：写完文章，本地 hexo generate，再 hexo deploy，等等等… 小毛病可能不断，效率嘛，嗯，还有很大的提升空间！ 利用强大的 Qexo (免费跑在 Vercel 上面啦！) + GitHub Actions，彻底解放你的双手。 🤖 告别手动档，拥抱自动化：Qexo + Git + GitHub Actions 三驾马车！你的 Hexo 博客既然已经在 GitHub Pages 上面运行得好好的，那我们就是给它升级一个自动化后台，而不是另起炉灶哦！ 这个自动化的核心思想，其实就藏在这“三驾马车”里：  Qexo (在 Vercel)： 它作为你的博客内容管理系统（CMS），负责接收你编辑、撰写的内容，并神奇地将其转换为 Hexo 的 .md 源文件，然后自动同步推送到你的 Git 仓库。 Vercel部署教程：点击直达 个人推荐Vercel+[aiven免费数据库 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/Qexo%E5%9C%A8%E7%BA%BF%E5%85%A8%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2hexo%E6%95%99%E7%A8%8B/" title="Qexo在线全自动部署hexo教程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://rpic.origz.com/api.php?category=aesthetic" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="info-item-2">Qexo在线全自动部署hexo教程</div></div><div class="info-2"><div class="info-item-1">今天我们来聊点酷的——如何让你的 Hexo 博客“自动化”部署！ 相当于给静态博客添加了后台，非常nice！任何设备无需环境发博文！ 如果你是 Hexo 老用户，肯定没少经历过手动发布博客的“折磨”：写完文章，本地 hexo generate，再 hexo deploy，等等等… 小毛病可能不断，效率嘛，嗯，还有很大的提升空间！ 利用强大的 Qexo (免费跑在 Vercel 上面啦！) + GitHub Actions，彻底解放你的双手。 🤖 告别手动档，拥抱自动化：Qexo + Git + GitHub Actions 三驾马车！你的 Hexo 博客既然已经在 GitHub Pages 上面运行得好好的，那我们就是给它升级一个自动化后台，而不是另起炉灶哦！ 这个自动化的核心思想，其实就藏在这“三驾马车”里：  Qexo (在 Vercel)： 它作为你的博客内容管理系统（CMS），负责接收你编辑、撰写的内容，并神奇地将其转换为 Hexo 的 .md 源文件，然后自动同步推送到你的 Git 仓库。 Vercel部署教程：点击直达 个人推荐Vercel+[aiven免费数据库 ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sunshine.</div><div class="author-info-description">往事总在回忆时被赋予意义.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kuiyr0810"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><a href="https://kuiyr.de/status/" title="网站可用性监控" class="anno_content"><font color="#5ea6e5">网站监控(点击查看)</font></a></center><center><b>--- Edgeone线路(加速线路)---<br><a target="_blank" rel="noopener" href="https://blog.kuiyr.de" title="此线路为加速线路" class="anno_content"><font color="#5ea6e5">blog.kuiyr.de</font></a>&nbsp; &nbsp;<br>--- vercel线路(加速线路) ---<br><a target="_blank" rel="noopener" href="https://blog.5200810.xyz" title="此线路属于加速线路" class="anno_content"><font color="#5ea6e5">blog.5200810.xyz</font></a>&nbsp; &nbsp;<br>--- netlify线路(加速线路) ---<br><a target="_blank" rel="noopener" href="https://sunsblog.netlify.app" title="此线路属于加速线路" class="anno_content"><font color="#5ea6e5">sunsblog.netlify.app</font></a></center></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Hexobeautify/Hexo%E7%BE%8E%E5%8C%96-%E4%B8%BB%E9%A2%98Shokax%E5%BC%B9%E7%AA%97%E5%85%AC%E5%91%8A%E6%8F%92%E4%BB%B6popup-announcement/" title="Hexo美化-主题Shokax弹窗公告插件popup-announcement">Hexo美化-主题Shokax弹窗公告插件popup-announcement</a><time datetime="2026-09-13T05:46:48.562Z" title="发表于 2026-09-13 11:46:48">2026-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/centos7-10%E5%8F%AF%E7%94%A8%E9%95%9C%E5%83%8F%E6%95%B4%E7%90%86/" title="Centos7-10可用镜像源整理">Centos7-10可用镜像源整理</a><time datetime="2026-04-16T22:10:24.654Z" title="发表于 2026-04-17 04:10:24">2026-04-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Linux%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B/" title="Linux高级教程">Linux高级教程</a><time datetime="2026-03-09T03:16:11.675Z" title="发表于 2026-03-09 09:16:11">2026-03-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Linux%E7%AC%94%E8%AE%B0/" title="Linux基础笔记">Linux基础笔记</a><time datetime="2026-03-08T00:24:02.707Z" title="发表于 2026-03-08 06:24:02">2026-03-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%85%8D%E8%B4%B9API/" title="免费API">免费API</a><time datetime="2026-01-04T06:00:00.000Z" title="发表于 2026-01-04 12:00:00">2026-01-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://random-api.czl.net/pic/fj);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2024 - 2026 By Sunshine.</span></div><div class="footer_custom_text"><font style="font-size:16px"><img style="width:32px;height:32px;margin-bottom:-8px" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/" target="_blank"><span style="color:#ff0000">萌</span><span style="color:#ca7900">I</span><span style="color:#48ab18">C</span><span style="color:#2720ac">P</span><span style="color:#9b17ae">备</span> </a><a href="https://icp.gov.moe/?keyword=20240810" target="_blank"> <span style="color:#ff0000">20</span><span style="color:#ca7900">24</span><span style="color:#48ab18">08</span><span style="color:#2720ac">10</span><span style="color:#f40428">号</span></a></font></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="https://unpkg.com/instant.page/instantpage.js" type="module"></script><script src="https://unpkg.com/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://unpkg.com/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.5200810.xyz',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="8861917529" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-autoplay="true"> </div><script defer src="https://visitor.kuiyr.de/widget/visitor-globe.js"></script><script src="https://unpkg.com/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://unpkg.com/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://unpkg.com/algoliasearch/dist/lite/builds/browser.umd.js"></script><script src="https://unpkg.com/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div><!-- hexo injector body_end start -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('AI摘要插件：开始执行');
+      
+      // 打字效果函数（无光标）
+      function typeWriter(element, text, speed = 50) {
+        let i = 0;
+        element.innerHTML = '';
+        
+        // 创建文本节点
+        const textNode = document.createTextNode('');
+        element.appendChild(textNode);
+        
+        // 打字效果
+        function type() {
+          if (i < text.length) {
+            textNode.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        
+        // 开始打字
+        type();
+      }
+      
+      // 只处理文章详情页
+      if (document.querySelector('.post-content, .article-content, .entry-content')) {
+        console.log('AI摘要插件：检测到文章详情页');
+        
+        const currentUrl = window.location.pathname;
+        let jsonUrl = currentUrl;
+        
+        // 确保URL以/结尾
+        if (!jsonUrl.endsWith('/')) {
+          jsonUrl += '/';
+        }
+        
+        // 创建摘要容器
+        const summaryDiv = document.createElement('div');
+        summaryDiv.className = 'ai-summary-container';
+        summaryDiv.innerHTML = '<div class="ai-summary-loading"><div class="ai-loading-spinner"></div><span>AI 正在思考中...</span></div>';
+        
+        // 查找文章内容区域
+        const contentElement = document.querySelector('.post-content, .article-content, .entry-content');
+        
+        if (contentElement) {
+          // 将摘要插入到文章内容的最前面
+          contentElement.insertBefore(summaryDiv, contentElement.firstChild);
+          
+          // 获取摘要数据
+          fetch(`${jsonUrl}index.json`)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log('AI摘要插件：获取到数据', data);
+              if (data.excerpt) {
+                // 头像部分：使用 CSS 背景图避开 Butterfly 主题懒加载
+                const customAvatar = '';
+                const avatarHtml = customAvatar && customAvatar.length > 0
+                  ? '<div class="ai-summary-avatar" style="background-image: url(\'' + customAvatar + '\') !important;"></div>'
+                  : `<div class="ai-summary-avatar-default">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#gradient1)"/>
+                        <circle cx="9" cy="10" r="1.5" fill="white"/>
+                        <circle cx="15" cy="10" r="1.5" fill="white"/>
+                        <path d="M12 16c-1.48 0-2.75-.81-3.45-2h6.9c-.7 1.19-1.97 2-3.45 2z" fill="white"/>
+                        <path d="M19 8l2-2M5 8l-2-2M12 2V0" stroke="url(#gradient2)" stroke-width="1.5" stroke-linecap="round"/>
+                        <defs>
+                          <linearGradient id="gradient1" x1="2" y1="2" x2="22" y2="22">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                          </linearGradient>
+                          <linearGradient id="gradient2" x1="0" y1="0" x2="24" y2="24">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>`;
+                
+                // 清空容器
+                summaryDiv.innerHTML = `
+                  <div class="ai-summary-header">
+                    <div class="ai-summary-icon">
+                      ${avatarHtml}
+                    </div>
+                    <div class="ai-summary-info">
+                      <div class="ai-summary-title">Sunshine的小助手</div>
+                      <div class="ai-summary-subtitle">AI 智能摘要</div>
+                    </div>
+                    <div class="ai-summary-badge">
+                      <span class="ai-badge-dot"></span>
+                      <span>AI 生成</span>
+                    </div>
+                  </div>
+                  <div class="ai-summary-content">
+                    <div class="ai-summary-text"></div>
+                  </div>
+                `;
+                
+                // 获取文本元素
+                const textElement = summaryDiv.querySelector('.ai-summary-text');
+                
+                // 使用打字效果显示摘要
+                typeWriter(
+                  textElement, 
+                  data.excerpt, 
+                  50
+                );
+                
+                console.log('AI摘要插件：开始打字效果');
+              } else {
+                console.warn('AI摘要插件：数据中没有excerpt字段');
+                summaryDiv.style.display = 'none';
+              }
+            })
+            .catch(error => {
+              console.error('AI摘要插件：获取摘要失败', error);
+              summaryDiv.innerHTML = '<div class="ai-summary-error"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg><span>AI摘要加载失败</span></div>';
+            });
+        } else {
+          console.error('AI摘要插件：未找到文章内容区域');
+        }
+      } else {
+        console.log('AI摘要插件：不是文章详情页，跳过');
+      }
+    });
+  </script>
+  <!-- hexo injector body_end end --></body></html>
